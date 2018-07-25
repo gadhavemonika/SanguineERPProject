@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReportTax" pageWidth="200" pageHeight="842" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ea9ddaa3-cdc9-4e1f-a0f0-e732a56c0f50">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<queryString>
+		<![CDATA[SELECT dbwebmms.tblattachdocument.`strTrans`,
+	dbwebmms.tblattachdocument.`strCode`,
+	dbwebmms.tblattachdocument.`binContent`
+FROM dbwebmms.tblattachdocument]]>
+	</queryString>
+	<field name="dblCGSTPer" class="java.lang.Double"/>
+	<field name="dblCGSTAmt" class="java.lang.Double"/>
+	<field name="strTaxDesc" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement key="" x="0" y="0" width="118" height="18" isRemoveLineWhenBlank="true" uuid="68a15b28-4f4d-42f1-a0e6-fc3f654bfe44"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strTaxDesc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="126" y="-2" width="59" height="20" isRemoveLineWhenBlank="true" uuid="6096ec04-fb47-46ff-8ae2-ffdd489a0ce2">
+					<printWhenExpression><![CDATA[$F{strTaxDesc}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblCGSTAmt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

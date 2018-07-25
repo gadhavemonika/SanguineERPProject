@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-04-27T18:39:32 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AVT1" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="22790e02-561a-4ab9-8b06-84ffe9afa648">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="AVT!" uuid="c407696e-e45a-4111-8317-a65284d42444">
+		<queryString>
+			<![CDATA[select * from dual]]>
+		</queryString>
+		<field name="tblatvreport_strPosCode" class="java.lang.String"/>
+		<field name="tblatvreport_dteDate" class="java.lang.String"/>
+		<field name="dblDiningAmt" class="java.lang.Double"/>
+		<field name="tblatvreport_dblDiningNoBill" class="java.lang.Double"/>
+		<field name="tblatvreport_dblDiningAvg" class="java.lang.Double"/>
+		<field name="tblatvreport_dblHDAmt" class="java.lang.Double"/>
+		<field name="tblatvreport_dblHDNoBill" class="java.lang.Double"/>
+		<field name="tblatvreport_dblHdAvg" class="java.lang.Double"/>
+		<field name="tblatvreport_dblTAAmt" class="java.lang.Double"/>
+		<field name="tblatvreport_dblTANoBill" class="java.lang.Double"/>
+		<field name="tblatvreport_dblTAAvg" class="java.lang.Double"/>
+		<field name="tblatvreport_strPosName" class="java.lang.String"/>
+		<variable name="SumDiningAmt" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblDiningAmt}]]></variableExpression>
+		</variable>
+		<variable name="sumNoBillDining" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblDiningNoBill}]]></variableExpression>
+		</variable>
+		<variable name="SumDeliveryAmt" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblHDAmt}]]></variableExpression>
+		</variable>
+		<variable name="SumNoDeliveryBill" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblHDNoBill}]]></variableExpression>
+		</variable>
+		<variable name="SumTakeAwayAmt" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblTAAmt}]]></variableExpression>
+		</variable>
+		<variable name="SumNoTakeAwayBill" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblTANoBill}]]></variableExpression>
+		</variable>
+		<variable name="SumDiningAvg" class="java.math.BigDecimal">
+			<variableExpression><![CDATA[]]></variableExpression>
+		</variable>
+		<variable name="SumDeliveryAvg" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblHdAvg}]]></variableExpression>
+		</variable>
+		<variable name="SumTakeAwayAvg" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{tblatvreport_dblTAAvg}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="FromDate" class="java.lang.String"/>
+	<parameter name="ToDate" class="java.lang.String"/>
+	<parameter name="strUserName" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="fromDateToDisplay" class="java.lang.String"/>
+	<parameter name="toDateToDisplay" class="java.lang.String"/>
+	<parameter name="posName" class="java.lang.String"/>
+	<parameter name="shiftNo" class="java.lang.String"/>
+	<parameter name="list" class="java.util.List"/>
+	<parameter name="strClientName" class="java.lang.String"/>
+	<parameter name="strAddressLine1" class="java.lang.String"/>
+	<parameter name="strAddressLine2" class="java.lang.String"/>
+	<parameter name="strEmail" class="java.lang.String"/>
+	<parameter name="strAddressLine3" class="java.lang.String"/>
+	<parameter name="strCityName" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="intTelephoneNo" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from dual]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<image>
+				<reportElement x="-5" y="4" width="128" height="74" uuid="5ea12fd6-6cbd-47f0-87cd-263c311d7cfd"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="172" y="22" width="272" height="20" isRemoveLineWhenBlank="true" uuid="e3d906a8-ebfc-4ec2-b319-9caec6810265"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddressLine1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="171" y="43" width="272" height="20" isRemoveLineWhenBlank="true" uuid="75bafc7f-881c-4984-ac9e-f38df76516d2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddressLine3}+""+$P{intTelephoneNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="172" y="2" width="272" height="20" isRemoveLineWhenBlank="true" uuid="8a798358-a63f-4399-907a-d4a37f358c6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strClientName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="83" width="60" height="19" uuid="7c3b20ce-32d7-43e7-a45b-b60423cf792f"/>
+				<text><![CDATA[Shift No      :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="63" width="60" height="15" uuid="783def7f-4ed2-4a9a-9496-a0e0d748e23a"/>
+				<text><![CDATA[POS Name :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="315" y="83" width="133" height="20" uuid="624f8810-212e-4198-8fb8-b8797ee4bdc0"/>
+				<textFieldExpression><![CDATA[$P{shiftNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="63" width="129" height="15" uuid="d463d55c-03a9-4972-b117-8d524d1b88e4"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{posName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="114" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="84" y="31" width="100" height="20" uuid="173e47fb-a1c0-4f5d-80bb-451b26fee401"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDateToDisplay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="31" width="83" height="20" uuid="7b8f337a-2a4d-44c1-9274-a74099ac85ef"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[From Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="630" y="55" width="70" height="20" uuid="e96b069a-7f64-44f3-8f10-d7e2b102eeb3"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[Time :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="0" width="272" height="41" uuid="1635d50d-af49-47d2-a534-d16d450f2345"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Average Ticket Value]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="700" y="31" width="100" height="20" uuid="e45131a5-b944-4200-bc1e-7649c1d261fd"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDateToDisplay}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm.ss a">
+				<reportElement x="700" y="54" width="100" height="20" uuid="d3da6f74-4bac-41ed-afd9-a7897cf17f41"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="55" width="100" height="20" uuid="77e2f112-7aa0-4fac-8e10-66e26d5e9cf5">
+					<printWhenExpression><![CDATA[$P{strUserName}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="55" width="83" height="20" uuid="415dabd5-fc70-4e92-acbb-53fefff88f37"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[Generated By :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="630" y="31" width="70" height="20" uuid="60f4ea71-5d7f-493b-b39f-70f108a5188c"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[To Date :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="106">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="10" y="7" width="801" height="99" uuid="1f2e59b7-e4a5-404a-875f-006bd0e03849"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="AVT!" uuid="a86d4501-6829-4585-b604-3bbcbe1f385c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{list})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:columnGroup width="806" uuid="35880eee-8f44-45ec-b540-7c981548f379">
+						<jr:columnGroup width="806" uuid="ca53341d-1b5a-4bd7-85c7-98b4b0fff271">
+							<jr:column width="130" uuid="d69cf62a-c18c-4fd4-a1db-e29a70039b0a">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="130" height="30" uuid="d184d6e5-b3df-4d86-bb43-4234d31b8576"/>
+										<textElement textAlignment="Left"/>
+										<text><![CDATA[POS Name]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter height="30" rowSpan="1"/>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="130" height="20" uuid="e76bdb88-fd5b-4e76-8051-cd1686181540"/>
+										<textElement textAlignment="Left"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_strPosName}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="67" uuid="84d88f82-b77e-48fe-9736-917322059181">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="67" height="30" isPrintInFirstWholeBand="true" uuid="203589cb-583a-4290-b6fe-cbc783d64171"/>
+										<textElement textAlignment="Left"/>
+										<text><![CDATA[Date]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="67" height="30" uuid="0caac404-5aa3-4b31-8be9-8016fd021896"/>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<paragraph lineSpacing="Single"/>
+										</textElement>
+										<text><![CDATA[Total]]></text>
+									</staticText>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="67" height="20" uuid="3007f182-6d47-41c6-8888-5e5eb2454336"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dteDate}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="66" uuid="815e2d6d-3eff-4428-8fca-3a8a0d7febb8">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="65" height="30" isPrintInFirstWholeBand="true" uuid="80f7f9c4-8c23-4c70-b6b5-dd2ebb663f72"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Dining Amt]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="65" height="30" uuid="efdaaec5-a376-4162-b51b-9909b24ed00c"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{SumDiningAmt}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="65" height="20" uuid="e07e74b8-ab3e-4c59-8b21-f66778a23e35"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{dblDiningAmt}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="72" uuid="325ddab5-c093-4f2c-a10b-eac5cba782bf">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="71" height="30" isPrintInFirstWholeBand="true" uuid="70e9654a-36f8-46bc-b916-769133046891"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[No. Of Dining Bill]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="71" height="30" uuid="81c7f482-fab9-4d81-ba85-04f0907719a8"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{sumNoBillDining}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="71" height="20" uuid="321f29c7-b934-4a3a-879c-ae0d9e8295dc"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblDiningNoBill}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="75" uuid="c5982868-9575-499b-8ed5-cd8550b2bb1b">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="74" height="30" isPrintInFirstWholeBand="true" uuid="765fb35a-474e-42b7-827a-550ce4d0763e"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Dining Avg]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1"/>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="74" height="20" uuid="49ee5a83-d718-4f83-893a-4359b51870fe"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblDiningAvg}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="63" uuid="427e22f4-89c8-4c2f-a939-f0f31badc85e">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="62" height="30" isPrintInFirstWholeBand="true" uuid="86a26c7e-8cac-4ebb-aec3-9856831f6c7a"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Delivery Amt]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="62" height="30" uuid="7aa9e87e-6ec5-4441-9f87-e05da3fe3b82"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{SumDeliveryAmt}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="62" height="20" uuid="6d1a8c7a-38b8-4ea6-9b7b-10886fc79806"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblHDAmt}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="75" uuid="ae9e2e2f-c25c-40f2-a059-c9e0b2d7ed73">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="74" height="30" isPrintInFirstWholeBand="true" uuid="707edd4f-5b38-4761-bff2-93a54c470304"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[No. Of Delivery Bill]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="74" height="30" uuid="24b9214d-90bf-4c6c-926f-12268e43934e"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{SumNoDeliveryBill}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="74" height="20" uuid="e5b1513d-310a-46b4-929f-b68ba50e8bcb"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblHDNoBill}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="68" uuid="cb0add15-6273-49b0-880b-98f395cb1bf9">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="67" height="30" isPrintInFirstWholeBand="true" uuid="eafa1ab2-614b-44a5-ab44-61ef09ef8e9f"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Delivery Avg]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1"/>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="67" height="20" uuid="7a748c5f-fcdc-4ad7-9800-c800668e6bf7"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblHdAvg}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="63" uuid="d4fb2818-d0f4-4e07-a930-b2300556c1f4">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="61" height="30" isPrintInFirstWholeBand="true" uuid="d991dde6-10d3-4b0a-8b06-a700a17eff8c"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Take Away Amt]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="61" height="30" uuid="37e84d03-16f2-4ac0-9b88-b6b7043252c9"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{SumTakeAwayAmt}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="61" height="20" uuid="04edeb99-d910-4638-b098-f9013f53c815"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblTAAmt}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="63" uuid="21bc2186-89d7-4b4b-9e79-fabddde1a8fe">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="62" height="30" isPrintInFirstWholeBand="true" uuid="22bfda17-7747-4446-a571-0d13ad738b0f"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[No. Of Take Away Bill]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="62" height="30" uuid="701a8240-891f-4192-a7ee-18bb2ccb47fb"/>
+										<textElement textAlignment="Right" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{SumNoTakeAwayBill}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="62" height="20" uuid="625e54f2-9781-476e-834d-43fbd6737cc2"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblTANoBill}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="64" uuid="0225fb1d-acd6-4414-abc7-13fc1c6356a9">
+								<jr:tableFooter height="0" rowSpan="1"/>
+								<jr:columnHeader style="table 1_TD" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="63" height="30" isPrintInFirstWholeBand="true" uuid="e4e8d215-95a0-40d2-8d63-9b33e250bee2"/>
+										<textElement textAlignment="Right"/>
+										<text><![CDATA[Take Away Avg]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:columnFooter style="table 1_TD" height="30" rowSpan="1"/>
+								<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="63" height="20" uuid="667a4c86-c1a4-48bb-b273-6b803d8b6c81"/>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{tblatvreport_dblTAAvg}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+</jasperReport>

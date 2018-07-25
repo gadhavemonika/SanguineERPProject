@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-07-17T14:01:41 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea9ddaa3-cdc9-4e1f-a0f0-e732a56c0f50">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<queryString>
+		<![CDATA[SELECT dbwebmms.tblattachdocument.`strTrans`,
+	dbwebmms.tblattachdocument.`strCode`,
+	dbwebmms.tblattachdocument.`binContent`
+FROM dbwebmms.tblattachdocument]]>
+	</queryString>
+	<field name="strTrans" class="java.lang.String"/>
+	<field name="strCode" class="java.lang.String"/>
+	<field name="binContent" class="java.sql.Blob"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="100" height="30" uuid="90058953-acd8-4a8e-8ebf-3330a5724dcc"/>
+				<text><![CDATA[strTrans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="100" height="30" uuid="384e24c3-99ab-4405-8e16-34a84ca27307"/>
+				<text><![CDATA[strCode]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="22" y="25" width="100" height="85" uuid="598cc6ad-316f-43f0-8056-2dddc1f4fb79"/>
+				<textFieldExpression><![CDATA[$F{strTrans}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="25" width="100" height="85" uuid="d4db4e5f-15f6-40ef-a321-c6745239557e"/>
+				<textFieldExpression><![CDATA[$F{strCode}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement key="" x="286" y="25" width="144" height="85" uuid="6d55b121-13c1-4006-af0f-0f3aa7eb0848"/>
+				<imageExpression><![CDATA[$F{binContent}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

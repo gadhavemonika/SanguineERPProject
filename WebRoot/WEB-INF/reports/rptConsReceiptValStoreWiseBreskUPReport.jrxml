@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptConsReceiptValStoreWiseBreskUPReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="WebRoot\WEB-INF\reports\NEW_DATAADAPTER.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="342"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="649"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Serif" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Serif" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Serif" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Serif"/>
+	<style name="Row" mode="Transparent" fontName="Serif" pdfFontName="Serif">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="dtFromDate" class="java.lang.String"/>
+	<parameter name="dtToDate" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strPropertyName" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strLocName" class="java.lang.String"/>
+	<parameter name="FromDate" class="java.lang.String"/>
+	<parameter name="ToDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select a.strLocCode, c.strLocName, a.strSuppCode, b.strPName, sum(a.dblSubTotal) as SubTotal,sum(a.dblTaxAmt) TaxAmt
+,sum(dblTotal) Value  
+from tblgrnhd a, tblpartymaster b, tbllocationMaster c 
+where a.strSuppCode = b.strPCode 
+and a.strLocCode = c.strLocCode
+and (a.strLocCode = 'L000197' Or a.strLocCode = 'L000201') 
+and a.dtGRNDate >= '2015-06-01 00:00:00' and a.dtGRNDate <= '2015-06-10 00:00:00' 
+Group By a.strLocCode, a.strSuppCode, b.strPName]]>
+	</queryString>
+	<field name="strLocCode" class="java.lang.String"/>
+	<field name="strLocName" class="java.lang.String"/>
+	<field name="strSuppCode" class="java.lang.String"/>
+	<field name="strPName" class="java.lang.String"/>
+	<field name="Value" class="java.math.BigDecimal"/>
+	<field name="TaxAmt" class="java.math.BigDecimal"/>
+	<field name="SubTotal" class="java.math.BigDecimal"/>
+	<variable name="dblGrandTotal" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Value}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="dblTotTax" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{TaxAmt}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="dblTotSubTotal" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SubTotal}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="dblGrandTotalTot" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Value}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="dblTotTaxTot" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TaxAmt}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="dblTotSubTotalTot" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SubTotal}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0.00)]]></initialValueExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{strLocCode}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField isStretchWithOverflow="true">
+					<reportElement style="SubTitle" isPrintRepeatedValues="false" x="0" y="2" width="360" height="18" forecolor="#00B055" uuid="4fbebfd3-a184-45af-b7d9-5c3faaf087b5"/>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{strLocName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="26">
+				<staticText>
+					<reportElement x="296" y="0" width="64" height="21" forecolor="#00B055" uuid="06f98f7f-9d33-4b75-9d6d-c7ad2cb5d75c"/>
+					<text><![CDATA[Store Total]]></text>
+				</staticText>
+				<textField pattern="#,##0.00##">
+					<reportElement x="490" y="0" width="62" height="21" forecolor="#00B055" uuid="70c8faf1-3116-4491-9e43-6de58e3e3f02"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{dblGrandTotal}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00##">
+					<reportElement x="430" y="0" width="51" height="21" forecolor="#00B055" uuid="fb142729-98df-40db-9fd7-2b073e6a0097"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{dblTotTax}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00##">
+					<reportElement x="365" y="0" width="60" height="21" forecolor="#00B055" uuid="6baaa40c-e6b1-4c2d-9dcf-f36d2c443107"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{dblTotSubTotal}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{strLocName}]]></groupExpression>
+	</group>
+	<group name="strSuppCode">
+		<groupExpression><![CDATA[$F{strSuppCode}]]></groupExpression>
+	</group>
+	<group name="strPName">
+		<groupExpression><![CDATA[$F{strPName}]]></groupExpression>
+	</group>
+	<group name="Value">
+		<groupExpression><![CDATA[$F{Value}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="78" width="555" height="1" uuid="b4cac834-fecf-41f1-a3fd-9465e40cb447"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="23" width="352" height="15" uuid="d3a80e5b-976a-42d5-8983-ee0d8041f435"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr2}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="201" y="54" width="352" height="20" uuid="19417a64-268b-4dbb-a405-74cc6c41b128"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consolidated Receipt Value Strore Wise Break Up]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="38" width="352" height="15" uuid="2c235c23-6fe2-4ef8-95f3-f0260ba23ef5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="201" height="76" uuid="a7c12179-3ea9-4b4a-a5e0-d04cd99410b5"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="201" y="2" width="352" height="20" uuid="1efb2a4a-04fd-44a4-98b2-8cf736ecc0f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="22" width="555" height="1" uuid="fe117620-0807-47d8-bccf-31bd547c0c77"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="80" y="2" width="400" height="21" uuid="70c54186-01bd-4044-b570-a1c100cc9d45"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From "+$P{FromDate}+" To "+$P{ToDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="1" width="280" height="19" uuid="be70b1d0-ab37-4c86-86c0-8a51b434e034"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Supplier Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="80" height="19" uuid="abe503d0-4731-4e85-911d-a82f2c3ca7be"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Supplier Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="1" width="62" height="17" uuid="aaed6f64-e9ab-4d0d-af9c-f697b48c3469"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="2" width="53" height="17" uuid="33a49194-2d97-4b33-8d48-6bdb5ac749c5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Tax Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="2" width="60" height="17" uuid="54ae0cc8-46e8-47c4-97a6-e03af77f8f55"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[SubTotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="1" width="280" height="15" uuid="59ee4a59-57aa-4e04-a0f9-39bd0bfa0dc5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="80" height="15" uuid="19c9b162-9d18-4db9-99e5-95a9a7ea3409"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strSuppCode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00##">
+				<reportElement x="490" y="0" width="62" height="15" uuid="8c2ddde9-bd9a-4e0d-94ed-ab45ad8fc5a8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Value}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00##">
+				<reportElement x="430" y="1" width="53" height="15" uuid="cb082157-6a42-40b2-84ec-919accafdb22"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TaxAmt}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00##">
+				<reportElement x="365" y="1" width="60" height="15" uuid="5fe3a7c0-271d-42eb-8590-1cca827370dd"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SubTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="27">
+			<staticText>
+				<reportElement x="296" y="4" width="64" height="21" forecolor="#002CB0" uuid="2bfb863f-4c85-4f1b-9d44-bfc0473e5972"/>
+				<box>
+					<pen lineColor="#0B0550"/>
+				</box>
+				<text><![CDATA[Report Total]]></text>
+			</staticText>
+			<textField pattern="#,##0.00##">
+				<reportElement x="365" y="4" width="60" height="21" forecolor="#002CB0" uuid="53bf16c9-77d9-4716-a46d-0eee74472e12"/>
+				<box>
+					<pen lineColor="#000FB0"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{dblTotSubTotalTot}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00##">
+				<reportElement x="430" y="4" width="51" height="21" forecolor="#002CB0" uuid="57f819de-e79b-4f07-ab22-b2d13b767b46"/>
+				<box>
+					<pen lineColor="#000FB0"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{dblTotTaxTot}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00##">
+				<reportElement x="490" y="4" width="62" height="21" forecolor="#002CB0" uuid="02b7076a-5fe5-4bdf-b4fc-9002e5aa378c"/>
+				<box>
+					<pen lineColor="#000FB0"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{dblGrandTotalTot}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="1" width="555" height="1" uuid="acc919f0-62a2-4653-b09e-b412973ee36e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

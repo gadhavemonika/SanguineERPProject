@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+		xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	 
+	<context:property-placeholder location="classpath:resources/database.properties,classpath:resources/Email.properties" />
+	<context:component-scan base-package="com.sanguine" />
+	
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+	<mvc:annotation-driven />
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	    <property name="messageConverters">
+	        <list>
+	            <ref bean="jacksonMessageConverter"/>
+	        </list>
+	    </property>
+	</bean>
+	
+	<bean id="jacksonMessageConverter"  class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+	<bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass">
+	        <value>
+	            org.springframework.web.servlet.view.tiles2.TilesView
+	        </value>
+	    </property>
+	</bean>
+	<bean id="tilesConfigurer"
+	    class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	    <property name="definitions">
+	        <list>
+	            <value>/WEB-INF/config/tiles.xml</value>
+	        </list>
+	    </property>
+	</bean>
+	<bean id="viewResolver2" class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="order" value="1"/>
+        <property name="location" value="/WEB-INF/views.xml"/>
+    </bean>
+    
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.urlWebStocks}" />
+		<property name="username" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+	</bean>
+	
+<!--  Start of WebStocks Configuration DataSource -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<!--Model required for Setup Form -->
+				<value>com.sanguine.model.clsPropertySetupModel</value>
+				<value>com.sanguine.model.clsCompanyMasterModel</value>
+				<value>com.sanguine.model.clsWorkFlowModel</value>
+				<value>com.sanguine.model.clsWorkFlowForSlabBasedAuth</value>
+				<value>com.sanguine.model.clsProcessSetupModel</value>
+				<value>com.sanguine.model.clsAttachDocModel</value>
+				<value>com.sanguine.model.clsGroupMasterModel</value>
+				<value>com.sanguine.model.clsLocationMasterModel</value>
+				<value>com.sanguine.model.clsTaxHdModel</value>
+				<value>com.sanguine.model.clsSettlementMasterModel</value>
+				<value>com.sanguine.model.clsTaxSettlementMasterModel</value>
+				<value>com.sanguine.model.clsSubGroupMasterModel</value>
+				<value>com.sanguine.model.clsAttributeValueMasterModel</value>
+				<value>com.sanguine.model.clsAttributeMasterModel</value>
+				<value>com.sanguine.model.clsLocationMasterModel</value>				
+				<value>com.sanguine.model.clsBomDtlModel</value>
+				<value>com.sanguine.model.clsBomHdModel</value>
+				<value>com.sanguine.model.clsProcessMasterModel</value>
+				<value>com.sanguine.model.clsProdSuppMasterModel</value>
+				<value>com.sanguine.model.clsProdProcessModel</value>
+				<value>com.sanguine.model.clsProductMasterModel</value>
+				<value>com.sanguine.model.clsProdAttMasterModel</value>				
+				<value>com.sanguine.model.clsInitialInventoryModel</value>
+				<value>com.sanguine.model.clsMISHdModel</value>
+				<value>com.sanguine.model.clsMISDtlModel</value>
+				<value>com.sanguine.model.clsRequisitionHdModel</value>
+				<value>com.sanguine.model.clsRequisitionDtlModel</value>
+				<value>com.sanguine.model.clsProductStandardModel</value>
+				<value>com.sanguine.model.clsPropertyMaster</value>
+				<value>com.sanguine.model.clsCharacteristicsMasterModel</value>
+				<value>com.sanguine.model.clsReasonMaster</value>
+				<value>com.sanguine.model.clsUserMasterModel</value>							
+				<value>com.sanguine.model.clsUserDtlModel</value>
+<!-- 				<value>com.sanguine.model.clsUserLocationDtl</value> -->
+				<value>com.sanguine.model.clsTreeMasterModel</value>				
+				<value>com.sanguine.model.clsPurchaseIndentHdModel</value>
+				<value>com.sanguine.model.clsPurchaseIndentDtlModel</value>
+				<value>com.sanguine.model.clsRateContractHdModel</value>
+				<value>com.sanguine.model.clsSupplierMasterModel</value>
+				<value>com.sanguine.model.clsStkPostingHdModel</value>
+				<value>com.sanguine.model.clsStkPostingDtlModel</value>
+				<value>com.sanguine.model.clsStkAdjustmentHdModel</value>
+				<value>com.sanguine.model.clsStkAdjustmentDtlModel</value>
+				<value>com.sanguine.model.clsStkTransferHdModel</value>
+				<value>com.sanguine.model.clsStkTransferDtlModel</value>
+				<value>com.sanguine.model.clsProductionHdModel</value> 
+  				<value>com.sanguine.model.clsProductionDtlModel</value>
+				<value>com.sanguine.model.clsProductionOrderDtlModel</value>
+				<value>com.sanguine.model.clsProductionOrderHdModel</value>
+				<value>com.sanguine.model.clsGRNHdModel</value>
+				<value>com.sanguine.model.clsGRNDtlModel</value>
+				<value>com.sanguine.model.clsPurchaseOrderHdModel</value>
+				<value>com.sanguine.model.clsPurchaseOrderDtlModel</value>
+				<value>com.sanguine.model.clsPurchaseReturnHdModel</value>
+				<value>com.sanguine.model.clsPurchaseReturnDtlModel</value>
+				<value>com.sanguine.model.clsBillPassDtlModel</value>
+				<value>com.sanguine.model.clsBillPassHdModel</value>
+				<value>com.sanguine.model.clsMaterialReturnHdModel</value>
+				<value>com.sanguine.model.clsMaterialReturnDtlModel</value>
+				<value>com.sanguine.model.clsCurrentStockModel</value>
+				<value>com.sanguine.model.clsTempItemStockModel</value>
+				<value>com.sanguine.model.clsProductReOrderLevelModel</value>
+				<value>com.sanguine.model.clsPropertySetupModel</value>
+				<value>com.sanguine.model.clsOpeningStkDtl</value>
+				<value>com.sanguine.model.clsTCMasterModel</value>
+				<value>com.sanguine.model.clsTCTransModel</value>
+				<value>com.sanguine.model.clsUserDefinedReportModel</value>		
+				<value>com.sanguine.model.clsDeleteTransModel</value>
+				<value>com.sanguine.model.clsBillPassingTaxDtlModel</value>
+<!-- 				<value>com.sanguine.model.clsWorkOrderDtlModel</value> -->
+				<value>com.sanguine.model.clsWorkOrderHdModel</value>
+				<value>com.sanguine.model.clsRateContractDtlModel</value> 
+				<value>com.sanguine.model.clsAuthorizeUserModel</value>
+				<value>com.sanguine.model.clsMRPIDtl</value>
+				<value>com.sanguine.model.clsPOSLinkUpModel</value>
+				<value>com.sanguine.model.clsUDReportCategoryMasterModel</value>
+				<value>com.sanguine.model.clsUOMModel</value>
+				<value>com.sanguine.model.clsPOTaxDtlModel</value>
+				<value>com.sanguine.model.clsPartyTaxIndicatorDtlModel</value>
+				<value>com.sanguine.model.clsPOTaxDtlModel</value>
+				<value>com.sanguine.model.clsGRNTaxDtlModel</value>
+				<value>com.sanguine.model.clsUserLogsModel</value>
+				<value>com.sanguine.model.clsBatchHdModel</value> 
+				<value>com.sanguine.model.clsCompanyLogoModel</value> 
+				<value>com.sanguine.model.clsAuditHdModel</value> 
+				<value>com.sanguine.model.clsAuditDtlModel</value> 
+				<value>com.sanguine.model.clsAuditGRNTaxDtlModel</value> 
+				<value>com.sanguine.model.clsGRNMISDtl</value> 
+				<value>com.sanguine.model.clsMonthEndModel</value> 
+				<value>com.sanguine.model.clsTallyLinkUpModel</value> 
+				<value>com.sanguine.model.clsProdCharMasterModel</value>
+				<value>com.sanguine.model.clsWSCountryMasterModel</value>
+				<value>com.sanguine.model.clsWSStateMasterModel</value>
+				<value>com.sanguine.model.clsWSCityMasterModel</value>
+				<value>com.sanguine.model.clsVehicleMasterModel</value>
+				<value>com.sanguine.model.clsRouteMasterModel</value>
+				<value>com.sanguine.model.clsVehicleRouteModel</value>
+				<value>com.sanguine.model.clsExciseMasterModel</value>
+				<value>com.sanguine.model.clsTransporterHdModel</value>
+				<value>com.sanguine.model.clsTransporterModelDtl</value>			
+				<value>com.sanguine.model.clsLinkUpHdModel</value>
+				<value>com.sanguine.model.clsManufactureMasterModel</value>
+				<value>com.sanguine.model.clsCurrencyMasterModel</value>
+				<value>com.sanguine.model.clsTransactionTimeModel</value>
+				<value>com.sanguine.model.clsDeliveryScheduleModulehd</value>
+				<value>com.sanguine.model.clsLinkLoctoOtherPropLocModel</value>
+				<value>com.sanguine.model.clsSessionMasterModel</value>
+				<value>com.sanguine.model.clsBudgetMasterHdModel</value>
+				<value>com.sanguine.model.clsPurchaseReturnTaxDtlModel</value>
+				
+			<!-- CRM MODULE MODEL -->
+			
+			
+			<value>com.sanguine.crm.model.clsSalesOrderDtl</value>
+			<value>com.sanguine.crm.model.clsSalesOrderHdModel</value>
+			<value>com.sanguine.crm.model.clsPartyMasterModel</value>
+			<value>com.sanguine.crm.model.clsPartyTaxIndicatorDtlModel</value>
+			<value>com.sanguine.crm.model.clsExciseChallanModel</value>
+			<value>com.sanguine.crm.model.clsDeliveryChallanHdModel</value>	
+			<value>com.sanguine.crm.model.clsDeliveryChallanModelDtl</value>
+			<value>com.sanguine.crm.model.clsPartyMasterModel</value>
+			<value>com.sanguine.crm.model.clsSubContractorMasterModel</value>
+			<value>com.sanguine.crm.model.clsJobOrderModel</value>
+			<value>com.sanguine.crm.model.clsSalesOrderBOMModel</value>
+			<value>com.sanguine.crm.model.clsJOAllocationHdModel</value>
+			<value>com.sanguine.crm.model.clsJOAllocationDtlModel</value>
+			<value>com.sanguine.crm.model.clsDeliveryNoteHdModel</value>
+			<value>com.sanguine.crm.model.clsDeliveryNoteDtlModel</value>
+			<value>com.sanguine.crm.model.clsSubContractorGRNModelHd</value>
+			<value>com.sanguine.crm.model.clsSubContractorGRNModelDtl</value>
+			<value>com.sanguine.crm.model.clsInvoiceHdModel</value>	
+			<value>com.sanguine.crm.model.clsInvoiceModelDtl</value>
+			<value>com.sanguine.crm.model.clsInvoiceTaxDtlModel</value>
+			<value>com.sanguine.crm.model.clsSalesReturnHdModel</value>	
+			<value>com.sanguine.crm.model.clsSalesReturnDtlModel</value>
+			<value>com.sanguine.crm.model.clsSalesCharModel</value>
+			<value>com.sanguine.crm.model.clsCRMDayEndModel</value>
+<!-- 			<value>com.sanguine.crm.model.clsInvoiceGSTModel</value> -->
+			<value>com.sanguine.crm.model.clsInvSettlementdtlModel</value>
+			<value>com.sanguine.crm.model.clsSalesRetrunTaxModel</value>
+			<value>com.sanguine.crm.model.clsSalesOrderTaxDtlModel</value>
+			<value>com.sanguine.crm.model.clsProFormaInvoiceHdModel</value>
+			<value>com.sanguine.crm.model.clsCategoryMasterModel</value>
+			<value>com.sanguine.crm.model.clsRegionMasterModel</value>
+			
+			
+
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+<!-- 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> -->
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+<!--    End Of WebStocks Configuration -->
+	
+<!--  Start of Excise Configuration DataSource -->
+		<bean id="dataSource1"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${database.driver}" />
+			<property name="url" value="${database.urlExcise}" />
+			<property name="username" value="${database.user}" />
+			<property name="password" value="${database.password}" />
+		</bean>
+	
+		<bean id="exciseSessionFactory"
+			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="dataSource1" />
+			<property name="annotatedClasses">
+				<list>
+					<!--Model required for Setup Form -->
+					
+					<value>com.sanguine.excise.model.clsExcisePropertySetUpModel</value>
+					<value>com.sanguine.excise.model.clsCityMasterModel</value>
+					<value>com.sanguine.excise.model.clsExciseLicenceMasterModel</value>
+					<value>com.sanguine.excise.model.clsCategoryMasterModel</value>
+					<value>com.sanguine.excise.model.clsSubCategoryMasterModel</value>
+					<value>com.sanguine.excise.model.clsSizeMasterModel</value>
+					<value>com.sanguine.excise.model.clsBrandMasterModel</value>
+					<value>com.sanguine.excise.model.clsRateMasterModel</value>
+					<value>com.sanguine.excise.model.clsExciseRecipeMasterHdModel</value>
+					<value>com.sanguine.excise.model.clsExciseRecipeMasterDtlModel</value>
+					<value>com.sanguine.excise.model.clsExciseSupplierMasterModel</value>
+					<value>com.sanguine.excise.model.clsOpeningStockModel</value>
+					<value>com.sanguine.excise.model.clsTransportPassModel</value>
+					<value>com.sanguine.excise.model.clsTransportPassDtlModel</value>
+					<value>com.sanguine.excise.model.clsExciseLocationMasterModel</value>
+					<value>com.sanguine.excise.model.clsExciseStkPostingHdModel</value>
+					<value>com.sanguine.excise.model.clsExciseStkPostingDtlModel</value>
+					<value>com.sanguine.excise.model.clsExcisePOSSaleModel</value>
+					<value>com.sanguine.excise.model.clsExcisePOSLinkUpModel</value>
+					<value>com.sanguine.excise.model.clsExciseSaleModel</value>
+					<value>com.sanguine.excise.model.clsPermitMasterModel</value>
+					<value>com.sanguine.excise.model.clsExciseManualSaleHdModel</value>
+					<value>com.sanguine.excise.model.clsExciseManualSaleDtlModel</value>
+					<value>com.sanguine.excise.model.clsOneDayPassHdModel</value>
+<!-- 					<value>com.sanguine.excise.model.clsFLR3AModelRow</value> -->
+<!-- 					<value>com.sanguine.excise.model.clsFLR6ModelRow</value> -->
+					<value>com.sanguine.excise.model.clsExcisePermitMasterModel</value>
+					<value>com.sanguine.excise.model.clsExciseMonthEndModel</value>
+					
+				</list>
+			</property>
+			<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+<!-- 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> -->
+			 	<prop key="hibernate.jdbc.batch_size">50</prop>
+			</props>
+		</property>
+		</bean>	
+	
+	<tx:annotation-driven transaction-manager="OtherTransactionManager"/>
+    <bean id="OtherTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="exciseSessionFactory"/></property>
+    </bean>
+    
+	
+<!--    End Of Excise Configuration -->
+
+
+
+<!--  Start of CRM Configuration DataSource  -->
+
+<!--     <bean id="CRMDataSource" -->
+<!-- 			class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 			<property name="driverClassName" value="${database.driver}" /> -->
+<!-- 			<property name="url" value="${database.urlCRM}" /> -->
+<!-- 			<property name="username" value="${database.user}" /> -->
+<!-- 			<property name="password" value="${database.password}" /> -->
+<!-- 		</bean> -->
+	
+<!-- 		<bean id="CRMSessionFactory" -->
+<!-- 			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"> -->
+<!-- 			<property name="dataSource" ref="CRMDataSource" /> -->
+<!-- 			<property name="annotatedClasses"> -->
+<!-- 				<list> -->
+<!-- 					Model required for Setup Form -->
+<!-- 					<value>com.sanguine.crm.model.clsSalesOrderDtl</value> -->
+<!-- 					<value>com.sanguine.crm.model.clsSalesOrderHdModel</value> -->
+<!-- 					<value>com.sanguine.crm.model.clsPartyMasterModel</value> -->
+<!-- 					<value>com.sanguine.crm.model.clsPartyTaxIndicatorDtlModel</value> -->
+<!-- 				</list> -->
+<!-- 			</property> -->
+<!-- 			<property name="hibernateProperties"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="hibernate.dialect">${hibernate.dialect}</prop> -->
+<!-- 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop> -->
+<!-- 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 		</bean> -->
+
+<!-- 	<tx:annotation-driven transaction-manager="CRMTransactionManager"/> -->
+	   
+<!-- 	 <bean id="CRMTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> -->
+<!-- 	        <property name="sessionFactory"><ref local="CRMSessionFactory"/></property> -->
+<!-- 	 </bean> -->
+		
+<!--  	End Of CRM Configuration  -->
+
+
+
+
+<!--  Start of WEBCLUB Configuration DataSource -->
+
+    <bean id="WebClubDataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${database.driver}" />
+			<property name="url" value="${database.urlwebclub}" />
+			<property name="username" value="${database.user}" />
+			<property name="password" value="${database.password}" />
+		</bean>
+	
+		<bean id="WebClubSessionFactory"
+			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="WebClubDataSource" />
+			<!-- <property name="packagesToScan" value="com.sanguine.webclub.model" /> -->
+			<property name="annotatedClasses">
+			
+				<list>
+					<!--Model required for WebClubSetup Form -->
+					
+					<value>com.sanguine.webclub.model.clsWebClubMemberProfileModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubGroupMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubMemberCategoryMasterModel</value> 
+					<value>com.sanguine.webclub.model.clsWebClubAreaMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubRegionMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubStateMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCountryMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCityMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubDependentMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubDesignationMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubEducationMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubMaritalStatusModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubProfessionMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubReasonMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCompanyMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubSubCategoryMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCompanyTypeMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubLockerMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubMemberPhotoModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubEditOtherInfoModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubMemberFormGenerationModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubPreMemberProfileModel </value>
+					<value>com.sanguine.webclub.model.clsWebClubCommitteeMemberRoleMasterModel </value>
+					<value>com.sanguine.webclub.model.clsWebClubRelationMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubStaffMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCurrencyDetailsMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubInvitedByMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubItemCategoryMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubProfileMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubSalutationMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubTitleMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCommitteeMasterModel</value>
+					<value>com.sanguine.webclub.model.clsWebClubCommitteeMasterDtl</value>
+					
+					
+					
+							
+				</list>
+			</property>
+			<property name="hibernateProperties">
+        	<props>
+	           <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        	</props>
+        </property>
+		</bean>
+
+	<tx:annotation-driven transaction-manager="WebClubTransactionManager"/>
+	
+    <bean id="WebClubTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="WebClubSessionFactory"/></property>
+    </bean>
+	
+<!-- 	End Of WEBCLUB Configuration -->
+
+
+
+<!--  Start of WEBBOOKs Configuration DataSource -->
+
+    <bean id="webBooksDataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${database.driver}" />
+			<property name="url" value="${database.urlwebbooks}" />
+			<property name="username" value="${database.user}" />
+			<property name="password" value="${database.password}" />
+		</bean>
+	
+		<bean id="webBooksSessionFactory"
+			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="webBooksDataSource" />			
+			<property name="annotatedClasses">
+			
+				<list>
+					<!--Model required for WEBBOOKs Form -->
+					<value>com.sanguine.webbooks.model.clsWebBooksAccountMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsBankMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsACGroupMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsAccountHolderMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsChargeMasterModel</value>	
+					<value>com.sanguine.webbooks.model.clsNarrationMasterModel</value>		
+					<value>com.sanguine.webbooks.model.clsInterfaceMasterModel</value>		
+					<value>com.sanguine.webbooks.model.clsSanctionAutherityMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsSundryDebtorMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsCategoryMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsAreaMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsCityMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsStateMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsRegionMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsCountryMasterModel</value>				
+					<value>com.sanguine.webbooks.model.clsWebBooksReasonMasterModel</value>	
+					<value>com.sanguine.webbooks.model.clsParameterSetupModel</value>
+					<value>com.sanguine.webbooks.model.clsChargeProcessingHDModel</value>
+					<value>com.sanguine.webbooks.model.clsChargeProcessingDtlModel</value>
+					<value>com.sanguine.webbooks.model.clsLetterMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsLetterProcessingModel</value>
+					
+					<value>com.sanguine.webbooks.model.clsJVHdModel</value>
+<!-- 					<value>com.sanguine.webbooks.model.clsJVDtlModel</value> -->
+<!-- 					<value>com.sanguine.webbooks.model.clsJVDebtorDtlModel</value> -->
+					 
+					<value>com.sanguine.webbooks.model.clsReceiptHdModel</value>
+					<value>com.sanguine.webbooks.model.clsPaymentHdModel</value>
+					<value>com.sanguine.webbooks.model.clsWebBooksAuditHdModel</value>
+					<value>com.sanguine.webbooks.model.clsDeleteTransactionModel</value>
+<!-- 					<value>com.sanguine.webbooks.model.clsPaymentGRNDtlModel</value> -->
+<!-- 					<value>com.sanguine.webbooks.model.clsTempLedgerModel</value> -->
+					<value>com.sanguine.webbooks.model.clsSundaryCreditorMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsLedgerSummaryModel</value>
+					<value>com.sanguine.webbooks.model.clsCurrentAccountBalMaodel</value>
+<!-- 					<value>com.sanguine.webbooks.model.clsReceiptInvDtlModel</value> -->
+					<value>com.sanguine.webbooks.model.clsEmployeeMasterModel</value>
+					<value>com.sanguine.webbooks.model.clsUserDefinedReportHdModel</value>
+					<value>com.sanguine.webbooks.model.clsUserDefinedReportDtlModel</value>
+					
+					
+					<!-- 	APGL MODEL -->
+					
+					<value>com.sanguine.webbooks.apgl.model.clsSundaryCrBillModel</value>
+					<value>com.sanguine.webbooks.apgl.model.clsSundaryCrBillDtlModel</value>
+					<value>com.sanguine.webbooks.apgl.model.clsSundaryCrBillModel</value>
+					<!-- 	APGL MODEL END -->
+					
+					
+					 
+				</list>
+			</property>
+			<property name="hibernateProperties">
+        	<props>
+	           <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        	</props>
+        </property>
+		</bean>
+
+	<tx:annotation-driven transaction-manager="WebBooksTransactionManager"/>
+	
+    <bean id="WebBooksTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="webBooksSessionFactory"/></property>
+    </bean>
+	
+<!-- 	End Of WEBBOOKs Configuration -->
+
+
+	
+	
+	
+<!--  Start of WEBPMS Configuration DataSource -->
+
+    	<bean id="webPMSDataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${database.driver}" />
+			<property name="url" value="${database.urlwebpms}" />
+			<property name="username" value="${database.user}" />
+			<property name="password" value="${database.password}" />
+		</bean>
+	
+		<bean id="webPMSSessionFactory"
+			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="webPMSDataSource" />			
+			
+			<property name="annotatedClasses">
+				<list>
+					<value>com.sanguine.webpms.model.clsDepartmentMasterModel</value>
+					<value>com.sanguine.webpms.model.clsPMSTaxMasterModel</value>
+					<value>com.sanguine.webpms.model.clsTaxGroupMasterModel</value>
+					<value>com.sanguine.webpms.model.clsRoomMasterModel</value>
+					<value>com.sanguine.webpms.model.clsBaggageMasterModel</value>
+					<value>com.sanguine.webpms.model.clsBathTypeMasterModel</value>
+					<value>com.sanguine.webpms.model.clsRoomTypeMasterModel</value>
+					<value>com.sanguine.webpms.model.clsPMSReasonMasterModel</value>
+					<value>com.sanguine.webpms.model.clsPlanMasterModel</value>
+					<value>com.sanguine.webpms.model.clsIncomeHeadMasterModel</value>
+					<value>com.sanguine.webpms.model.clsBusinessSourceMasterModel</value>
+					<value>com.sanguine.webpms.model.clsExtraBedMasterModel</value>
+					<value>com.sanguine.webpms.model.clsChargePostingHdModel</value>
+					<value>com.sanguine.webpms.model.clsChargePostingHdModel</value>
+					<value>com.sanguine.webpms.model.clsPMSSettlementMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsCheckInHdModel</value>
+					<value>com.sanguine.webpms.model.clsGuestMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsReservationHdModel</value>
+					<value>com.sanguine.webpms.model.clsAgentMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsAgentCommisionHdModel</value>
+					<value>com.sanguine.webpms.model.clsCorporateMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsBookerMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsBookingTypeHdModel</value>
+					<value>com.sanguine.webpms.model.clsBillingInstructionsHdModel</value>
+					<value>com.sanguine.webpms.model.clsRoomCancellationModel</value>
+					<value>com.sanguine.webpms.model.clsFolioHdModel</value>
+					<value>com.sanguine.webpms.model.clsBillHdModel</value>
+					<value>com.sanguine.webpms.model.clsWalkinHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsGuestMasterHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsPropertySetupHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsFolioHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsDayEndHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsPMSPaymentHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsBillDiscountHdModel</value>
+	               	<value>com.sanguine.webpms.model.clsMarketSourceMasterModel</value>
+					<value>com.sanguine.webpms.model.clsFloorMasterModel</value>
+					<value>com.sanguine.webpms.model.clsRoomPackageDtl</value>
+					<value>com.sanguine.webpms.model.clsPackageMasterHdModel</value>
+					<value>com.sanguine.webpms.model.clsPackageMasterDtl</value>
+					<value>com.sanguine.webpms.model.clsVoidBillHdModel</value>
+					
+						
+				</list>
+			</property>
+			
+			<property name="hibernateProperties">
+        	<props>
+	           <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        	</props>
+        </property>
+	</bean>
+		
+	<tx:annotation-driven transaction-manager="WebPMSTransactionManager"/>
+	
+    <bean id="WebPMSTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="webPMSSessionFactory"/></property>
+    </bean>
+	
+<!-- 	End Of WEBPMS Configuration -->
+
+
+
+
+
+
+
+
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- <property name="maxUploadSize" value="10000000" /> -->
+    </bean>
+    
+    <!--Start Email Set Up -->
+    
+	 <bean id="mailSender" 
+	 class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${Email.host}" />
+        <property name="port" value="${Email.port}" />
+        <property name="username" value="${Email.username}" />
+        <property name="password" value="${Email.password}" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- End of Email Set Up -->
+    
+	<mvc:interceptors>
+		<bean class="com.sanguine.util.clsRequestInterceptor"></bean>
+	</mvc:interceptors>
+</beans>
+
+

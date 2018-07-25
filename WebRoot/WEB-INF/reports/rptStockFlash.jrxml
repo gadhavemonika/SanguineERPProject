@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2016-03-02T15:50:30 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="742ef197-00f2-4607-abe0-b4afc8718546">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsStockFlash" uuid="efeffbad-a593-4718-ba8f-d5981d6331ae">
+		<queryString language="SQL">
+			<![CDATA[select f.strPropertyName,a.strProdCode,b.strProdName,e.strLocName,d.strGName,c.strSGName,b.strUOM,b.strBinNo ,b.dblCostRM,funGetUOM(a.dblOpeningStk,b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM) as OpeningStk,funGetUOM((a.dblGRN+dblSCGRN+a.dblStkTransIn+a.dblStkAdjIn+a.dblMISIn+a.dblQtyProduced+a.dblMaterialReturnIn),b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM) as Receipts ,funGetUOM((a.dblStkTransOut-a.dblStkAdjOut-a.dblMISOut-a.dblQtyConsumed-a.dblSales-a.dblMaterialReturnOut-a.dblDeliveryNote),b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM) as Issue ,funGetUOM(a.dblClosingStk,b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM),(a.dblClosingStk*b.dblCostRM) as Value,a.dblClosingStk as IssueUOMStock ,b.dblIssueConversion,b.strIssueUOM,b.strPartNo from tblcurrentstock a,tblproductmaster b,tblsubgroupmaster c,tblgroupmaster d,tbllocationmaster e,tblpropertymaster f  where a.strProdCode=b.strProdCode and b.strSGCode=c.strSGCode and c.strGCode=d.strGCode and a.strLocCode=e.strLocCode and e.strPropertyCode=f.strPropertyCode and a.strClientCode='060.001' and a.strUserCode='SANGUINE']]>
+		</queryString>
+		<field name="strPropertyName" class="java.lang.String"/>
+		<field name="strProdCode" class="java.lang.String"/>
+		<field name="strProdName" class="java.lang.String"/>
+		<field name="strLocName" class="java.lang.String"/>
+		<field name="strGName" class="java.lang.String"/>
+		<field name="strSGName" class="java.lang.String"/>
+		<field name="strUOM" class="java.lang.String"/>
+		<field name="strBinNo" class="java.lang.String"/>
+		<field name="dblCostRM" class="java.math.BigDecimal"/>
+		<field name="OpeningStk" class="java.lang.String"/>
+		<field name="Receipts" class="java.lang.String"/>
+		<field name="Issue" class="java.lang.String"/>
+		<field name="funGetUOM(a.dblClosingStk,b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM)" class="java.lang.String"/>
+		<field name="Value" class="java.math.BigDecimal"/>
+		<field name="IssueUOMStock" class="java.math.BigDecimal"/>
+		<field name="dblIssueConversion" class="java.math.BigDecimal"/>
+		<field name="strIssueUOM" class="java.lang.String"/>
+		<field name="strPartNo" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="30" width="352" height="15" uuid="167c3251-fc5b-407e-a789-37176a1811e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="45" width="352" height="15" uuid="8ced9356-c706-4aae-974d-ffc7d8da4ce5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="3" width="352" height="28" uuid="a8f73ee2-beb2-4b34-b536-266e0da28088"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="60" width="352" height="17" uuid="23bd89f5-cd2e-47e8-aee8-ccc0fb60566c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stock Flash]]></text>
+			</staticText>
+			<image>
+				<reportElement x="3" y="3" width="177" height="74" uuid="89272b6e-bd87-44d1-b76f-26edd7783104"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="-2" y="85" width="804" height="1" forecolor="#969696" uuid="e7cd5489-8d71-4004-b765-8a89883ef560"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="112" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="0" width="802" height="110" uuid="cdacf956-0bc6-4f14-adb6-760c86165931"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsStockFlash" uuid="5d4995fa-a220-4e7b-a11c-fa504322da86">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="81" uuid="e83f1268-79f5-4f2d-8e37-f9de3a0550c9">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="bbc7ac3a-9c28-4654-821b-31b96870a922"/>
+								<text><![CDATA[PropertyName]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="81" height="20" uuid="ce422f49-b71e-47db-89f2-a8a67a0e16d6"/>
+								<textFieldExpression><![CDATA[$F{strPropertyName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="9be4791f-1c3d-4ec7-b066-03e06bb8273e">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="49" height="43" uuid="4f8789df-df77-4ed0-9681-3999db0e1e98"/>
+								<text><![CDATA[Prod  Code]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="49" height="20" uuid="89ac9764-3347-45ed-aada-be4fdcf211ae"/>
+								<textFieldExpression><![CDATA[$F{strProdCode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5deba582-13d2-4093-a617-77a1be5f34a0">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d4ff37ac-3810-4485-b82a-87b67a33694f"/>
+								<text><![CDATA[ProdName]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="90" height="20" uuid="74183676-7198-43af-af32-2ffa68cb495b"/>
+								<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="73" uuid="409bead6-7d4b-4100-9bee-bc1dd97ccaf9">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="3ec84726-7568-422d-8fe2-ed45471e89f8"/>
+								<text><![CDATA[Location]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="72" height="20" uuid="617e5b47-28d0-4184-a120-ae253bf3b7ae"/>
+								<textFieldExpression><![CDATA[$F{strLocName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="37e24f22-a559-454e-8aa7-222c151ba17d">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="45" height="30" uuid="85b183cd-ee37-467d-85d3-ae055944aae1"/>
+								<text><![CDATA[Group Name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="1" y="0" width="45" height="20" uuid="7d625dd1-3cba-45af-a7d5-0b8f77e3637c"/>
+								<textFieldExpression><![CDATA[$F{strGName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="58" uuid="a1b4a313-145b-40bb-9977-38ed5e739585">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="57" height="30" uuid="150b540f-6719-42c4-af8a-3043d56892cf"/>
+								<text><![CDATA[Sub Group Name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="57" height="20" uuid="8e7542c0-dff0-4dab-bae0-47d1ee5790f6"/>
+								<textFieldExpression><![CDATA[$F{strSGName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="31" uuid="9aa083f2-f4e1-413a-9dc6-646222b2a971">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="31" height="30" uuid="d9241c7b-de0b-4bdf-83d7-1dcb614792aa"/>
+								<text><![CDATA[UOM]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="31" height="20" uuid="00fefedd-00fd-4c77-adee-cff04e738a5c"/>
+								<textFieldExpression><![CDATA[$F{strUOM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="36" uuid="45f55df1-f39f-4a4f-b4a0-d5c1f4413d43">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="34" height="30" uuid="1155852d-167a-47f1-8bac-126c125a8589"/>
+								<text><![CDATA[Bin No]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="34" height="20" uuid="529aa277-13ad-44cd-bbc4-5e40c8803166"/>
+								<textFieldExpression><![CDATA[$F{strBinNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="39" uuid="2bd95266-c54c-4a75-bfbc-0b7bc0edd6d9">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="32" height="30" uuid="96dfd163-1cb8-4c73-b34e-444445285610"/>
+								<text><![CDATA[Unit Price]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="1" y="0" width="38" height="20" uuid="c70c3172-e1e0-4a53-b4a8-176e9263e64d"/>
+								<textFieldExpression><![CDATA[$F{dblCostRM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="34" uuid="7cdadb59-f93f-46d7-bf38-2a4945423dc5">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="33" height="43" uuid="780aa4f5-7852-4b8a-a1e5-7073e393758a"/>
+								<text><![CDATA[Open Stk]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="34" height="20" uuid="450cddbb-b071-4811-96e2-321675c2d176"/>
+								<textFieldExpression><![CDATA[$F{OpeningStk}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="33" uuid="03117a55-b58f-43dd-94a4-e84dc39e4371">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="32" height="30" uuid="14b5db0b-03e8-42f0-9c08-b42e7d3a58af"/>
+								<text><![CDATA[Recpt]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="33" height="20" uuid="794439f5-6fac-4a52-943e-96258b3fecf0"/>
+								<textFieldExpression><![CDATA[$F{Receipts}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="28" uuid="1019d55b-c41d-4c50-a099-d8fa7c595d74">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="28" height="30" uuid="608c1969-714f-4e72-ba3c-b664a873d930"/>
+								<text><![CDATA[Issue]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="28" height="20" uuid="5150a5fa-b606-4656-88e8-2432af2ae09d"/>
+								<textFieldExpression><![CDATA[$F{Issue}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="36" uuid="832f0e20-4bd9-4ce8-b811-13256f9aef61">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="36" height="30" uuid="0e769506-b04f-4dc3-92ab-593e31f561e2"/>
+								<text><![CDATA[Closing Stk]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="36" height="20" uuid="af89f710-560a-4a7f-8066-c5c5fa7db72f"/>
+								<textFieldExpression><![CDATA[$F{funGetUOM(a.dblClosingStk,b.dblRecipeConversion,b.dblIssueConversion,b.strReceivedUOM,b.strRecipeUOM)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="48" uuid="af8bc886-d831-432d-9f2e-5d77aad64d9c">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="32" height="30" uuid="940624da-f176-4e06-a9e5-3df6cfd42d2f"/>
+								<text><![CDATA[Value]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="46" height="20" uuid="263b84e7-3136-406b-b68a-2d91366f9a21"/>
+								<textFieldExpression><![CDATA[$F{Value}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="34" uuid="45697b2f-bcdb-4cdb-b042-dc70296f2d7f">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="33" height="43" uuid="05d42da2-909f-4276-8f76-119d86e34942"/>
+								<text><![CDATA[Issue UOM Stock]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="33" height="20" uuid="1e4dded6-0f8e-4d6f-8009-dbb13cb7fe1c"/>
+								<textFieldExpression><![CDATA[$F{IssueUOMStock}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="29" uuid="d436f340-e582-44f4-b852-d447d1b58ca6">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="29" height="30" uuid="766bea20-f941-456b-ae5f-b7c0da29c782"/>
+								<text><![CDATA[Issue Con.]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="29" height="20" uuid="b2081813-91f4-4393-a65a-92f2a61c5cbc"/>
+								<textFieldExpression><![CDATA[$F{dblIssueConversion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="29" uuid="a3d5de78-8430-4a75-8880-4aa13e872253">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="29" height="30" uuid="ac9a892d-b1f0-4616-ac0a-c5606ade9e33"/>
+								<text><![CDATA[Issue UOM]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="29" height="20" uuid="1fa7654b-752f-4dc7-b28c-7549d781a2a0"/>
+								<textFieldExpression><![CDATA[$F{strIssueUOM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="24" uuid="95e2d741-fb89-495f-be02-3bc4de7604f7">
+						<jr:tableHeader style="table 3_TH" height="43" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="20" height="30" uuid="2e37056e-bb6b-4741-a89b-fb5367743f98"/>
+								<text><![CDATA[Part No]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 3_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 3_TD" height="27" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="20" height="20" uuid="49090ed1-9579-4abd-aef8-fa8869a96353"/>
+								<textFieldExpression><![CDATA[$F{strPartNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="4" width="803" height="1" forecolor="#969696" uuid="bcf6276c-b723-404d-85d2-3bec7e8509f6"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="5" width="61" height="15" uuid="342190bd-7d98-4ae4-a6e2-6a5e477fcd8a"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="5" width="20" height="15" uuid="f031a3c0-d59e-467a-86ba-66e0a17a65de"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="746" y="5" width="50" height="15" uuid="88354e70-be51-40a0-9ae1-937f5c7bee9c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="268" y="5" width="24" height="15" uuid="a84020e0-9426-4587-b750-ef37d4b1f0ff"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="172" y="5" width="90" height="15" uuid="bf12c38d-0540-4a88-bd42-9861b90fc2b9"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="696" y="5" width="50" height="15" uuid="8eceea6a-74e4-44da-9231-63599ce316ad"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="292" y="5" width="56" height="15" uuid="ef830073-fc2e-49e2-8b9b-a0e417ccced5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="5" width="100" height="15" uuid="f68b67d3-5256-43c4-9e46-c94a7d53b908"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>

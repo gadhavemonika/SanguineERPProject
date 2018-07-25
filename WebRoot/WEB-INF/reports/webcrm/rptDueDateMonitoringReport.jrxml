@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2016-01-06T17:39:28 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="595" pageHeight="800" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ca3318f-da2c-4d8d-935e-8b30d18882c5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstocks"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsDueDateData" uuid="81647831-8dff-4b30-8374-9690f0c43320">
+		<queryString>
+			<![CDATA[select c.strProdName, b.dblQty,b.dblWeight,a.strDNCode,d.strPName,d.strSAdd1,d.strSAdd2,d.strSCity,d.strSPin,
+d.strSState,d.strSCountry ,f.strProcessCode ,c.strProdName,b.dblQty as ExpectedQty,
+h.dblAcceptQty as consummedQty ,(b.dblQty-h.dblAcceptQty) as pendingQty,a.dteExpDate 
+from tbldeliverynotehd a, tbldeliverynotedtl b, tblproductmaster c, 
+tblpartymaster d,tblprodprocess e,tblprocessmaster f,tblscreturnhd g, tblscreturndtl h
+where a.strDNCode=b.strDNCode and b.strProdCode=c.strProdCode 
+and a.strSCCode=d.strPCode 
+and b.strProdCode=e.strProdCode 
+and e.strProcessCode=f.strProcessCode
+and a.strDNCode=g.strSCDNCode
+and g.strSRCode=h.strSRCode
+and a.strSCCode='S000010'
+and a.strDNCode='02DNAL000002'
+and a.strClientCode='024.001'
+and a.dteDNDate between '2015-12-21' and '2015-12-30']]>
+		</queryString>
+		<field name="strProdName" class="java.lang.String"/>
+		<field name="dblQty" class="java.math.BigDecimal"/>
+		<field name="dblWeight" class="java.math.BigDecimal"/>
+		<field name="strDNCode" class="java.lang.String"/>
+		<field name="strPName" class="java.lang.String"/>
+		<field name="strSAdd1" class="java.lang.String"/>
+		<field name="strSAdd2" class="java.lang.String"/>
+		<field name="strSCity" class="java.lang.String"/>
+		<field name="strSPin" class="java.lang.String"/>
+		<field name="strSState" class="java.lang.String"/>
+		<field name="strSCountry" class="java.lang.String"/>
+		<field name="strProcessCode" class="java.lang.String"/>
+		<field name="ExpectedQty" class="java.math.BigDecimal"/>
+		<field name="consummedQty" class="java.math.BigDecimal"/>
+		<field name="pendingQty" class="java.math.BigDecimal"/>
+		<field name="dteExpDate" class="java.sql.Date"/>
+	</subDataset>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="pName" class="java.lang.String"/>
+	<parameter name="DNType" class="java.lang.String"/>
+	<parameter name="SCPermissionType" class="java.lang.String"/>
+	<parameter name="SCName" class="java.lang.String"/>
+	<parameter name="DNCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="128" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="28" width="352" height="15" uuid="2763a8b5-2a84-46ed-bec4-e514534fc31e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="1" width="352" height="28" uuid="91ac0358-5586-4165-a616-c7fe6b067bc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="43" width="352" height="15" uuid="a6993d55-19b0-4e06-bc4c-77f1b89761e0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="59" width="354" height="17" uuid="3f52315a-1d17-4b24-b2ee-2c3b51656f77"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Pending With In Due Date Report]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="9" y="1" width="171" height="69" uuid="c0abfebe-1639-457c-b03a-6d4259a4ca14"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="78" width="555" height="1" forecolor="#969696" uuid="4f0d084c-242f-4d69-b61f-8d4ebcf474f5"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="306" y="83" width="244" height="20" uuid="f88b4a10-56c4-4ff0-8dbe-b4079784ddc2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Period From :"+$P{fromDate} +" To "+$P{toDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="82" width="100" height="20" uuid="306b9cff-0680-401f-8d6e-c747d2f47d1f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[For SubContractor :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="103" width="100" height="20" uuid="27ea5f0c-e627-4efc-82bd-4940fb8b5365"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="104" width="125" height="20" uuid="5e2bb0a1-0a6e-4613-add7-dce7b0791a61"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[For Delivery Note Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="82" width="100" height="20" uuid="ddbc7409-41aa-4e66-a124-b9d4624b11dd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="103" width="100" height="20" uuid="4e018c9e-51b3-41eb-ab6c-c750c1e6a2fc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SCPermissionType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="104" width="100" height="20" uuid="69b9703c-a5d0-41c9-bd72-69e8d6340eec"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DNCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="83">
+			<componentElement>
+				<reportElement key="table" style="table" x="1" y="0" width="553" height="80" uuid="43594497-36a8-4404-964c-b7c940cde696"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsDueDateData" uuid="74b86a3d-7841-4800-a788-4f5ac394e169">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="85" uuid="02d7c661-2962-454b-b2ee-46ce34c4d635">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="47" uuid="ce329d8d-eb3b-4914-93c5-d80dd1564e42"/>
+								<text><![CDATA[Description Of Bonded
+Article Removed]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="79" height="44" uuid="dac9a6e3-3489-4ba3-ac3b-f515466b937f"/>
+								<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup width="59" uuid="f2d21ba2-c022-46bd-8d3d-256863e7b016">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="55" height="47" uuid="c767b837-dac8-425d-bb14-642bbc6a6ca0"/>
+								<text><![CDATA[Total Quantity
+Removed]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="28" uuid="3a6fdc34-4fac-47ae-8674-4f1d36684cb9">
+							<jr:detailCell style="table_TD" height="44" rowSpan="1">
+								<textField pattern="###0.00;-###0.00">
+									<reportElement x="0" y="0" width="28" height="44" uuid="5b7f774d-3043-4c37-a95a-80532ad71733"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{dblQty}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="31" uuid="68f17dc9-45cf-4545-a25a-23823723a93f">
+							<jr:detailCell style="table_TD" height="44" rowSpan="1">
+								<textField pattern="###0.00;-###0.00">
+									<reportElement x="0" y="0" width="31" height="44" uuid="694742eb-6d85-4bc9-867d-43d12666968d"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{dblWeight}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="74" uuid="c8557218-630e-454d-a2fb-36a26fdc5033">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="48" height="30" uuid="a55c0fcc-786c-4113-93fa-aa146c6ef1d1"/>
+								<text><![CDATA[DN Code]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="73" height="44" uuid="e4f0ffa3-3542-4bda-b56f-3705b5cd2353"/>
+								<textFieldExpression><![CDATA[$F{strDNCode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="94" uuid="26873543-627a-4eca-8978-c8fd4a5b9bfd">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="79bb94b3-6bda-4fab-8148-7053c98f90fe"/>
+								<text><![CDATA[Name & Add Of
+SubContractor]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="44" uuid="dd6eaf81-1219-41b4-ac65-ae300838ee6b"/>
+								<textFieldExpression><![CDATA[$F{strPName}+","+$F{strSAdd1}+","+$F{strSAdd2}+","+$F{strSCity}+","+$F{strSState}+","+$F{strSPin}+","+$F{strSCountry}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="52" uuid="3095e87a-12e8-4c57-8dd2-4ce78519db63">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="533b671d-8bfa-4658-b544-048ea84671f8"/>
+								<text><![CDATA[Process Code]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="52" height="44" uuid="93d7a478-8e65-4fb0-9dd8-404755fc9d09"/>
+								<textFieldExpression><![CDATA[$F{strProcessCode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="77" uuid="6d987953-f99b-485d-b87d-d4d98baf48e8">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="74" height="47" uuid="ab31eeb2-4280-493c-a345-af38aab8d4e0"/>
+								<text><![CDATA[Description of
+Processed Goods
+Received Back]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="0" rowSpan="1"/>
+						<jr:columnFooter height="0" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="74" height="44" uuid="dac9a6e3-3489-4ba3-ac3b-f515466b937f"/>
+								<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="29" uuid="e59615be-e0db-4854-8a66-95178aa1a9b2">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="28" height="30" uuid="6884d08c-df79-4fd4-abf3-fc166e8e294d"/>
+								<text><![CDATA[Exp.Qty]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField pattern="###0.00;-###0.00">
+								<reportElement x="0" y="0" width="28" height="44" uuid="685f7dc1-3eff-47d3-96d6-ee0b923763e4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{ExpectedQty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="33" uuid="e82c20de-0ad1-4da8-aa9a-7454443903f1">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="25" height="30" uuid="fa754926-3944-43ae-95ea-8efbe498bcd5"/>
+								<text><![CDATA[Con. Qty]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField pattern="###0.00;-###0.00">
+								<reportElement x="1" y="0" width="32" height="44" uuid="fddb3e29-b8f8-42e4-a4a2-d9b48dcfb745"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{consummedQty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="28" uuid="e5e46e99-8d5b-4bd7-8807-3095b7a11e7b">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="1" y="0" width="24" height="30" uuid="4e6a5c79-8179-444b-905f-22685ce67da1"/>
+								<text><![CDATA[pen.Qty]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField pattern="###0.00;-###0.00">
+								<reportElement x="1" y="0" width="27" height="44" uuid="a66287cc-aaf9-4918-a4b6-781f12d5dda3"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{pendingQty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="41" uuid="7ef6bf6f-a03a-493a-b771-771d91965435">
+						<jr:tableHeader style="table_TH" height="47" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="39" height="30" uuid="bc5a6785-fa3f-43d3-ab25-e5181949e03a"/>
+								<text><![CDATA[Exp Date]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="44" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="39" height="24" uuid="d98527de-a4f0-4f8a-95be-c645a33f3853"/>
+								<textElement textAlignment="Justified"/>
+								<textFieldExpression><![CDATA[$F{dteExpDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="8" width="62" height="15" uuid="f814b6da-5806-45ae-b758-337337d1e27e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created On :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="70" y="8" width="113" height="15" uuid="4dae91ab-81ed-49e0-b733-0974181bad49"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="191" y="8" width="20" height="15" uuid="b48a3cba-edbb-42c6-902e-35664a45dad1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[At :]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="212" y="8" width="69" height="15" uuid="6abe8b39-df6d-450b-b895-d608d5303940"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="8" width="22" height="15" uuid="83206617-240c-429c-ae3f-b8b8dede512c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="335" y="8" width="114" height="15" uuid="6ad19ebc-87ac-44b8-b267-f0c297a1d4f4"/>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="8" width="58" height="15" uuid="4e1b4a85-d7c5-4eda-8350-184b87c76185"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="508" y="8" width="47" height="15" uuid="381d2a9e-b6aa-41a9-91e6-352905b9d0e8"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="-3" width="555" height="1" forecolor="#969696" uuid="af4bbf77-50cc-4322-a255-500021bbf270"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>

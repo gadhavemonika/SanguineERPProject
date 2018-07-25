@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCheckInList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f2323f3-3122-4114-a59f-df89ff1ddda0">
+	<property name="ireport.zoom" value="1.156629868288595"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="pCompanyName" class="java.lang.String"/>
+	<parameter name="pAddress1" class="java.lang.String"/>
+	<parameter name="pAddress2" class="java.lang.String"/>
+	<parameter name="pContactDetails" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="pFromDate" class="java.lang.String"/>
+	<parameter name="pTtoDate" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="propName" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="strGuestFullName" class="java.lang.String">
+		<fieldDescription><![CDATA[strGuestFullName]]></fieldDescription>
+	</field>
+	<field name="strRoomNo" class="java.lang.String">
+		<fieldDescription><![CDATA[strRoomNo]]></fieldDescription>
+	</field>
+	<field name="strCheckInNo" class="java.lang.String">
+		<fieldDescription><![CDATA[strCheckInNo]]></fieldDescription>
+	</field>
+	<field name="dteCheckInDate" class="java.lang.String">
+		<fieldDescription><![CDATA[dteCheckInDate]]></fieldDescription>
+	</field>
+	<field name="strAgainstType" class="java.lang.String">
+		<fieldDescription><![CDATA[strAgainstType]]></fieldDescription>
+	</field>
+	<field name="strRoomName" class="java.lang.String"/>
+	<variable name="vRoomWiseCount" class="java.lang.Integer" resetType="Group" resetGroup="RoomNoWiseGroup" calculation="Count"/>
+	<group name="RoomNoWiseGroup">
+		<groupExpression><![CDATA[$F{strRoomNo}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement x="0" y="5" width="100" height="20" forecolor="#3366FF" uuid="8b496a42-f710-4ac1-a03c-942874f8dd2a"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Room No :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="101" y="4" width="100" height="21" forecolor="#3366FF" uuid="e0bafe06-c4d2-4a17-b5d4-98d8d06098a0"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{strRoomName}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="27" width="555" height="1" uuid="414f6ec3-09e9-4520-94fb-f66259f12f39"/>
+				</line>
+				<line>
+					<reportElement x="0" y="0" width="555" height="1" uuid="83fb2a43-fb32-4381-a84e-8039c374f3f6"/>
+				</line>
+				<staticText>
+					<reportElement x="236" y="5" width="100" height="20" forecolor="#3366FF" uuid="3344f676-59e6-41e0-a427-19a95dc7b27a"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pax Count :]]></text>
+				</staticText>
+				<textField evaluationTime="Group" evaluationGroup="RoomNoWiseGroup">
+					<reportElement x="337" y="5" width="100" height="23" forecolor="#3366FF" uuid="ba8c0425-b31f-4791-bc89-aaa8c1b0fc37"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{RoomNoWiseGroup_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="183" y="10" width="314" height="20" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="30" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pAddress1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="46" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pAddress2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="555" height="1" uuid="e18e9f7a-d80b-4aa5-b730-5a5416101055"/>
+			</line>
+			<image>
+				<reportElement x="13" y="10" width="136" height="79" uuid="5ea12fd6-6cbd-47f0-87cd-263c311d7cfd"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="183" y="62" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pContactDetails}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="343" y="106" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To Date   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="106" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Date  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="94" y="106" width="130" height="14" uuid="adad322f-e85a-4448-bd5a-104902baafec"/>
+				<textFieldExpression><![CDATA[$P{pFromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="105" width="113" height="14" uuid="adad322f-e85a-4448-bd5a-104902baafec"/>
+				<textFieldExpression><![CDATA[$P{pTtoDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="120" width="555" height="1" uuid="a30040ee-4d0e-4a01-9020-d0978d17843d"/>
+			</line>
+			<staticText>
+				<reportElement x="183" y="81" width="311" height="14" uuid="12ba95bd-2eb2-4697-9f48-7c0c0d2c09d0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pax Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<staticText>
+				<reportElement x="0" y="3" width="210" height="20" uuid="4006c2ff-b731-41b1-80de-9d2fa0560e5d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Guest Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="3" width="121" height="20" uuid="34028ea3-85dc-4a9c-97f9-76bdf89b2f9f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CheckIn Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="4" width="100" height="20" uuid="b9f873aa-c525-4e71-8ae5-bb3cb4c2f4a2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CheckIn No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="4" width="100" height="20" uuid="c9875ee9-f587-40b6-b41b-e12c793a8bd9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Against ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="3" width="210" height="17" uuid="a05fa129-c9d3-4c84-906e-c0e726d68abb"/>
+				<textFieldExpression><![CDATA[$F{strGuestFullName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="3" width="120" height="16" uuid="1b2e5579-b757-4d77-9d00-6ddf1cad2466"/>
+				<textFieldExpression><![CDATA[$F{dteCheckInDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="3" width="100" height="16" uuid="d21a9dc5-2fc8-490d-b40b-b5802d347f5b"/>
+				<textFieldExpression><![CDATA[$F{strCheckInNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="3" width="100" height="16" uuid="6e188652-4920-4fb1-a08f-4e9a61079f22"/>
+				<textFieldExpression><![CDATA[$F{strAgainstType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="20" forecolor="#3366FF" uuid="6bef4261-9e03-4671-8884-ecd0d93c7582"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pax Count :]]></text>
+			</staticText>
+			<textField evaluationTime="Group" evaluationGroup="RoomNoWiseGroup">
+				<reportElement x="110" y="9" width="100" height="23" forecolor="#3366FF" uuid="951b7741-7ffa-49bb-afb9-5da59f1f7e80"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="35">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="64" y="10" width="120" height="20" uuid="a94905a6-1848-4383-be6c-05812cf6077b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="10" width="63" height="20" uuid="da9d67ec-9892-4685-bb21-a0172ab0f07c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Created On :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="10" width="25" height="21" uuid="da9d67ec-9892-4685-bb21-a0172ab0f07c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[By :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="10" width="64" height="20" uuid="979af289-9e6c-4f02-a8e7-654bba636cfb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="500" y="10" width="55" height="20" uuid="dee2f5f4-cc78-4d99-8aa1-641612625e74"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="30" width="555" height="1" uuid="20e6c723-36c1-406d-a79b-51895cb0512f"/>
+			</line>
+			<textField>
+				<reportElement x="220" y="9" width="202" height="22" uuid="7cd5269e-7948-4690-ad7c-a10ee08ad2d0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="d22c560b-05ba-4010-89f2-eef4cfc39c90"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

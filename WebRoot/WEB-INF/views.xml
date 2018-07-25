@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+     
+    <bean id="excelView" class="com.sanguine.util.clsExcelBuilder" />
+    <bean id="styleExcelView" class="com.sanguine.util.clsStyleExcelBuilder" />
+    <bean id="styleExcelTitleCellBorderView" class="com.sanguine.util.clsStyleExcelTitleCellBorderBuilder" />
+    <bean id="excelViewWithReportName" class="com.sanguine.util.clsExcelBuilderWithReportName" />
+    <bean id="excelViewFromDateTodateWithReportName" class="com.sanguine.util.clsExcelBuilderFromDateTodateWithReportName" />
+    <bean id="excelViewFromDateTodateCompanyNameWithReportName" class="com.sanguine.util.clsExcelBuilderFromDateTodateCompanyNameWithReportName" />
+    <bean id="excelViewForAccountReports" class="com.sanguine.util.clsExcelBuilderForAccountReports" />
+    <bean id="pdfViewMISFlash" class="com.sanguine.util.clsPDFBuilderForMISFlash" />
+    <bean id="pdfViewMISLocationWiseCategoryWiseReport" class="com.sanguine.util.clsPDFBuilderMISLocationWiseCategoryWiseReport" />
+</beans>

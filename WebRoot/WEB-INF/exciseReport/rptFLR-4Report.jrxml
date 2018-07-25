@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2016-01-05T12:09:30 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FLR-6" pageWidth="822" pageHeight="566" columnWidth="812" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" whenResourceMissingType="Error" uuid="0e55ba00-0d93-49e5-ab46-fecd237e94e5">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<parameter name="strLicenceNo" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strFromDate" class="java.lang.String"/>
+	<parameter name="strToDate" class="java.lang.String"/>
+	<parameter name="strCol1" class="java.lang.String"/>
+	<parameter name="strCol2" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol3" class="java.lang.String"/>
+	<parameter name="strCol4" class="java.lang.String"/>
+	<parameter name="strCol5" class="java.lang.String"/>
+	<parameter name="strCol6" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol7" class="java.lang.String"/>
+	<parameter name="strCol8" class="java.lang.String"/>
+	<parameter name="strCol9" class="java.lang.String"/>
+	<parameter name="strCol10" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol11" class="java.lang.String"/>
+	<parameter name="strCol12" class="java.lang.String"/>
+	<parameter name="strYear" class="java.lang.String"/>
+	<parameter name="strMonth" class="java.lang.String"/>
+	<parameter name="strAddress" class="java.lang.String"/>
+	<field name="strRow1" class="java.lang.String"/>
+	<field name="strRow2" class="java.lang.String"/>
+	<field name="strRow3" class="java.lang.String"/>
+	<field name="strRow4" class="java.lang.String"/>
+	<field name="strRow5" class="java.lang.String"/>
+	<field name="strRow6" class="java.lang.String"/>
+	<field name="strRow7" class="java.lang.String"/>
+	<field name="strRow8" class="java.lang.String"/>
+	<field name="strRow9" class="java.lang.String"/>
+	<field name="strRow10" class="java.lang.String"/>
+	<field name="strRow11" class="java.lang.String"/>
+	<field name="strRow12" class="java.lang.String"/>
+	<field name="strRow13" class="java.lang.String"/>
+	<field name="strRow14" class="java.lang.String"/>
+	<field name="strRow15" class="java.lang.String"/>
+	<field name="strRow16" class="java.lang.String"/>
+	<field name="strRow17" class="java.lang.String"/>
+	<field name="strRow18" class="java.lang.String"/>
+	<field name="strRow19" class="java.lang.String"/>
+	<field name="strRow20" class="java.lang.String"/>
+	<field name="strRow21" class="java.lang.String"/>
+	<field name="strRow22" class="java.lang.String"/>
+	<field name="strRow23" class="java.lang.String"/>
+	<field name="strRow24" class="java.lang.String"/>
+	<field name="strRow25" class="java.lang.String"/>
+	<field name="strRow26" class="java.lang.String"/>
+	<field name="strRow27" class="java.lang.String"/>
+	<field name="strRow28" class="java.lang.String"/>
+	<field name="strRow29" class="java.lang.String"/>
+	<field name="strRow30" class="java.lang.String"/>
+	<field name="strRow31" class="java.lang.String"/>
+	<field name="strRow32" class="java.lang.String"/>
+	<field name="strRow33" class="java.lang.String"/>
+	<field name="strRow34" class="java.lang.String"/>
+	<field name="strRow35" class="java.lang.String"/>
+	<field name="strRow36" class="java.lang.String"/>
+	<field name="strRow37" class="java.lang.String"/>
+	<field name="strRow38" class="java.lang.String"/>
+	<field name="strRow39" class="java.lang.String"/>
+	<field name="strRow40" class="java.lang.String"/>
+	<field name="strRow41" class="java.lang.String"/>
+	<field name="strRow42" class="java.lang.String"/>
+	<field name="strRow43" class="java.lang.String"/>
+	<field name="strRow44" class="java.lang.String"/>
+	<field name="strRow45" class="java.lang.String"/>
+	<field name="strRow46" class="java.lang.String"/>
+	<field name="strRow47" class="java.lang.String"/>
+	<field name="strRow48" class="java.lang.String"/>
+	<field name="strRow49" class="java.lang.String"/>
+	<field name="strRow50" class="java.lang.String"/>
+	<field name="strRow51" class="java.lang.String"/>
+	<field name="strRow52" class="java.lang.String"/>
+	<field name="strRow53" class="java.lang.String"/>
+	<field name="strRow54" class="java.lang.String"/>
+	<field name="strRow55" class="java.lang.String"/>
+	<field name="strRow56" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="102" splitType="Stretch">
+			<textField>
+				<reportElement x="687" y="56" width="105" height="12" uuid="215d9b70-2ea4-405b-a2d4-a79276c79faa"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strLicenceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="70" width="296" height="12" uuid="65908079-734a-499f-8711-d8932441be1c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="70" width="87" height="12" uuid="289e2a07-c907-4bdd-b3e3-b6a4ae538bd3"/>
+				<textElement textAlignment="Left" markup="html">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Name Of the Licence]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="47" width="438" height="18" uuid="f3a16673-350e-4bd2-a534-8d5f637c99bb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monthly Returns of Transactions of Foreign Liquor Effected By Vendors ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="4" width="261" height="21" uuid="00ed5649-990b-4496-adf8-c313ef6d2158"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[MONTHLY STATEMENT FOR THE MONTH OF ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="521" y="4" width="95" height="20" uuid="30019ad4-ce5c-4905-a9d7-0dfc2d8479b7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strMonth}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="616" y="4" width="54" height="21" uuid="5449b46e-060b-4604-a351-0fb225b1436d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="116" y="25" width="128" height="21" uuid="9d496957-c4bf-4a71-8833-46dbff7f12b0"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F.L.R. 4 (See Rule 15(II))]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="86" width="252" height="11" uuid="9aadb646-552d-446b-9be7-cfb66a68abca"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="85" width="85" height="12" uuid="0a19583a-b64d-44f0-99ca-1608151e4af3"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="623" y="55" width="64" height="15" uuid="ac793f0c-d3be-4a01-8911-4b5e5bd86a4e"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Licence No.:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35">
+			<line>
+				<reportElement x="0" y="34" width="812" height="1" uuid="3b6ff2b1-c423-43c6-a9ab-b53f3c17355c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="812" height="1" uuid="a890a53e-f6de-4ee1-b7da-eeff61828d69"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1" y="3" width="44" height="30" uuid="606225bc-bb06-412a-aa0a-a613d87b16e2"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="46" y="3" width="101" height="30" uuid="67e33ec4-83c2-4809-a41e-e7b6f0602cdc"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="148" y="3" width="96" height="30" uuid="476fdac7-9e17-487e-b27f-c8931044acab"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol3}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="245" y="3" width="103" height="30" uuid="405896a0-3245-4d86-8d13-1210344e5a22"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="349" y="3" width="96" height="30" uuid="0c8c0833-fee4-4c75-ba98-40f09ca3b025"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol5}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="446" y="3" width="85" height="30" uuid="3c8db0c8-b5fa-465a-99c9-a81bf49bd9fd"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol6}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="532" y="3" width="79" height="30" uuid="a2eb40ff-20f4-4476-980d-c5e8c2b90e28"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol7}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="611" y="3" width="96" height="30" uuid="368f3f36-8556-4106-9958-bf206f794972"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol8}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="707" y="2" width="64" height="30" uuid="1c1e5f24-f700-431f-aa13-d0ae9d291565"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol9}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="771" y="3" width="41" height="30" uuid="436dd92c-3c76-4d4d-a3e4-a811c5f3d837"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="147" y="2" width="24" height="29" uuid="66ba208c-6fb4-4bf7-9a2b-0a8e0c8037b6"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow7}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1" y="2" width="44" height="29" uuid="168190eb-79c8-4bed-9bb4-7efcbc851c2e"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Monospaced" size="6.5" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow1}.equals( "`" ) ? "" : $F{strRow1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="92" y="2" width="24" height="29" uuid="17fb271d-d46d-4c48-afd9-dbc0e01c0e36"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="171" y="2" width="25" height="29" uuid="a3b5e936-a071-4cf9-a28b-c0f5d86f8872"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow8}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="216" y="2" width="18" height="29" uuid="899078db-dc59-4c56-a7ac-88597cbb4243"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow10}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="196" y="2" width="20" height="29" uuid="0136703e-1743-421c-872a-7a91e052688c"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow9}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="246" y="2" width="30" height="29" uuid="59f4da2c-b103-4a69-994d-ee6f5739c0be"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow12}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="234" y="2" width="12" height="29" uuid="b4a76fdc-a887-40f5-bc86-3f615f476496"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow11}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="320" y="2" width="17" height="29" uuid="463648de-62f0-4a7a-b717-7168107ef83f"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="337" y="2" width="11" height="29" uuid="2af545f9-9c6a-465c-9bc3-15fe7279472d"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow16}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="348" y="2" width="28" height="29" uuid="d7fe3bc9-affc-433e-bde0-0ecc7ef7b88b"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow17}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="376" y="2" width="23" height="29" uuid="fc1b7b5a-3422-4e6b-b816-d287811a9b69"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow18}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="399" y="2" width="23" height="29" uuid="f1cd5ec3-b1f9-4ea8-83bd-cb719d6819ab"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow19}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="422" y="2" width="14" height="29" uuid="7c89c2c2-9d50-4d00-aea0-73f40b1999d4"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow20}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="436" y="2" width="10" height="29" uuid="3e011637-76c5-40b1-bdfa-0588818c2da4"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow21}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="446" y="2" width="23" height="29" uuid="5ace51ea-2ef9-41f2-90b1-a099991a75ab"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow22}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="469" y="2" width="21" height="29" uuid="b81ca735-bf1a-40e8-a640-205dc2fe83a5"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow23}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="490" y="2" width="19" height="29" uuid="ffa44a1c-9472-47b8-9ace-13ce0d74cf18"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow24}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="509" y="2" width="14" height="29" uuid="6af4a52f-e472-4010-a90e-df0a609f5e12"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow25}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="524" y="2" width="6" height="29" uuid="82d160a5-6587-47f0-9369-223ed362fe1c"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow26}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="556" y="2" width="18" height="29" uuid="5a596adf-e75f-4645-8a8d-128d75b45937"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow28}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="574" y="2" width="16" height="29" uuid="780f202d-78b5-4713-8676-f377747a1e4a"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow29}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="603" y="2" width="8" height="29" uuid="4ed572e6-0e34-431f-9651-e054538b54c1"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow31}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="634" y="2" width="21" height="29" uuid="54b21d19-c6c8-4db5-9180-0d764536cc8f"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow33}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="655" y="2" width="23" height="29" uuid="08f6787f-b1c3-4b34-be27-b1f73387986c"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow34}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="678" y="2" width="22" height="29" uuid="7f87cc57-6696-4a49-8598-543bf8a6b1ae"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow35}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="700" y="2" width="7" height="29" uuid="69d5ba8c-f35d-475a-ae28-d719dbaf8154"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow36}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="730" y="2" width="16" height="29" uuid="8a6006ea-69cc-40f1-9072-aff6c9512034"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow38}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="746" y="2" width="11" height="29" uuid="ad2fec96-fdf2-4c85-91d7-fa7ba3242681"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow39}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="807" y="2" width="6" height="29" uuid="4db24709-a9eb-4cec-abc4-e70db2cfaf1c"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow44}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="69" y="2" width="23" height="29" uuid="bcc69ac6-fbe8-4793-8a7d-c33216a1da5d"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="116" y="2" width="18" height="29" uuid="bae161ae-c639-4432-8978-6bd2ffe2871d"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="134" y="2" width="13" height="29" uuid="02bc45aa-36db-44e9-b1d1-2714d55e3129"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow6}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="276" y="2" width="22" height="29" uuid="d04ec246-7718-44f8-b39e-4391c9bddeb7"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow13}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="298" y="2" width="22" height="29" uuid="0fb9b003-8d64-44a5-8491-e9abe3af11a7"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow14}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="612" y="2" width="22" height="29" uuid="8eca0156-5140-4708-b518-367ea23f3cba"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow32}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="707" y="2" width="23" height="29" uuid="bd607905-f69a-4b98-a198-5a6fce974352"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow37}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="591" y="2" width="12" height="29" uuid="af7d199b-0257-43ee-b4e1-55680b43fb01"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow30}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="757" y="2" width="10" height="29" uuid="b869e409-1b00-4985-8c69-14928ee6aba0"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow40}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="767" y="2" width="8" height="29" uuid="301e44b7-6c16-4f05-8485-328af1aec2d2"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow41}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="775" y="2" width="21" height="29" uuid="c0e01631-b09d-4496-ba3f-35a6144d720b"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow42}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="797" y="2" width="10" height="29" uuid="d68e1b93-8159-47b7-bee9-b521b36984d5"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow43}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="531" y="2" width="24" height="29" uuid="f6a8c1fc-0841-4878-8cac-6cdc80d0f736"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow27}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="45" y="2" width="24" height="29" uuid="ca513295-1e0e-4151-ad44-61b66c6b5e30"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Tw Cen MT Condensed" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="28">
+			<textField>
+				<reportElement x="382" y="2" width="100" height="22" uuid="e787411a-5867-4a91-9972-7cbf72e9fb31"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="482" y="2" width="100" height="22" uuid="4274cf8b-267d-4cea-b9ac-2691e9a6870a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="124">
+			<staticText>
+				<reportElement x="26" y="12" width="286" height="14" uuid="3a9df6fa-e2cb-424f-af1e-2670d40aabf4"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Applicable to sales of Spirits, Wines and Fermented Liquors Only.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="30" width="198" height="14" uuid="1d22afb7-96c1-4660-8bf7-18c88f550a88"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Applicable to Sales of Mild Liquors Only.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="26" y="55" width="310" height="14" uuid="dd7fd05f-a9c5-44c5-94fc-2921d684d6c2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="110" width="206" height="14" uuid="e2da0fbc-ce5f-476f-b428-7c9639e3628b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Signature Of Licence Of His Authorised Agent]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-06-03T01:32:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ca3318f-da2c-4d8d-935e-8b30d18882c5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="StrImagePath" class="java.lang.String"/>
+	<parameter name="strFromDate" class="java.lang.String"/>
+	<parameter name="strToDate" class="java.lang.String"/>
+	<parameter name="strMISCode" class="java.lang.String"/>
+	<parameter name="strReqCode" class="java.lang.String"/>
+	<parameter name="strAgainst" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="strProdCode" class="java.lang.String"/>
+	<field name="strPartNo" class="java.lang.String"/>
+	<field name="strProdName" class="java.lang.String"/>
+	<field name="strRemark" class="java.lang.String"/>
+	<field name="dblReqQty" class="java.lang.Double"/>
+	<field name="dblMISQty" class="java.lang.Double"/>
+	<field name="dblBal" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="330" y="0" width="200" height="30" forecolor="#000000" backcolor="#FFFFFF" uuid="ec421e91-9cff-4b65-8d6b-83fd4bd26434"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="40" width="150" height="30" uuid="189a8e1a-254b-4975-a75e-be959c1f630d"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Requisition List]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="10" y="0" width="170" height="60" uuid="31c5ee71-147e-4e4e-ae93-15db6006fe02"/>
+				<imageExpression><![CDATA[$P{StrImagePath}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="91" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="0" width="555" height="1" uuid="4f0d084c-242f-4d69-b61f-8d4ebcf474f5"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="9" y="10" width="80" height="19" uuid="914fc587-f391-40bd-b254-8aad77f21bb5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Requisition Code:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="40" width="81" height="20" uuid="a7b34d83-b87a-491c-bbad-37e1eb2a1579"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[From Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="71" width="80" height="19" uuid="6438869b-fed4-4001-9717-698a876b369e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Against :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="41" width="75" height="19" uuid="8d92e9f6-d1af-4dd0-8c4e-ce150ce5c73c"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[To Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="10" width="100" height="20" uuid="3893d6bf-aaad-4e31-830b-89224d8bd2ad"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strReqCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="70" width="100" height="20" uuid="d1c32242-8d69-45f0-aaf4-f9f9ec9a5a90"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAgainst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="39" width="96" height="20" uuid="72397a34-59aa-4f0a-aad7-73d8ac74e621"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strToDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="40" width="100" height="20" uuid="8dee2682-e366-4245-97b5-5ad733b723c1"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strFromDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-1" y="4" width="556" height="30" backcolor="#EBEBEB" uuid="80b500fe-1c3c-4a01-8a50-4af98786fc57"/>
+				<staticText>
+					<reportElement x="10" y="0" width="70" height="20" uuid="4cfdf2b7-a5be-4521-922a-d9d7e1eaa28d"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Product Code]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="90" y="0" width="41" height="20" uuid="c4da1b8e-2a1e-473d-875a-d7ff2a7c6079"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Part no.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="140" y="0" width="77" height="21" uuid="9f81ed9b-b5c9-46b2-ad0a-70b2f15b5c80"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Product Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="0" width="70" height="20" uuid="9764d009-3af7-4b1b-9c4d-0e2ea5a74133"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Req. Quantity]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="240" y="0" width="45" height="19" uuid="42d2ee20-8deb-4c8e-831a-7e290292c10f"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Remarks]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="392" y="0" width="47" height="15" uuid="c866dc56-9cb1-48a4-9f91-55e7ae09eafb"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MIS Qty]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="470" y="0" width="50" height="19" uuid="9c033a5f-2104-4010-be07-e2e51dc53fd0"/>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Balance]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="69" height="20" uuid="81279ca8-25cc-4bf5-80e3-a28f89bb095c"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="40" height="20" uuid="3509875d-efb7-4a47-b6ee-d2646660041b"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPartNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="1" width="45" height="19" uuid="3785b329-3e99-45b5-ab6a-10c9b01d7f25"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRemark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="50" height="20" uuid="e8751f1b-b0cc-445e-992c-698a3888af40"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblReqQty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="50" height="20" uuid="13fcb64d-4a5a-42a8-b795-9bc59852fe05"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblBal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="0" width="38" height="20" uuid="c5e6e0d5-7daf-4089-b486-b13de223a608"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblMISQty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="91" height="20" uuid="b7198044-20f3-4bd6-aba4-ee0d6bf4daa4"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="320" y="20" width="100" height="20" uuid="863653fd-b420-4b3e-b6fb-dfe806faebe2"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="20" width="20" height="20" uuid="2745eb87-72cf-49b9-84fe-2b9311562fc2"/>
+				<textElement>
+					<font fontName="Serif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="6" width="554" height="1" uuid="39ddd3fd-2b4e-41a9-8a27-b716763346dc"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="450" y="20" width="50" height="20" uuid="bb637455-950a-444d-ab4e-3154dc74dcc5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="500" y="20" width="50" height="20" uuid="659b13a6-67ad-4ffe-8ab3-ea0f4aa554af"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="60" y="20" width="90" height="20" uuid="8bdc911c-ec4f-427f-b579-77ff14eff618"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="184" y="21" width="56" height="19" uuid="cdfc85e7-ecb6-4810-a048-9b418143392a"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="21" width="24" height="20" uuid="1a3497fc-239d-4577-aa54-ab759b6cb2c7"/>
+				<textElement>
+					<font fontName="Serif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="20" width="61" height="20" uuid="d6b9bafb-9da2-4e37-86a1-3915b59bd68a"/>
+				<textElement>
+					<font fontName="Serif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

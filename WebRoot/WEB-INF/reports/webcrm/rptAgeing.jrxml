@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-12-30T18:11:10 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="742ef197-00f2-4607-abe0-b4afc8718546">
+	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<style name="table 3_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsAgeing" uuid="be0faebd-421b-41ce-846a-952b8b352f17">
+		<queryString language="SQL">
+			<![CDATA[SELECT CONCAT(c.strPName," ",c.strSAdd1," ",c.strSAdd2," ",c.strSCity," ",c.strSPin," ",c.strSState," ",
+c.strSCountry) AS subContractingDtl,b.strJACode,b.dteJADate,d.dteExpDate,e.dteSRDate,e.strSRNo, 
+DATEDIFF(e.dteSRDate,b.dteJADate) AS dateDif
+FROM tbljoborderallocationhd b, tblpartymaster c,tbldeliverynotehd d,tblscreturnhd e
+WHERE b.strSCCode=c.strPCode AND b.strJACode=d.strJACode AND d.strDNCode=e.strSCDNCode
+and Date(b.dteJADate) between '2014-01-01' and '2016-12-31'
+and b.strClientCode=c.strClientCode and b.strClientCode=d.strClientCode and b.strClientCode=e.strClientCode
+and b.strClientCode='024.001']]>
+		</queryString>
+		<field name="subContractingDtl" class="java.lang.String"/>
+		<field name="strJACode" class="java.lang.String"/>
+		<field name="dteJADate" class="java.sql.Date"/>
+		<field name="dteExpDate" class="java.sql.Date"/>
+		<field name="dteSRDate" class="java.sql.Date"/>
+		<field name="strSRNo" class="java.lang.String"/>
+		<field name="dateDif" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strclientCode" class="java.lang.String"/>
+	<parameter name="strFromDate" class="java.lang.String"/>
+	<parameter name="strToDate" class="java.lang.String"/>
+	<parameter name="strType" class="java.lang.String"/>
+	<parameter name="strDCCode" class="java.lang.String"/>
+	<parameter name="SCName" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="30" width="352" height="15" uuid="167c3251-fc5b-407e-a789-37176a1811e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="45" width="352" height="15" uuid="8ced9356-c706-4aae-974d-ffc7d8da4ce5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="3" width="352" height="28" uuid="a8f73ee2-beb2-4b34-b536-266e0da28088"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="60" width="352" height="17" uuid="23bd89f5-cd2e-47e8-aee8-ccc0fb60566c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ageing Report]]></text>
+			</staticText>
+			<image>
+				<reportElement x="3" y="3" width="177" height="74" uuid="89272b6e-bd87-44d1-b76f-26edd7783104"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="5" y="81" width="275" height="16" uuid="72be5229-4f24-478f-abf8-0ab8edfa7f5f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORT ON EFFECTIVE DAYS ON CLOSED JOB ORDER CHALLANS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="78" width="88" height="14" uuid="a10da462-6a29-43b8-bba5-e5c0015db807"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Period From :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="78" width="111" height="14" uuid="3ec4039e-0564-43b0-9c15-f1ba6508a72e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strFromDate}+" To "+$P{strToDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="104" width="88" height="14" uuid="715d4861-5b55-4499-949d-354f9222693d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[For Delivery Note Code :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="104" width="100" height="16" uuid="5917b903-6ec3-4535-8986-5bbfadce8ffb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[For SubContractor :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="104" width="56" height="15" uuid="b826de8e-328a-4c38-b15a-168b30b97be4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SCName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="181" y="104" width="33" height="16" uuid="fa796d9b-1e50-46d2-9f98-412404538219"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="225" y="104" width="100" height="15" uuid="48f28055-2f07-44ad-b739-a546724741ae"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="104" width="111" height="16" uuid="b478d8f8-61d8-4e29-ace2-e4bf46739e99"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strDCCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 3" x="9" y="0" width="546" height="56" uuid="b2f3859b-af8d-4c08-aa90-2e4dbb1c5541"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsAgeing" uuid="1103492d-3783-4bcd-bbd6-071a056cfe41">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="150" uuid="c92339f4-5623-4cc6-aad3-5c3eb8b5c46e">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="1e9e3d7c-fe9e-4aa5-82f7-320650c6e7b5"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[subContracting]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="6" y="0" width="144" height="40" uuid="5ba907af-0b11-4967-8b5a-6ecdfeb9b165"/>
+								<textFieldExpression><![CDATA[$F{subContractingDtl}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f79de432-8ecf-4c4e-b890-f2eff6d33d17">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="1" y="0" width="65" height="30" uuid="90334955-c2a2-4541-8a24-f97ea90e64cc"/>
+								<text><![CDATA[JA Code]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="79" height="40" uuid="4d509399-1150-4007-98ee-e24a58fa306a"/>
+								<textFieldExpression><![CDATA[$F{strJACode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="57" uuid="0e9655f7-bb8b-40c6-91c8-12eab2a2efe5">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="54" height="30" uuid="064fd96e-02c9-499d-b201-998ac513b2d5"/>
+								<text><![CDATA[JA Date]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="54" height="26" uuid="0a473979-ddc1-4d7c-af74-9fb99bd9c23d"/>
+								<textFieldExpression><![CDATA[$F{dteJADate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61" uuid="1d2d9583-71c1-4a1e-9dfd-97f56dcfc852">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="59" height="30" uuid="b14e2bea-8817-4b2b-9073-8b57b76ff136"/>
+								<text><![CDATA[Exp Date]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="59" height="26" uuid="bac0b510-6c33-469c-a26a-e8b9af2db89c"/>
+								<textFieldExpression><![CDATA[$F{dteExpDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="1b876bdd-d1f4-486b-93be-f7a43cea0187">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="57" height="30" uuid="4ad5f77b-5779-49fe-bc3a-1798c73e2a67"/>
+								<text><![CDATA[SR Date]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="57" height="26" uuid="5fe53b14-809f-464f-ae56-dfaae155b902"/>
+								<textFieldExpression><![CDATA[$F{dteSRDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="62" uuid="f717dd4b-9e38-4eed-8ed1-f6ccf7f727ed">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="6" y="0" width="56" height="30" uuid="c7ff24a0-8bb5-4ee2-9224-345e34c4f080"/>
+								<text><![CDATA[SR. No]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="6" y="0" width="56" height="40" uuid="03bba1c8-76a1-4a3a-a002-c4135c58359d"/>
+								<textFieldExpression><![CDATA[$F{strSRNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="67" uuid="b3a39e85-1b80-4648-a8a5-34265f6a9c98">
+						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="6" y="0" width="50" height="30" uuid="8bee522e-0763-4168-9959-a22abd612671"/>
+								<text><![CDATA[Date Diff]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 3_TD" height="40" rowSpan="1">
+							<textField>
+								<reportElement x="6" y="0" width="50" height="40" uuid="b97bad77-2852-4cc4-81ba-42576c0b3a58"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{dateDif}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="3" width="61" height="15" uuid="342190bd-7d98-4ae4-a6e2-6a5e477fcd8a"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="3" width="20" height="15" uuid="f031a3c0-d59e-467a-86ba-66e0a17a65de"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="502" y="3" width="50" height="15" uuid="88354e70-be51-40a0-9ae1-937f5c7bee9c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="165" y="3" width="24" height="15" uuid="a84020e0-9426-4587-b750-ef37d4b1f0ff"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="69" y="3" width="90" height="15" uuid="bf12c38d-0540-4a88-bd42-9861b90fc2b9"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="3" width="50" height="15" uuid="8eceea6a-74e4-44da-9231-63599ce316ad"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="189" y="3" width="56" height="15" uuid="ef830073-fc2e-49e2-8b9b-a0e417ccced5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="3" width="100" height="15" uuid="f68b67d3-5256-43c4-9e46-c94a7d53b908"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>

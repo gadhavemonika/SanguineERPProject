@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-03-25T15:41:57 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="742ef197-00f2-4607-abe0-b4afc8718546">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="WebRoot\WEB-INF\reports\webstock.xml"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#E0E0E0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E0E0E0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Style1"/>
+	<subDataset name="dsRecipesDtl" uuid="3a59a631-36b8-4749-8600-7f1cbccf0b22">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="WebRoot\WEB-INF\reports\webstock.xml"/>
+		<queryString>
+			<![CDATA[SELECT   h.strBOMCode as strBOMCode,h.strParentCode as strParentCode,
+h.strprocesscode as strprocesscode,h.dblQty as ParentDdlQty,h.strUOM as ParentstrUOM,
+ p.strProdName as ParentProdName,lp.strlocname as parentLocation, d.strChildCode, 
+cp.strProdName as childProductName,cp.strUom as childUOM, d.dblQty,cp.dblCostRM as  price,
+pr.strprocessname,cl.strlocname as childLocation
+,date(h.dtCreatedDate) as dtCreatedDate,date(h.dtValidFrom) as dtValidFrom,date(h.dtValidTo) as dtValidTo, h.strUserCreated as strUserCreated,d.dblQty*cp.dblCostRM as value 
+from tblbommasterhd  h inner join tblbommasterdtl AS d ON h.strBOMCode = d.strBOMCode and d.strClientCode='024.001'
+left outer join tblproductmaster   p ON h.strParentCode = p.strProdCode and p.strClientCode='024.001'
+left outer join tblproductmaster AS cp ON d.strChildCode = cp.strProdCode and cp.strClientCode='024.001'
+  left outer join tbllocationmaster  lp ON lp.strLocCode = p.strLocCode and lp.strClientCode='024.001'
+   left outer join tbllocationmaster AS cl ON cl.strLocCode = cp.strLocCode and cl.strClientCode='024.001'
+left outer join tblprocessmaster pr on h.strprocesscode=pr.strprocesscode and pr.strClientCode='024.001' 
+where h.strParentCode='P000001' and h.strClientCode='024.001']]>
+		</queryString>
+		<field name="strBOMCode" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="strParentCode" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="strprocesscode" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="ParentDdlQty" class="java.lang.Double"/>
+		<field name="ParentstrUOM" class="java.lang.String"/>
+		<field name="ParentProdName" class="java.lang.String"/>
+		<field name="parentLocation" class="java.lang.String"/>
+		<field name="strChildCode" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="childProductName" class="java.lang.String"/>
+		<field name="childUOM" class="java.lang.String"/>
+		<field name="dblQty" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="price" class="java.math.BigDecimal"/>
+		<field name="strprocessname" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="childLocation" class="java.lang.String"/>
+		<field name="dtCreatedDate" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dtValidFrom" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dtValidTo" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="strUserCreated" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="value" class="java.math.BigDecimal"/>
+		<variable name="TotalPrice" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{price}]]></variableExpression>
+		</variable>
+		<variable name="totalQty" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblQty}]]></variableExpression>
+		</variable>
+		<variable name="tatvalue" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{value}]]></variableExpression>
+			<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="30" width="352" height="15" uuid="167c3251-fc5b-407e-a789-37176a1811e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="45" width="352" height="15" uuid="8ced9356-c706-4aae-974d-ffc7d8da4ce5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="3" width="352" height="28" uuid="a8f73ee2-beb2-4b34-b536-266e0da28088"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="60" width="352" height="17" uuid="23bd89f5-cd2e-47e8-aee8-ccc0fb60566c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recipes List]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="3" y="3" width="177" height="74" uuid="89272b6e-bd87-44d1-b76f-26edd7783104"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="119" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="3" width="552" height="110" uuid="0c511283-5aec-49fc-88fd-6832afb44b5d"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsRecipesDtl" uuid="eefb421b-62e4-4849-869f-ec661822db04">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="553" uuid="d7d1ee2a-f350-4726-b3bf-8c1ab26a546c">
+						<jr:columnHeader style="table_TD" height="30">
+							<textField isBlankWhenNull="true">
+								<reportElement x="4" y="0" width="548" height="30" uuid="d513fde6-1641-4c6f-a33e-4ed6ad703cb7">
+									<property name="local_mesure_unitheight" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									<property name="local_mesure_unitwidth" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Serif" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[" Parent Product Code"+" "+$F{strParentCode}+", "+$F{ParentProdName} +", "+$F{strprocessname}+", "+$F{dtValidFrom}+" To "+$F{dtValidTo}+", "+$F{ParentDdlQty}+", "+$F{ParentstrUOM}+", "+$F{parentLocation}+" "]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnGroup width="553" uuid="dae6324d-5c7b-4704-b0f2-86cc1c86894e">
+							<jr:column width="140" uuid="a93a2a58-c092-4601-b166-caa57b3af8f2">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="4" y="0" width="136" height="30" uuid="f911630e-ad5c-4734-9219-193c20163c52"/>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[ Product]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField>
+										<reportElement x="4" y="0" width="136" height="25" uuid="e2c0a496-7074-4dd3-ae71-51f6352a74a0">
+											<property name="local_mesure_unitheight" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{ParentProdName}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="40" uuid="2a627d10-7cb1-4e7c-82e1-2b2924229546">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="2" y="0" width="35" height="30" uuid="3ffe15e4-99ba-4935-8ce8-d14c8a9cd6f6">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[Child  Code]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="40" height="25" uuid="81b93c28-b011-4476-8851-bf9586e42cd0">
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="8" isBold="false"/>
+											<paragraph leftIndent="2"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{strChildCode}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="148" uuid="00c5de73-9c6d-4f3b-af62-52558aa7f521">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="2" y="0" width="146" height="30" uuid="2608a36a-d7c8-4914-b964-9166e03dbce8">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[ Child Product Name]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20">
+									<staticText>
+										<reportElement x="117" y="0" width="29" height="20" uuid="137d4c27-50f6-48a0-bdd1-50784da96e20"/>
+										<textElement>
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[Total]]></text>
+									</staticText>
+								</jr:columnFooter>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField>
+										<reportElement x="2" y="0" width="146" height="25" uuid="9f9ac462-8479-4af3-a96e-dbd135928fd6">
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{childProductName}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="38" uuid="a1b1be60-a078-42dc-8a9c-2152a28f9527">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="10" y="0" width="27" height="30" uuid="4af59782-e05c-428c-96a5-7e5a5c043d3c">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[Qty]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="35" height="25" uuid="01856265-8f69-4446-a6cf-8315460fd35f">
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Right" verticalAlignment="Middle">
+											<font fontName="Serif" size="8" isBold="false"/>
+											<paragraph rightIndent="2"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{dblQty}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="32" uuid="97cb618f-94a6-4b79-aefb-1026380f1461">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="1" y="0" width="30" height="30" uuid="e07576a4-f2b7-4671-b874-28f6777aa58a">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[ UOM]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="2" y="0" width="30" height="25" uuid="4d6d7e40-489b-4eac-8bb4-55ea9ff61bbd">
+											<property name="local_mesure_unitheight" value="pixel"/>
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="8" isBold="false"/>
+											<paragraph leftIndent="0"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{childUOM}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="40" uuid="ca58e450-1557-48df-b9f5-cbe451fc7703">
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="40" height="30" uuid="5ebd825e-ef35-471a-a283-f373db35f6cc"/>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[ Price]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="true">
+										<reportElement x="2" y="0" width="38" height="25" uuid="c6421c37-5ab3-4c8a-87cb-6535dc5d2905">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Right" verticalAlignment="Middle">
+											<font fontName="Serif" size="8" isBold="false"/>
+											<paragraph rightIndent="2"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="70" uuid="db6afab7-5ada-451b-8fb6-c5b75bbb45d9">
+								<property name="local_mesure_unitheight" value="pixel"/>
+								<jr:tableHeader style="table_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="70" height="30" uuid="8cc0ac0e-8947-4ae6-8d0a-5697a6dc1c1d"/>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="10" isBold="true"/>
+										</textElement>
+										<text><![CDATA[ Location]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20"/>
+								<jr:detailCell style="table_TD" height="25" rowSpan="1">
+									<textField>
+										<reportElement x="1" y="0" width="69" height="25" uuid="2fccade7-dd68-4f9a-8292-130f15a62161">
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{childLocation}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="bbea9018-544d-4076-be4a-5c4b0ba99004">
+								<jr:tableHeader style="table_TH" height="30">
+									<staticText>
+										<reportElement x="12" y="0" width="31" height="30" uuid="596d9665-ff21-4945-8f0b-525c9ba88fe8">
+											<property name="local_mesure_unitheight" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Left" verticalAlignment="Middle">
+											<font fontName="Serif" isBold="true"/>
+										</textElement>
+										<text><![CDATA[Value]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:columnFooter style="table_TD" height="20">
+									<textField pattern="#,##0.00##;(#,##0.00##-)" isBlankWhenNull="true">
+										<reportElement x="1" y="1" width="42" height="18" uuid="cdfdcbbb-e6fd-46b4-acbd-dc776b18408e">
+											<property name="local_mesure_unitwidth" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Right" verticalAlignment="Middle">
+											<font fontName="Serif" size="8" isBold="true"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$V{tatvalue}]]></textFieldExpression>
+									</textField>
+								</jr:columnFooter>
+								<jr:detailCell style="table_TD" height="25">
+									<textField pattern="#,##0.00##;(#,##0.00##-)">
+										<reportElement x="0" y="0" width="43" height="25" uuid="88f5bbaf-1f1a-4c84-84a4-799d6a1a3cb5">
+											<property name="local_mesure_unitheight" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textElement textAlignment="Right" verticalAlignment="Middle">
+											<font fontName="Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="4" width="555" height="1" forecolor="#969696" uuid="bcf6276c-b723-404d-85d2-3bec7e8509f6"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="64" y="4" width="90" height="20" uuid="47226337-1fe8-4c47-a3d2-e10ff6027859"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="504" y="4" width="50" height="20" uuid="3e321617-8142-47a3-9cd4-f80d83e6022e"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="164" y="5" width="24" height="20" uuid="aaed5745-457e-4ee1-b4ad-d2b0557c7525"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="188" y="5" width="56" height="19" uuid="c8b4f660-3a30-4297-a8bf-0e1e5817e628"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="4" width="100" height="20" uuid="1aad490c-1a29-455d-9d4d-42074868b78a"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="4" width="20" height="20" uuid="5dbb30ac-daa6-4687-9e89-c3615bf4aed3"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="454" y="4" width="50" height="20" uuid="a624c688-d96b-45ae-a572-213a5718f729"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="4" width="61" height="20" uuid="c0df6456-dc59-4a18-bcb7-1af965a706fe"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

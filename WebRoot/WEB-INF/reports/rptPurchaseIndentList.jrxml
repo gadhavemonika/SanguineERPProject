@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-06-25T15:26:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPurchaseIndentList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4735a6d8-931e-4558-bd35-26168a814e5e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="ImagePath" class="java.lang.String"/>
+	<parameter name="CompanyName" class="java.lang.String"/>
+	<parameter name="FromDate" class="java.lang.String"/>
+	<parameter name="ToDate" class="java.lang.String"/>
+	<parameter name="CreatedOn" class="java.lang.String"/>
+	<parameter name="By" class="java.lang.String"/>
+	<parameter name="At" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="strPICode" class="java.lang.String"/>
+	<field name="strPIDate" class="java.lang.String"/>
+	<field name="strLocName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="370" y="40" width="170" height="30" uuid="1fe56f14-66d4-4ae9-a2e5-9f87da89fb12"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase Indent List]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="-1" y="0" width="281" height="70" uuid="6aa85f9b-0fee-4bd4-8529-bece4e9da574"/>
+			</image>
+			<textField>
+				<reportElement x="370" y="8" width="160" height="32" uuid="410c1c9f-2ff4-4d7d-b2d9-20be8a8db25a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CompanyName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="80" height="20" uuid="21de6ad3-fe1a-49d9-b9aa-9da3eeebdc50"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[From Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="9" width="100" height="20" uuid="c325bdf1-7002-48e8-bba7-33730b372865"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FromDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="9" width="80" height="20" uuid="042e859d-dfe7-4f9e-a5f3-d3f13ec7f358"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[To Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="9" width="100" height="20" uuid="cb28f02e-360b-4c7d-a76f-2b30e0433683"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ToDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="542" height="30" forecolor="#FFFFFF" backcolor="#DBD7D7" uuid="760c6e85-e669-42b3-9507-f4795faf4ffe"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#DBD3D3"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#DBD3D3"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#DBD3D3"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#DBD3D3"/>
+				</box>
+				<staticText>
+					<reportElement x="30" y="10" width="100" height="18" uuid="5053ee15-577d-449b-84b2-69dd26b4c988"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PI CODE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="10" width="100" height="19" uuid="8e0bdf3a-2c09-49c0-8a31-3010a683f838"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PI DATE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="10" width="100" height="18" uuid="2bf903d3-f7d2-4c11-822b-90d2d44a2cba"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LOCATION]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="100" height="20" uuid="e49685b6-302a-4905-9680-c52873d909f3"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPICode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="20" uuid="cd1d2afd-7cf5-4783-b216-025ac6a2df3d"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPIDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" uuid="3a61ab51-2c9e-4a1d-bddc-5cbd8acd8a43"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strLocName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="76" height="20" uuid="97501aea-a369-446f-93fd-b00b4d8ce14a"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created On      :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="3" width="40" height="20" uuid="256d9e9e-f6b2-4551-908d-0fba072058fb"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="3" width="40" height="20" uuid="72e19f5a-bde3-46b2-8900-5c9da0ee856d"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[At     :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="4" width="60" height="20" uuid="ff43f7b5-c1a3-493d-bea9-40b0978b8dc0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="488" y="4" width="65" height="20" uuid="c23ee4c3-5eb6-404c-81f1-24857a65e75a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="1" width="90" height="20" uuid="6106288c-a2c6-4cb1-9a7a-a572bd2bb958"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CreatedOn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="4" width="50" height="20" uuid="7d976f8e-961b-4d55-9b0c-c43d237b8356"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{At}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="4" width="90" height="20" uuid="4eba1871-6bd5-4407-acb9-5ef9bcfbc7ae"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{By}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

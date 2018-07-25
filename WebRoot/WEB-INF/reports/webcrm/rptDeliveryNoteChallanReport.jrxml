@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2016-01-01T15:17:47 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="742ef197-00f2-4607-abe0-b4afc8718546">
+	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="289"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<style name="table 3_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsDeliveryNoteChallan" uuid="eb488a61-2c6b-412a-b45c-a987b55c337e">
+		<queryString>
+			<![CDATA[select b.strProdCode as ProdCode,c.strPartNo as PartNo,c.strProdName as ProductName,b.dblQty as Qty,
+b.dblQty*b.dblWeight as Weight,(b.dblQty*b.dblRate) as value , 0.00 as Duty
+from tbldeliverynotehd a,tbldeliverynotedtl b,tblproductmaster c
+where a.strDNCode=b.strDNCode 
+and b.strProdCode=c.strProdCode
+and a.strDNCode='02DNAL000002' 
+and a.strClientCode =b.strClientCode 
+and b.strClientCode = c.strClientCode 
+and a.strClientCode='024.001']]>
+		</queryString>
+		<field name="ProdCode" class="java.lang.String"/>
+		<field name="PartNo" class="java.lang.String"/>
+		<field name="ProductName" class="java.lang.String"/>
+		<field name="Qty" class="java.math.BigDecimal"/>
+		<field name="Weight" class="java.math.BigDecimal"/>
+		<field name="value" class="java.math.BigDecimal"/>
+		<field name="Duty" class="java.math.BigDecimal"/>
+		<variable name="totQty" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{Qty}]]></variableExpression>
+			<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+		</variable>
+		<variable name="totWt" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{Weight}]]></variableExpression>
+			<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+		</variable>
+		<variable name="totvalue" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{value}]]></variableExpression>
+			<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+		</variable>
+		<variable name="totDuty" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{Duty}]]></variableExpression>
+			<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strclientCode" class="java.lang.String"/>
+	<parameter name="strSAdd1" class="java.lang.String"/>
+	<parameter name="strSAdd2" class="java.lang.String"/>
+	<parameter name="strSCity" class="java.lang.String"/>
+	<parameter name="strSPin" class="java.lang.String"/>
+	<parameter name="strSState" class="java.lang.String"/>
+	<parameter name="strSCountry" class="java.lang.String"/>
+	<parameter name="strPartyName" class="java.lang.String"/>
+	<parameter name="DNDate" class="java.lang.String"/>
+	<parameter name="Transportno" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="224" y="6" width="91" height="17" uuid="69865603-cb08-47fa-adec-9744d069e06e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANNEXURE II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="28" width="546" height="16" uuid="50310b4e-4c96-4ada-9ee4-d8abfccfc374"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHALLAN FOR REMOVAL OF GOODS TO SUB-CONTRACTOR PREMISES AND RETURN OF PROCESSED GOODS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="9" width="154" height="16" uuid="59bbcb37-9b7d-4ff6-85e4-eafc68cf27b7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Original/Duplicate/Triplicate/Quadruplicate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="48" width="38" height="14" uuid="56abe239-8217-446d-9e89-fe644f67837c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="48" width="36" height="14" uuid="ca306fd4-28ad-42f2-8126-b0aee061ef45"/>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="491" y="48" width="56" height="13" uuid="3fd0949c-8cc1-41fc-a021-67ab22d164ca"/>
+				<textFieldExpression><![CDATA[$P{DNDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="66" width="544" height="44" uuid="a9d25c7c-f925-48d3-9789-e53a2994ec0a"/>
+				<textFieldExpression><![CDATA[" In terms of the permission granted by the Commissioner of Central Excise & Customs, Pune, vide letter ref. F.NO.P-VI/JW/K-II/2014-15/141 dated " +"04-08-2014, We," +$P{strCompanyName} +" "+$P{strAddr1}+", "+$P{strAddr2}+","+$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin} +" desire to remove the following bonded imported/Indigenous material for undertaking certain manufacturing " +" process outside our factory premises as per details below : "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="3" y="1" width="549" height="24" uuid="6e3ea061-5613-4c9f-a755-a92afdfb9ace"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsDeliveryNoteChallan" uuid="113e4911-0031-484e-bc7c-54c1facab404">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="64" uuid="2a490dd9-55b1-4e41-9c1a-1878be23f610">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="4" y="0" width="55" height="30" uuid="66295528-6b4a-4455-90f8-8ef727240423"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[ProdCode]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="55" height="20" uuid="c08557fc-dd52-459f-aaee-82d104b81330"/>
+								<textFieldExpression><![CDATA[$F{ProdCode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="52" uuid="1b3d2231-3c18-4f4f-8c90-6a52c02b36de">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="49" height="30" uuid="c336551a-36bd-4f89-8ae3-7a37ff7b0486"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[PartNo]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="49" height="20" uuid="5798b1f8-188f-40fd-a80d-a4c7390fb75d"/>
+								<textFieldExpression><![CDATA[$F{PartNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="161" uuid="e0196329-305d-44b9-ba0c-052945c91bcc">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="141" height="30" uuid="fabff738-f668-4c82-8982-42f1e291abed"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[ProductName]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="161" height="30" uuid="6c5c96c2-3711-4aab-973d-cedefeb1bbd9"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="155" height="20" uuid="f29cc934-5f28-4e4b-a508-81ffc740cfcf"/>
+								<textFieldExpression><![CDATA[$F{ProductName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="57" uuid="c17b79ac-3746-49cf-8392-f284c09e7eef">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="5" y="0" width="50" height="30" uuid="d676a789-e85e-4727-836e-00636d6d5451"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Qty]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="5" y="0" width="52" height="30" uuid="40d286d2-f8d4-429d-9c25-b805ffbe811c"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$V{totQty}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="4" y="0" width="51" height="20" uuid="190cc8f5-e0af-4459-8bd4-8f90a209edb2"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{Qty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="6c6f7c6e-8c55-4db9-a06a-48fac5ab98bb">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="4" y="0" width="62" height="30" uuid="14cfcb9a-77d6-4060-ad7e-08c4a3bfbe38"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Weight]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="62" height="30" uuid="2bd88bd2-7839-44ae-ac69-e66d3b70cd0a"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$V{totWt}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="3" y="0" width="62" height="20" uuid="341fd288-5df4-44a5-9637-fc35acb8fe0c"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{Weight}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="509e2a76-253a-4999-be3d-0daf1e75fbca">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="3" y="0" width="66" height="30" uuid="5fe7495d-9951-418d-a73a-b7623b4e3a20"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[value]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="8" y="0" width="61" height="30" uuid="5226b264-add0-4cdb-9104-c6abd1261976"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$V{totvalue}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="3" y="0" width="66" height="20" uuid="df5d4fe5-7fbe-4212-9c3d-7b5840c2a179"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="77" uuid="ff47f48b-ab20-4fac-8705-5cbaa27d6b94">
+						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="8" y="0" width="69" height="30" uuid="51c6afc2-2b9f-4255-9a6a-0f624b357dbc"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Duty]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="5" y="0" width="69" height="30" uuid="760444fc-fa46-48f2-b7d4-a9329cb56b30"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$V{totDuty}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="4" y="0" width="69" height="20" uuid="9f7e4bcc-bc1c-444c-b6bd-38324c124f0a"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{Duty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="3" width="61" height="15" uuid="342190bd-7d98-4ae4-a6e2-6a5e477fcd8a"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="3" width="20" height="15" uuid="f031a3c0-d59e-467a-86ba-66e0a17a65de"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="502" y="3" width="50" height="15" uuid="88354e70-be51-40a0-9ae1-937f5c7bee9c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="165" y="3" width="24" height="15" uuid="a84020e0-9426-4587-b750-ef37d4b1f0ff"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="69" y="3" width="90" height="15" uuid="bf12c38d-0540-4a88-bd42-9861b90fc2b9"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="3" width="50" height="15" uuid="8eceea6a-74e4-44da-9231-63599ce316ad"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="189" y="3" width="56" height="15" uuid="ef830073-fc2e-49e2-8b9b-a0e417ccced5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="3" width="100" height="15" uuid="f68b67d3-5256-43c4-9e46-c94a7d53b908"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="548" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="2" width="249" height="15" uuid="c6fd8807-465d-4ffa-a02a-b67b70be7f85"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name & Address of the SubContractor to whom the goods are sent]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="347" y="22" width="203" height="38" uuid="43cd4591-fab1-4a33-8af2-6656f9dbccb2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strSAdd1}+","+$P{strSAdd2}+","+$P{strSCity}+","+$P{strSState}+","+$P{strSPin}+","+$P{strSCountry}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="3" width="195" height="15" uuid="73f85ba9-c639-4869-a83f-17e16d6143bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strPartyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="54" width="54" height="12" uuid="52f67e5c-2661-45eb-b246-ccc1aa99ef23"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Bond Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="77" width="54" height="15" uuid="5dae1ee8-d801-408a-a535-8b7654540bf4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Process Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="94" width="94" height="13" uuid="adaa807b-c53a-4df8-9011-fdc293c3921b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Identification Marks & no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="110" width="94" height="15" uuid="af1f96cb-7402-4836-a5e4-0d0ff8ee489a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Time & Date of Removal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="104" width="109" height="13" uuid="adaa807b-c53a-4df8-9011-fdc293c3921b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[AS PER OUTWARD STAMP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="150" width="188" height="14" uuid="0c95e793-d9ee-4afd-a14b-89aeb37f938f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FOR "+$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="187" width="164" height="14" uuid="e49f2987-eaca-4bfc-80e3-6c66d9de3246"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authorised Signatory]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="133" width="186" height="17" uuid="d1cbc555-6fa2-4efe-b512-d2fa58301e19"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Transportno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="125" width="94" height="14" uuid="657880fe-7299-415e-911c-df4ca47a3c42"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Mode of Transport]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="214" width="290" height="16" uuid="42ee0f3c-7315-427c-bff5-f6fbea63e973"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART B (For Use of Customs / Central Excise Officer Only)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="238" width="528" height="60" uuid="efbb2287-6d5d-4b1e-8635-43741487617d"/>
+				<textFieldExpression><![CDATA[" Verified the particulars as above with the permission granted by the Commissioner.The removal of the materials as per particularsm Signatur of Inspector of Customs / Excise in charge of  " +$P{strCompanyName}+ " in Part A above is hereby allowed.The material was removed from the premises of M/s "+$P{strCompanyName}
++" at__________________________on_____________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="307" width="294" height="15" uuid="1fa9f4bb-96f7-407a-bcff-93c7f923f5ea"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Signatur of Inspector of Customs / Excise in charge of " +$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="355" width="460" height="18" uuid="110d893e-5f39-4a56-814b-9b0f8c8f49ee"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Received___________________________________________________of goods of description in Part A Above & taken in to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="373" width="323" height="14" uuid="411d5b9b-2046-4e8b-a47f-5614e8e4f72c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[stock vide S.No______________________Date________________of the stock register.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="386" width="109" height="17" uuid="edc573d9-5dd1-41d6-8830-66279b62eeb5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date_________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="391" width="204" height="14" uuid="a7f8e437-a999-4674-b51d-be922b838c58"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stamp & Signature of the Sub Contractor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="135" y="418" width="330" height="17" uuid="6c7d2dbc-67ba-426a-9810-e2b13cc374d1"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PART D (To be Filled in By "+ $P{strCompanyName}+" )"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="439" width="544" height="23" uuid="110d893e-5f39-4a56-814b-9b0f8c8f49ee"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Certified that the Processed goods and waste, if any, described in Part B of this challan have been received back by me/us at_______________hours
+on____________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="466" width="543" height="45" uuid="ade85cd7-97f5-495d-986b-2b630e4b0263"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Certified that these goods have been processed by the sub contractor from the bonded imported/indigenous materials sent by me/us under Part A of
+the Challan
+Place_____________________
+Date______________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="310" y="515" width="229" height="29" uuid="c3926461-e7b7-400c-8888-35551c70753f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Signatur of Authorised Person of the"+$P{strCompanyName}+"/Name/Address "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="139" y="334" width="223" height="20" uuid="8c5f008b-3160-412f-8781-5f2352ee72f8"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART C (To be Filled in By Sub Contractor)]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

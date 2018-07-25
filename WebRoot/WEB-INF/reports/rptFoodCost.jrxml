@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptFoodCost" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c69ffc59-0677-4822-9c20-ab14b7e7d0b7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="288"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="704"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" fontName="Serif" fontSize="26" isBold="true" pdfFontName="Serif"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Serif" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Serif" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Serif" fontSize="12"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="toDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select c.strProdCode, c.strProdName, c.strReceivedUOM, a.dblQuantity,  
+a.dblRate,a.dblQuantity * a.dblRate SaleValue, ifnull(d.RecipeCost,c.dblCostRM) CostPrice,
+ a.dblQuantity*ifnull(d.RecipeCost,c.dblCostRM) CostValue,
+  (a.dblQuantity * a.dblRate) - (a.dblQuantity*ifnull(d.RecipeCost,c.dblCostRM) ) Profit,
+   ((a.dblQuantity*ifnull(d.RecipeCost,c.dblCostRM) )/(a.dblQuantity * a.dblRate))*100 as FoodCostPer ,
+	 ifnull(e.strSGName,'') as strSGName,ifnull(f.strGName,'') as strGName, h.strLocName  
+	 from tblPOSSalesDtl a 
+	 left outer join tblPOSLinkUp b on a.strPOSItemCode = b.strPOSItemCode
+	 left outer join tblproductmaster c on b.strWSItemCode = c.strProdCode  
+	  
+left outer join (select strParentCode, 
+sum((c.dblReceiveConversion/c.dblIssueConversion/c.dblRecipeConversion)*c.dblCostRM*b.dblQty) RecipeCost  
+from tblbommasterhd a,tblbommasterdtl b, tblproductmaster c  
+where a.strBOMCode=b.strBOMCode and b.strChildCode=c.strProdCode 
+group by strParentCode) d on  c.strProdCode = d.strParentCode 
+left outer join tblsubgroupmaster e on e.strSGCode=c.strSGCode  
+left outer join tblgroupmaster f on f.strGCode=e.strGCode  
+left outer join tbllocationmaster h on CONCAT(a.strClientCode,a.strPOSCode) = h.strExternalCode]]>
+	</queryString>
+	<field name="strProdCode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strProdName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strReceivedUOM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblQuantity" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SaleValue" class="java.lang.Double"/>
+	<field name="CostPrice" class="java.lang.Double"/>
+	<field name="CostValue" class="java.lang.Double"/>
+	<field name="Profit" class="java.lang.Double"/>
+	<field name="FoodCostPer" class="java.lang.Double"/>
+	<field name="strSGName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strGName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strLocName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblAmount" class="java.lang.Double"/>
+	<field name="dblRate" class="java.lang.String"/>
+	<field name="dblStdPrice" class="java.lang.Double"/>
+	<field name="dblStdPriceValue" class="java.lang.Double"/>
+	<field name="dblVarience" class="java.lang.Double"/>
+	<variable name="totFCPercent" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{FoodCostPer}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="totProfit" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Profit}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="totCV" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{CostValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="totSV" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{SaleValue}]]></variableExpression>
+	</variable>
+	<variable name="totGroupFCpercent" class="java.lang.Double" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{FoodCostPer}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="totGPropfit" class="java.lang.Double" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{Profit}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="totGCV" class="java.lang.Double" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{CostValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="totGSV" class="java.math.BigDecimal" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{SaleValue}]]></variableExpression>
+	</variable>
+	<variable name="totSubSV" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{SaleValue}]]></variableExpression>
+	</variable>
+	<variable name="totSubCV" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{CostValue}]]></variableExpression>
+	</variable>
+	<variable name="totSubProfit" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{Profit}]]></variableExpression>
+	</variable>
+	<variable name="totSubFC" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{FoodCostPer}]]></variableExpression>
+	</variable>
+	<variable name="totLocSV" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{SaleValue}]]></variableExpression>
+	</variable>
+	<variable name="totLocCV" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{CostValue}]]></variableExpression>
+	</variable>
+	<variable name="totLocProfit" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{Profit}]]></variableExpression>
+	</variable>
+	<variable name="totLocFC" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{FoodCostPer}]]></variableExpression>
+	</variable>
+	<variable name="vtotSGStdValue" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblStdPriceValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="vtotSGVarience" class="java.lang.Double" resetType="Group" resetGroup="strSGName" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblVarience}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="vtotLocStdValue" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblStdPriceValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="vtotLocVarience" class="java.lang.Double" resetType="Group" resetGroup="LocationName" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblVarience}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="vtotGroupStdValue" class="java.lang.Double" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblStdPriceValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="vtotGroupVarience" class="java.lang.Double" resetType="Group" resetGroup="strGNam" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblVarience}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double("0.00")]]></initialValueExpression>
+	</variable>
+	<variable name="totGStdValue" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblStdPriceValue}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+	</variable>
+	<variable name="totGVarience" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{dblVarience}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.00)]]></initialValueExpression>
+	</variable>
+	<group name="LocationName">
+		<groupExpression><![CDATA[$F{strLocName}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement style="SubTitle" x="0" y="3" width="506" height="15" forecolor="#006600" uuid="81f1d4f1-2142-48c7-9ae5-4701a54afb93">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Location Name :"+$F{strLocName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement style="SubTitle" x="1" y="2" width="94" height="15" forecolor="#066000" backcolor="#FFFFFF" uuid="cba1e6dd-1d2e-4e06-90bb-6e55ceec6b28">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Location Total :"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="217" y="2" width="60" height="15" forecolor="#066000" uuid="451b18d0-8393-43c1-9558-3df0150ab585"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totLocSV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="343" y="2" width="49" height="15" forecolor="#066000" uuid="94d22753-5879-48c7-a238-98856235fdb7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totLocCV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="399" y="2" width="44" height="15" forecolor="#066000" uuid="b266b6bc-be08-4622-a88a-e86e66d424bc"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totLocProfit}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="452" y="2" width="51" height="15" forecolor="#066000" uuid="4f9853da-d979-413b-aab3-4a35065d4996"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($V{totLocCV}.doubleValue()*100)/$V{totLocSV}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="643" y="5" width="51" height="15" forecolor="#066000" uuid="47bfe73a-d7d1-4d28-abf4-b348d89c28a0"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotLocVarience}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="581" y="5" width="50" height="15" forecolor="#066000" uuid="e0841aa4-c183-49ca-bd1f-9d3ffed7cb33"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotLocStdValue}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="strGNam">
+		<groupExpression><![CDATA[$F{strGName}]]></groupExpression>
+		<groupHeader>
+			<band height="18">
+				<textField>
+					<reportElement style="SubTitle" x="0" y="2" width="506" height="15" forecolor="#006600" uuid="800723a6-fed5-4706-9b19-0eb4a41a3d86">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group Name :"+$F{strGName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<textField>
+					<reportElement style="SubTitle" x="1" y="3" width="71" height="15" forecolor="#000000" uuid="7191aa92-9658-49c2-8c33-61cded167ab0">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group Total :"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="233" y="3" width="44" height="15" forecolor="#000000" uuid="4ca0f6b0-07a5-4241-b049-a6f0d2db8d85"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totGSV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="399" y="3" width="44" height="15" forecolor="#000000" uuid="e70afde7-9999-464a-bbdd-867d9be60cff"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totGPropfit}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="343" y="3" width="49" height="15" forecolor="#000000" uuid="3b6b00be-9180-4952-88bd-7a6e41909294"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totGCV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="451" y="3" width="52" height="15" forecolor="#000000" uuid="a3f24ab2-9c49-4993-a91c-3c013633c7e5"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($V{totGCV}.doubleValue()*100)/$V{totGSV}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="580" y="8" width="52" height="15" forecolor="#000000" uuid="0018d7e0-750e-48eb-aa6c-71195a507c72"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotGroupStdValue}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="643" y="10" width="52" height="15" forecolor="#000000" uuid="12a71b4b-28ab-47ca-8269-857216c991d2"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotGroupVarience}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="strSGName">
+		<groupExpression><![CDATA[$F{strSGName}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement style="SubTitle" x="0" y="3" width="506" height="15" uuid="1fa1df43-4773-4387-bc40-c5d5fea104e3">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["SubGroup Name :"+$F{strSGName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<textField>
+					<reportElement style="SubTitle" x="1" y="2" width="94" height="15" forecolor="#066000" backcolor="#FFFFFF" uuid="687f705d-9d06-4dba-ba7c-89e0d6f64ce4">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["SubGroup Total :"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="217" y="2" width="60" height="15" forecolor="#066000" uuid="cee982a2-2c3b-49d4-b9fd-c159352e7382"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totSubSV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="343" y="2" width="49" height="15" forecolor="#066000" uuid="3d964be3-9341-40ba-9a7b-ef718f51e224"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totSubCV}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="398" y="2" width="44" height="15" forecolor="#066000" uuid="3a4f522e-1e05-40d8-bf10-530a6dddeff1"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totSubProfit}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="451" y="2" width="52" height="15" forecolor="#066000" uuid="cb5839ee-0d21-4922-9c31-130377bb849e"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($V{totSubCV}.doubleValue()*100)/$V{totSubSV}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="581" y="4" width="52" height="15" forecolor="#066000" uuid="54734dbe-6fe9-43e6-bfcb-727b6bec4e94"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotSGStdValue}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="643" y="5" width="52" height="15" forecolor="#066000" uuid="5c0bc192-b5dd-4c7e-a389-102c2f344d9d"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vtotSGVarience}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="96" splitType="Stretch">
+			<staticText>
+				<reportElement x="421" y="54" width="352" height="20" uuid="0c383e84-d30e-47af-8ab7-006e05bb7218"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cost Analysis
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="421" y="2" width="352" height="20" uuid="5d27bf8f-4539-452e-8a01-6c3dc1b8ae1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="421" y="38" width="352" height="15" uuid="d56872ff-5998-46fd-a172-74702dd694a3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="421" y="23" width="352" height="15" uuid="a3debbd0-2c0a-44e5-b0ca-61da61e633c4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr2}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="201" height="76" uuid="7c517b28-dfc7-4862-b5c8-5188a524027c"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="80" width="799" height="1" uuid="498d9d9e-957e-47e9-86c0-605e23825d30"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="81" width="278" height="15" uuid="07005592-1e70-47fd-8484-c08f8b852f0b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From Date :"+$P{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="81" width="218" height="15" uuid="3f7e9028-a04a-4437-b580-2e05e6989b5c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["To Date :"+$P{toDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="36" width="799" height="1" uuid="d56e3c54-8bd7-48ec-9a74-d1bc073152ac"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="2" width="55" height="15" forecolor="#000000" uuid="9fd4d0fb-2a7d-4693-ada0-e9c8afa1ebb4"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Prod Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="55" y="2" width="55" height="15" forecolor="#000000" uuid="248115c7-cc28-4b1f-9743-a869258bee12"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Prod Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="165" y="2" width="36" height="15" forecolor="#000000" uuid="3aa91cd2-19f1-4d28-84dc-9fbc71660bf6"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="201" y="2" width="18" height="15" forecolor="#000000" uuid="d1a1ba4c-de72-4696-91c9-85d18b0c66b6"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="227" y="2" width="55" height="15" forecolor="#000000" uuid="8015213c-242a-4991-8357-a37f862ed7fe"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Sale Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="284" y="2" width="55" height="15" forecolor="#000000" uuid="a60d17e8-d10a-4eed-924f-70291139194f"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Cost Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="343" y="2" width="59" height="15" forecolor="#000000" uuid="c5237fc6-991d-46f9-8e6e-cb66acf553b5"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Cost Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="412" y="2" width="35" height="15" forecolor="#000000" uuid="ad33edd6-1bcf-4540-8b79-580bc971e676"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Profit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="452" y="2" width="54" height="34" forecolor="#000000" uuid="e8fabc25-a7d6-4d6b-971e-ed3645b35adb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Food Cost %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="518" y="2" width="54" height="34" forecolor="#000000" uuid="e02bfd35-8bcf-4d5a-bb80-6cc7d0f66bab"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Standard Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="580" y="3" width="54" height="34" forecolor="#000000" uuid="18e151b3-c9f5-42e9-9b24-148a6a078bab"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Standard Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="650" y="4" width="54" height="31" forecolor="#000000" uuid="ff520334-62b8-4c1e-b328-9cd6ee900296"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Varience]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="0" y="0" width="55" height="15" uuid="cb8152b0-a704-40dc-91b7-448955b1d082"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdCode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" x="55" y="0" width="108" height="15" uuid="9405c57c-92e5-43dd-a89b-1dc391c5e073"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" x="166" y="0" width="22" height="15" uuid="972e11f6-e2d0-48f5-8341-93525b95e7df"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strReceivedUOM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#0" isBlankWhenNull="true">
+				<reportElement style="Detail" x="189" y="0" width="30" height="15" uuid="cf517329-edaf-474b-8afa-90af0d72ffb7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblQuantity}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="Detail" x="219" y="0" width="58" height="15" uuid="6bb9b199-b336-47ca-8e1a-26ef5a269365"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SaleValue}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#0" isBlankWhenNull="true">
+				<reportElement style="Detail" x="280" y="0" width="55" height="15" uuid="0a611afc-2c36-47b5-bcba-598f32445ac1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CostPrice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#0" isBlankWhenNull="true">
+				<reportElement style="Detail" x="337" y="0" width="55" height="15" uuid="d5906fe3-1570-42f5-8ff5-65b3fae66796"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CostValue}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#0" isBlankWhenNull="true">
+				<reportElement style="Detail" x="392" y="0" width="50" height="15" uuid="b49d9554-5ba9-4926-87c1-05799b9eb060"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Profit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="451" y="0" width="55" height="15" uuid="f41e13d2-1ad4-4c3a-b89f-0bf185c7c203"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FoodCostPer}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="517" y="3" width="55" height="15" uuid="f4c2b895-d1e6-4888-93b3-8f6830c59b3f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblStdPrice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="580" y="3" width="55" height="15" uuid="b807393e-b334-4297-9ea9-2d7bb280f555"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblStdPriceValue}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" x="640" y="3" width="55" height="15" uuid="7a8b01a1-eb37-458c-9b0c-c0e85002f8d4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblVarience}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="41" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="736" y="6" width="50" height="20" uuid="5aa57261-bada-4f0b-a171-bddeb990cdfc"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="685" y="6" width="50" height="20" uuid="93c939b7-b89c-47a8-847e-c12d4c62f9e2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="556" y="6" width="100" height="20" uuid="4b0a953e-7e2f-4e0a-8393-c9e6ed8851e2"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="527" y="6" width="20" height="20" uuid="c815ae48-46c6-42b4-9f07-e02e4b98d8ec"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="189" y="7" width="56" height="19" uuid="b68535a2-e4d6-41dd-be08-33701d4bc6fd"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="164" y="7" width="24" height="19" uuid="59b9d19e-69e0-4cc1-b519-157ba13fc5cd"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="64" y="6" width="90" height="20" uuid="5069a2e5-fd7f-4d5e-9316-6d0c6408348d"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="6" width="61" height="20" uuid="7e8aa696-fef6-40c5-9a6f-ec163e74e1e8"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="102" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement x="391" y="1" width="64" height="20" uuid="80a4c8c1-f301-4f7c-9e97-ad156175bdd4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totProfit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="211" y="1" width="65" height="20" uuid="bd3872f8-6c13-4312-bbba-e61fd23f0cb3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totSV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="326" y="1" width="65" height="20" uuid="d541646d-23aa-4344-8cc1-2503a86cb28c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totCV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="1" width="61" height="19" uuid="74d1dd16-edea-4173-877e-8520b78b672d"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="455" y="1" width="46" height="20" uuid="3111f709-5e04-44ab-8962-5ab384d623b5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($V{totCV}.doubleValue()*100)/$V{totSV}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="30" width="779" height="1" uuid="54b33576-c268-4375-92de-5ec8a34d0e74"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="80" width="779" height="1" uuid="d8106b93-0d1d-4920-8d21-bbb7ef6e4ba6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField pattern="#,##0.00">
+				<reportElement x="580" y="1" width="51" height="20" uuid="d2436822-87b8-4c2a-9b54-1708a4ae24ef"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totGStdValue}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="640" y="1" width="55" height="20" uuid="e601f4fa-31be-4b0a-8efa-c9e6c41595d4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totGVarience}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

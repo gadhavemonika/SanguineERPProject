@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcc92bc5-6db8-4d87-8ca2-2ad74b824a6a">
+	<property name="ireport.zoom" value="1.3636363636363635"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1" uuid="958c852f-1c4c-41e3-bcc1-a47eac148152">
+		<queryString>
+			<![CDATA[select k.strProdName,g.dblScrap,g.dblScrap*g.dblWeight,d.strDNCode,d.dteDNDate,j.strPName,j.strSAdd1,
+j.strSAdd2,j.strSCity,j.strSState,j.strSCountry,c.strNatureOfProcessing,f.dteSRDate,k.strProdName,
+g.dblScrap,g.dblScrap*g.dblWeight
+from tbljoborderhd a ,tbljoborderallocationhd b , tbljoborderallocationdtl c,tbldeliverynotehd d,tbldeliverynotedtl e,
+tblscreturnhd f,tblscreturndtl g,tbldeliverychallanhd h,tbldeliverychallandtl i,tblpartymaster j,tblproductmaster k
+where a.strJOCode = c.strJOCode
+and c.strJACode=b.strJACode
+and b.strJACode=d.strJACode 
+and d.strDNCode=e.strDNCode
+and d.strDNCode=f.strSCDNCode
+and f.strSRCode=g.strSRCode
+and k.strProdCode=a.strProdCode
+and d.dteDNDate between '2015-12-30' and '2016-01-30'
+and d.strDNCode='02DNBL000001'
+group by a.strJOCode;]]>
+		</queryString>
+		<field name="strProdName" class="java.lang.String"/>
+		<field name="dblScrap" class="java.math.BigDecimal"/>
+		<field name="g.dblScrap*g.dblWeight" class="java.math.BigDecimal"/>
+		<field name="strDNCode" class="java.lang.String"/>
+		<field name="dteDNDate" class="java.sql.Date"/>
+		<field name="strPName" class="java.lang.String"/>
+		<field name="strSAdd1" class="java.lang.String"/>
+		<field name="strSAdd2" class="java.lang.String"/>
+		<field name="strSCity" class="java.lang.String"/>
+		<field name="strSState" class="java.lang.String"/>
+		<field name="strSCountry" class="java.lang.String"/>
+		<field name="strNatureOfProcessing" class="java.lang.String"/>
+		<field name="dteSRDate" class="java.sql.Date"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[Select 1 From Dual]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="2" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

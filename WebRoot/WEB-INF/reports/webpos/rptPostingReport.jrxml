@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-03-02T18:52:02 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc436d28-b928-4d00-ba7e-80f4050aaaf4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsSettelement" uuid="0d362c3c-0cf5-4067-a4d6-304eff6b200d">
+		<parameter name="listOfSettlement" class="java.util.List"/>
+		<field name="strSettelmentDesc" class="java.lang.String"/>
+		<field name="strSettelmentType" class="java.lang.String"/>
+		<field name="dblSettlementAmt" class="java.lang.Double"/>
+		<variable name="vSettlementTotal" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblSettlementAmt}]]></variableExpression>
+			<initialValueExpression><![CDATA[]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="dsGroupWiseSales" uuid="0d362c3c-0cf5-4067-a4d6-304eff6b200d">
+		<parameter name="listOfSettlement" class="java.util.List"/>
+		<field name="strSettelmentDesc" class="java.lang.String"/>
+		<field name="strSettelmentType" class="java.lang.String"/>
+		<field name="dblSettlementAmt" class="java.lang.Double"/>
+		<variable name="vGroupWiseSalesTotal" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblSettlementAmt}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="dsTaxWiseSales" uuid="0d362c3c-0cf5-4067-a4d6-304eff6b200d">
+		<parameter name="listOfSettlement" class="java.util.List"/>
+		<field name="strSettelmentDesc" class="java.lang.String"/>
+		<field name="strSettelmentType" class="java.lang.String"/>
+		<field name="dblSettlementAmt" class="java.lang.Double"/>
+		<variable name="vTaxWiseSalesTotal" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblSettlementAmt}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="dsForDineIn" uuid="09b4bf8c-a30f-4dcf-a737-a944e168c57a">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="strSettelmentDesc" class="java.lang.String"/>
+		<field name="strSettelmentType" class="java.lang.String"/>
+		<field name="dblSettlementAmt" class="java.lang.Double"/>
+		<field name="strRemark" class="java.lang.String"/>
+		<variable name="vDineInGroupWiseTotal" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblSettlementAmt}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="clientName" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.util.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="posName" class="java.lang.String"/>
+	<parameter name="toDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="posCode" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<parameter name="fromDateToDisplay" class="java.lang.String"/>
+	<parameter name="toDateToDisplay" class="java.lang.String"/>
+	<parameter name="listOfSettlement" class="java.util.List"/>
+	<parameter name="listOfGroupWiseSales" class="java.util.List"/>
+	<parameter name="listOfTaxWiseSales" class="java.util.List"/>
+	<parameter name="finalDisAmt" class="java.lang.Double"/>
+	<parameter name="finalTipAmt" class="java.lang.Double"/>
+	<parameter name="finalRoundOff" class="java.lang.Double"/>
+	<parameter name="totalDebitAmt" class="java.lang.Double"/>
+	<parameter name="totalCreditAmt" class="java.lang.Double"/>
+	<parameter name="debitRoundOff" class="java.lang.Double"/>
+	<parameter name="listOfGroupWiseSalesForDineIn" class="java.util.List"/>
+	<parameter name="listOfGroupWiseSalesForTakeAway" class="java.util.List"/>
+	<parameter name="listOfGroupWiseSalesForHomeDel" class="java.util.List"/>
+	<parameter name="credit" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="206" y="26" width="208" height="30" uuid="49fda4c9-ac69-4fe7-a39c-14231f823726"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Posting Report]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="277" y="106" width="59" height="20" uuid="ffe8a724-8a33-4ae6-a83b-6181676f08c2"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDateToDisplay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="206" y="62" width="70" height="20" uuid="b9c656da-047c-4168-ba42-51d8b163dcd8"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[Client Name :]]></text>
+			</staticText>
+			<image>
+				<reportElement x="27" y="26" width="136" height="79" uuid="5ea12fd6-6cbd-47f0-87cd-263c311d7cfd"/>
+				<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="277" y="62" width="200" height="20" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{clientName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="389" y="106" width="87" height="20" uuid="d8a63f5e-4c44-44f4-a809-5ef4c0e9a4b9"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDateToDisplay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="206" y="105" width="70" height="20" uuid="6beca926-0c5e-43c0-a3b3-c8d6a94c6fd0"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[From Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="82" width="69" height="20" uuid="ef7b9950-8618-47c0-82fc-aa1ab80cea12"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[POS Name : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="106" width="51" height="20" uuid="7a35b0b2-7008-4c80-92e6-1d873d58dbe1"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[To Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="276" y="82" width="82" height="20" uuid="5b364004-5f52-4f96-a9dc-594ca5b467f4"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{posName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="553" height="1" uuid="b02f242e-0fdb-402f-8f10-d90299bdcaa4"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="0" y="0" width="206" height="80" uuid="b3eff024-fd72-4bb7-b791-431a089e1b75"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsSettelement" uuid="b916c80e-1691-4c3e-aca4-049076dd9afc">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listOfSettlement})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="183" uuid="7e83e3ea-3e73-4678-8494-dd43ce133aff">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="183" height="30" uuid="876ed07f-06e0-4a14-9f25-7d9fe5661ec8"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Particulars]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="183" height="30" uuid="d02d4178-a479-4804-8f70-6dd90b189817"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTALS]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="183" height="20" uuid="06914f88-ab30-4c05-b4aa-eae84be9e674"/>
+								<textFieldExpression><![CDATA[$F{strSettelmentDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e2d02506-6c07-45f4-966f-851b3882addb">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="741a14fb-a2f8-4523-87ff-37e339b9fb44"/>
+								<textElement textAlignment="Right">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Debit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f56fad1-94cb-4ea4-8e88-265cf305b33a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{vSettlementTotal}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="20" uuid="6b4a656f-1b94-4039-ba91-bdf5c82476f3">
+									<printWhenExpression><![CDATA[$F{dblSettlementAmt}>0.0]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{dblSettlementAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table 1" x="277" y="0" width="276" height="80" uuid="05a2ccb5-9ee4-4d73-8e44-dbc0d6953545"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsGroupWiseSales" uuid="e574e1ae-6b42-4c00-8f6a-94cfd8f71b5c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listOfGroupWiseSalesForDineIn})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="184" uuid="31d748eb-abd5-4736-a59e-fe27388b2c93">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="106" height="30" uuid="379660a0-d3d7-4300-ab53-8ae01f77484c"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dine In]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="137" height="30" uuid="d02d4178-a479-4804-8f70-6dd90b189817"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[DINE IN TOTALS]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="47" y="0" width="137" height="20" uuid="0bfad08f-637a-4e78-b05c-3f985e7ab768"/>
+								<textFieldExpression><![CDATA[$F{strSettelmentDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="865f3758-ee0b-4790-ba17-9e7699a13651">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f90ebf7-a5c5-44dd-b566-9d5d6400878c"/>
+								<textElement textAlignment="Right">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Credit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f56fad1-94cb-4ea4-8e88-265cf305b33a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{vGroupWiseSalesTotal}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="20" uuid="15ca1452-0438-4803-a810-6f3ad69801ae"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{dblSettlementAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="80">
+			<componentElement>
+				<reportElement key="table 1" x="277" y="0" width="276" height="80" uuid="05a2ccb5-9ee4-4d73-8e44-dbc0d6953545"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsGroupWiseSales" uuid="e574e1ae-6b42-4c00-8f6a-94cfd8f71b5c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listOfGroupWiseSalesForTakeAway})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="184" uuid="31d748eb-abd5-4736-a59e-fe27388b2c93">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="110" height="30" uuid="379660a0-d3d7-4300-ab53-8ae01f77484c"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Take Away]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="137" height="30" uuid="d02d4178-a479-4804-8f70-6dd90b189817"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TAKE AWAY TOTALS]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="47" y="0" width="137" height="20" uuid="0bfad08f-637a-4e78-b05c-3f985e7ab768"/>
+								<textFieldExpression><![CDATA[$F{strSettelmentDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="865f3758-ee0b-4790-ba17-9e7699a13651">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f90ebf7-a5c5-44dd-b566-9d5d6400878c"/>
+								<textElement textAlignment="Right">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Credit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f56fad1-94cb-4ea4-8e88-265cf305b33a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{vGroupWiseSalesTotal}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="20" uuid="15ca1452-0438-4803-a810-6f3ad69801ae"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{dblSettlementAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="80">
+			<componentElement>
+				<reportElement key="table 1" x="276" y="0" width="276" height="80" uuid="05a2ccb5-9ee4-4d73-8e44-dbc0d6953545"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsGroupWiseSales" uuid="e574e1ae-6b42-4c00-8f6a-94cfd8f71b5c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listOfGroupWiseSalesForHomeDel})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="184" uuid="31d748eb-abd5-4736-a59e-fe27388b2c93">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="137" height="30" uuid="379660a0-d3d7-4300-ab53-8ae01f77484c"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Home Delivery]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="47" y="0" width="137" height="30" uuid="d02d4178-a479-4804-8f70-6dd90b189817"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[HOME DELIVERY TOTALS]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="47" y="0" width="137" height="20" uuid="0bfad08f-637a-4e78-b05c-3f985e7ab768"/>
+								<textFieldExpression><![CDATA[$F{strSettelmentDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="865f3758-ee0b-4790-ba17-9e7699a13651">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f90ebf7-a5c5-44dd-b566-9d5d6400878c"/>
+								<textElement textAlignment="Right">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Credit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f56fad1-94cb-4ea4-8e88-265cf305b33a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{vGroupWiseSalesTotal}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="20" uuid="15ca1452-0438-4803-a810-6f3ad69801ae"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{dblSettlementAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="109">
+			<componentElement>
+				<reportElement key="table 2" x="274" y="0" width="277" height="109" uuid="91ef576c-a643-4ab8-919e-0e2902815e38"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsTaxWiseSales" uuid="aeefd884-ba7c-4216-827d-df921f97a668">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listOfTaxWiseSales})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="185" uuid="01b41463-457e-4ac5-bf0a-8016b71bad39">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="50" y="0" width="40" height="30" uuid="bfef1546-6933-4e98-b6c0-70caa29c0d11"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Others]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="50" y="0" width="135" height="30" uuid="d02d4178-a479-4804-8f70-6dd90b189817"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTALS]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="50" y="0" width="135" height="20" uuid="a1a29291-7ecf-4d7b-8299-cd1471d0a38a"/>
+								<textFieldExpression><![CDATA[$F{strSettelmentDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="89a1a5d6-3451-44e5-a0f8-149ca9d7c7ca">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="852e2f22-5507-4115-8e14-a93d625fde72"/>
+								<textElement textAlignment="Right">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f56fad1-94cb-4ea4-8e88-265cf305b33a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{vTaxWiseSalesTotal}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField pattern="###0.00">
+								<reportElement x="0" y="0" width="90" height="20" uuid="12dd7227-3537-474a-9179-75f48fe0eb87"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{dblSettlementAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="89">
+			<staticText>
+				<reportElement x="322" y="6" width="100" height="20" uuid="e6574594-2e8e-4788-a33c-5bf2d2c149bf">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tip Amount]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="452" y="6" width="100" height="20" uuid="146042cf-3a1c-4677-b364-9b0c24b910bb">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{finalTipAmt}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="452" y="36" width="100" height="20" isRemoveLineWhenBlank="true" uuid="146042cf-3a1c-4677-b364-9b0c24b910bb">
+					<printWhenExpression><![CDATA[new Boolean($P{finalRoundOff}.doubleValue()!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{finalRoundOff}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="68" width="555" height="1" uuid="3abfb1d9-42ac-4606-8137-4036f5aff391">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="88" width="555" height="1" uuid="3abfb1d9-42ac-4606-8137-4036f5aff391">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="68" width="100" height="20" uuid="e6574594-2e8e-4788-a33c-5bf2d2c149bf">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTALS]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="171" y="68" width="100" height="20" uuid="146042cf-3a1c-4677-b364-9b0c24b910bb">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalDebitAmt}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="453" y="69" width="100" height="20" uuid="146042cf-3a1c-4677-b364-9b0c24b910bb">
+					<printWhenExpression><![CDATA[new Boolean($P{totalDebitAmt}.doubleValue()>0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalCreditAmt}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="172" y="6" width="99" height="20" isRemoveLineWhenBlank="true" uuid="146042cf-3a1c-4677-b364-9b0c24b910bb">
+					<printWhenExpression><![CDATA[new Boolean($P{debitRoundOff}.doubleValue()!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{debitRoundOff}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="6" width="100" height="20" isRemoveLineWhenBlank="true" uuid="e6574594-2e8e-4788-a33c-5bf2d2c149bf">
+					<printWhenExpression><![CDATA[new Boolean($P{debitRoundOff}.doubleValue()!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Round Off Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="36" width="100" height="20" isRemoveLineWhenBlank="true" uuid="e6574594-2e8e-4788-a33c-5bf2d2c149bf">
+					<printWhenExpression><![CDATA[new Boolean($P{finalRoundOff}.doubleValue()!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Round Off Amount]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="433" y="0" width="80" height="20" uuid="6c740e14-4403-494c-81b9-93b2dc2e0e5c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="0" width="40" height="20" uuid="2d453c4b-6514-47e7-a91d-a004003ba75b"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="260" height="20" uuid="fd91497f-293e-434a-838f-e09a9673aa4e"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Created By "+$P{userName}+" "+new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

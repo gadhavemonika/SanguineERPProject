@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:property-placeholder location="classpath:resources/database.properties" />
+	<context:component-scan base-package="com.sanguine" />
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+	<mvc:annotation-driven />
+
+	<!-- 
+	 <bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>-->
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	    <property name="messageConverters">
+	        <list>
+	            <ref bean="jacksonMessageConverter"/>
+	        </list>
+	    </property>
+	</bean>
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+	<bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass">
+	        <value>
+	            org.springframework.web.servlet.view.tiles2.TilesView
+	        </value>
+	    </property>
+	</bean>
+	<bean id="tilesConfigurer"
+	    class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	    <property name="definitions">
+	        <list>
+	            <value>/WEB-INF/config/tiles.xml</value>
+	        </list>
+	    </property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<!--Model required for Setup Form -->
+				<value>com.sanguine.model.clsPropertySetupModel</value>
+				<value>com.sanguine.model.clsCompanyMasterModel</value>
+				<value>com.sanguine.model.clsWorkFlowModel</value>
+				<value>com.sanguine.model.clsWorkFlowForSlabBasedAuth</value>
+				<value>com.sanguine.model.clsProcessSetupModel</value>
+				<!-- -->
+
+				<value>com.sanguine.model.clsUserHdModel</value>
+				<value>com.sanguine.model.clsAttachDocModel</value>
+				<value>com.sanguine.model.clsGroupMasterModel</value>
+				<value>com.sanguine.model.clsLocationMasterModel</value>
+				<value>com.sanguine.model.clsTaxHdModel</value>
+				<value>com.sanguine.model.clsSettlementMasterModel</value>
+				<value>com.sanguine.model.clsTaxSettlementMasterModel</value>
+				<value>com.sanguine.model.clsSubGroupMasterModel</value>
+				<value>com.sanguine.model.clsAttributeValueMasterModel</value>
+				<value>com.sanguine.model.clsAttributeMasterModel</value>
+				<value>com.sanguine.model.clsLocationMasterModel</value>
+				<value>com.sanguine.model.clsBomDtlModel</value>
+				<value>com.sanguine.model.clsBomHdModel</value>
+				<value>com.sanguine.model.clsProcessMasterModel</value>
+				<value>com.sanguine.model.clsProdProcessModel</value>
+				<value>com.sanguine.model.clsProductMasterModel</value>
+				<value>com.sanguine.model.clsInitialInventoryModel</value>
+				<value>com.sanguine.model.clsMISHdModel</value>
+				<value>com.sanguine.model.clsMISDtlModel</value>
+				<value>com.sanguine.model.clsRequisitionHdModel</value>
+				<value>com.sanguine.model.clsRequisitionDtlModel</value>
+				<value>com.sanguine.model.clsPropertyMaster</value>
+				<value>com.sanguine.model.clsCharacteristicsMaster</value>
+				<value>com.sanguine.model.clsReasonMaster</value>
+				<value>com.sanguine.model.clsUserMasterModel</value>							
+				<value>com.sanguine.model.clsUserDtlModel</value>
+				<value>com.sanguine.model.clsTreeMasterModel</value>				
+				<value>com.sanguine.model.clsPurchaseIndentHdModel</value>
+				
+				<value>com.sanguine.model.clsRateContractHdModel</value>
+				<value>com.sanguine.model.clsRateContractDtlModel</value>
+				<value>com.sanguine.model.clsSupplierMasterModel</value>
+				<value>com.sanguine.model.clsStkPostingHdModel</value>
+				<value>com.sanguine.model.clsStkPostingDtlModel</value>
+				<value>com.sanguine.model.clsStkAdjustmentHdModel</value>
+				<value>com.sanguine.model.clsStkAdjustmentDtlModel</value>
+				<value>com.sanguine.model.clsStkTransferHdModel</value>
+				<value>com.sanguine.model.clsStkTransferDtlModel</value>
+				<value>com.sanguine.model.clsProductionHdModel</value> 
+  				<value>com.sanguine.model.clsProductionDtlModel</value>
+				<value>com.sanguine.model.clsProductionOrderDtlModel</value>
+				<value>com.sanguine.model.clsProductionOrderHdModel</value>
+				<value>com.sanguine.model.clsGRNHdModel</value>
+				<value>com.sanguine.model.clsGRNDtlModel</value>
+				<value>com.sanguine.model.clsBillPassDtlModel</value>
+				<value>com.sanguine.model.clsBillPassHdModel</value>
+
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>				
+			</props>
+		</property>
+	</bean>
+
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10000000" />
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location" value="/WEB-INF/config/jasper-views.xml"/>
+        <property name="order" value="0"/>
+    </bean> 
+	
+</beans>

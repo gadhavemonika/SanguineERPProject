@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-06-12T14:27:34 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="593" leftMargin="1" rightMargin="1" topMargin="5" bottomMargin="20" uuid="e06fc829-861a-4097-8acd-d9c65c0d0a3b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsBillSettleBrkUp" uuid="56712e7a-af34-403a-8a67-1301825fae1a">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="strSettleDesc" class="java.lang.String">
+			<fieldDescription><![CDATA[strSettleDesc]]></fieldDescription>
+		</field>
+		<field name="dblSettleAmt" class="java.lang.Double">
+			<fieldDescription><![CDATA[dblSettleAmt]]></fieldDescription>
+		</field>
+		<variable name="TOTAL" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{dblSettleAmt}]]></variableExpression>
+			<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="dsSettleTaxDtl" uuid="e04c8184-d3e2-48c7-90cd-779a16a33a08">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="strTaxDesc" class="java.lang.String">
+			<fieldDescription><![CDATA[strTaxDesc]]></fieldDescription>
+		</field>
+		<field name="dblTaxableAmount" class="java.lang.Double">
+			<fieldDescription><![CDATA[dblTaxableAmount]]></fieldDescription>
+		</field>
+		<field name="dblTaxAmount" class="java.lang.Double">
+			<fieldDescription><![CDATA[dblTaxAmount]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="dsGroupAmtWithTaxDtl" uuid="ec54246c-5fe9-45f6-9d4a-976021a8585f">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="strgroupName" class="java.lang.String">
+			<fieldDescription><![CDATA[strgroupName]]></fieldDescription>
+		</field>
+		<field name="dblNetTotalPlusTax" class="java.lang.Double">
+			<fieldDescription><![CDATA[dblNetTotalPlusTax]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="duplicate" class="java.lang.String"/>
+	<parameter name="reportHeading" class="java.lang.String"/>
+	<parameter name="posDate" class="java.lang.String"/>
+	<parameter name="dining" class="java.lang.String"/>
+	<parameter name="dayEndBy" class="java.lang.String"/>
+	<parameter name="takeAway" class="java.lang.String"/>
+	<parameter name="totalSales" class="java.lang.String"/>
+	<parameter name="discount" class="java.lang.String"/>
+	<parameter name="floatval" class="java.lang.String"/>
+	<parameter name="cash" class="java.lang.String"/>
+	<parameter name="advance" class="java.lang.String"/>
+	<parameter name="transferIn" class="java.lang.String"/>
+	<parameter name="totalReceipt" class="java.lang.String"/>
+	<parameter name="payment" class="java.lang.String"/>
+	<parameter name="withdrawal" class="java.lang.String"/>
+	<parameter name="transferOut" class="java.lang.String"/>
+	<parameter name="listSettelementBrkUP" class="java.util.List"/>
+	<parameter name="refund" class="java.lang.String"/>
+	<parameter name="totalPayments" class="java.lang.String"/>
+	<parameter name="cashInHand" class="java.lang.String"/>
+	<parameter name="noOfBills" class="java.lang.String"/>
+	<parameter name="noOfVoidedBills" class="java.lang.String"/>
+	<parameter name="noOfModifiedBills" class="java.lang.String"/>
+	<parameter name="noOfPax" class="java.lang.String"/>
+	<parameter name="noOfHomeDel" class="java.lang.String"/>
+	<parameter name="noOfTakeAway" class="java.lang.String"/>
+	<parameter name="noOfNcKot" class="java.lang.String"/>
+	<parameter name="noOfComplimentaryBills" class="java.lang.String"/>
+	<parameter name="noOfVoidKot" class="java.lang.String"/>
+	<parameter name="Total" class="java.lang.String"/>
+	<parameter name="homeDelivery" class="java.lang.String"/>
+	<parameter name="listGroupAmtWithTaxDtl" class="java.util.List"/>
+	<parameter name="listSettelementTaxDtl" class="java.util.List"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="474" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="48" width="298" height="20" isRemoveLineWhenBlank="true" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dayEndBy}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="67" width="149" height="15" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{homeDelivery}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="84" width="149" height="15" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dining}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="67" width="148" height="15" uuid="66dbe20a-bc13-4c8a-b9c3-bb58ceb459bd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[Home Delivery :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="84" width="148" height="15" uuid="66dbe20a-bc13-4c8a-b9c3-bb58ceb459bd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[DINING :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="33" width="298" height="15" isRemoveLineWhenBlank="true" uuid="c6a470e3-2ea5-4e52-bbc2-02cc122b5214"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{posDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="100" width="148" height="15" isRemoveLineWhenBlank="true" uuid="66dbe20a-bc13-4c8a-b9c3-bb58ceb459bd">
+					<printWhenExpression><![CDATA[$P{noOfPax}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TAKE AWAY :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="100" width="150" height="15" isRemoveLineWhenBlank="true" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b">
+					<printWhenExpression><![CDATA[$P{noOfPax}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfPax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="115" width="148" height="15" isRemoveLineWhenBlank="true" uuid="66dbe20a-bc13-4c8a-b9c3-bb58ceb459bd">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TOTAL SALES :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="115" width="149" height="15" isRemoveLineWhenBlank="true" uuid="18c1aab8-c8b7-4307-819f-0aba1871b40b">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalSales}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="18" width="298" height="15" isRemoveLineWhenBlank="true" uuid="c6a470e3-2ea5-4e52-bbc2-02cc122b5214">
+					<printWhenExpression><![CDATA[$P{duplicate}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{duplicate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="3" width="298" height="15" isRemoveLineWhenBlank="true" uuid="c6a470e3-2ea5-4e52-bbc2-02cc122b5214">
+					<printWhenExpression><![CDATA[$P{noOfTakeAway}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportHeading}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="130" width="150" height="15" isRemoveLineWhenBlank="true" uuid="ca547f14-7442-44b2-8078-b3cd4b015346">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[DISCOUNT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="130" width="150" height="15" isRemoveLineWhenBlank="true" uuid="bc2ce623-90db-4eaf-a726-09fef9b203f8">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfBills}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="150" width="150" height="15" isRemoveLineWhenBlank="true" uuid="04caf515-419a-44dd-8a53-c6e759ce88aa">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[FLOAT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="150" width="149" height="15" isRemoveLineWhenBlank="true" uuid="3a48365f-0a6f-4fd2-8324-9890d2342be6">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{floatval}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="165" width="150" height="15" isRemoveLineWhenBlank="true" uuid="880e6156-dc8a-45c0-a8e5-8efca961eb8b">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[CASH :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="165" width="149" height="15" isRemoveLineWhenBlank="true" uuid="4b8dd9b4-e14e-489d-9039-35e5c7131631">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="181" width="150" height="15" isRemoveLineWhenBlank="true" uuid="c84b8200-264e-48e0-8164-1db1aae39c4b">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[ADVANCE :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="195" width="149" height="15" isRemoveLineWhenBlank="true" uuid="6389e1ef-be09-44be-bcb1-0c11f697395b">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transferIn}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="180" width="149" height="15" isRemoveLineWhenBlank="true" uuid="f8a89feb-c50d-4fbb-9b9f-410b36786d39">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{advance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="196" width="150" height="15" isRemoveLineWhenBlank="true" uuid="bbaa8cbf-8bb5-40a3-98b9-8755eee3eb4e">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TRANSFER IN :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-4" y="212" width="150" height="15" isRemoveLineWhenBlank="true" uuid="12c1f676-5468-4e67-af24-482f1f9c8d08">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TOTAL RECEIPT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="211" width="149" height="15" isRemoveLineWhenBlank="true" uuid="71bf5800-32fe-42d4-b859-95582ff6fe28">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalReceipt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="231" width="150" height="15" isRemoveLineWhenBlank="true" uuid="e6d83a64-2910-4239-a285-3458eec9e1c7">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[PAYMENT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="230" width="149" height="15" isRemoveLineWhenBlank="true" uuid="b0fd60dd-8336-44ac-bed3-2e3f739718a5">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{payment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="246" width="150" height="15" isRemoveLineWhenBlank="true" uuid="9d0a6f3f-7454-471e-acc0-295bd0ceca73">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[WITHDRAWAL :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="245" width="149" height="15" isRemoveLineWhenBlank="true" uuid="18aa8348-a412-4db1-b7b4-90cad68bcf95">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{withdrawal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="262" width="150" height="15" isRemoveLineWhenBlank="true" uuid="842a9c1a-cdf4-4939-90b3-1c6675e13f94">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TRANSFER OUT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="261" width="149" height="15" isRemoveLineWhenBlank="true" uuid="8f5ddb85-2219-4755-a07b-9d1004269ccc">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transferOut}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="280" width="149" height="15" isRemoveLineWhenBlank="true" uuid="2b675da6-440f-489d-8401-8addd36d787d">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{refund}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="281" width="150" height="15" isRemoveLineWhenBlank="true" uuid="82cb1f34-9caf-4663-94ff-86e165c3ba2c">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[REFUND :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="295" width="149" height="15" isRemoveLineWhenBlank="true" uuid="74aa3928-bfb1-4348-b5d5-71fd6362654e">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalPayments}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="296" width="150" height="15" isRemoveLineWhenBlank="true" uuid="0ee81e4f-a175-4cac-a865-04fa7643fa85">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[TOTAL PAYMENTS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="310" width="149" height="15" isRemoveLineWhenBlank="true" uuid="c2c69a6a-da1d-4039-a1ab-1e575f076d54">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cashInHand}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-4" y="311" width="150" height="15" isRemoveLineWhenBlank="true" uuid="e4a16e2d-205d-4f47-89dc-01472e89d539">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[CASH IN HAND :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="327" width="150" height="15" isRemoveLineWhenBlank="true" uuid="85341ca8-13ee-447f-b308-9cddec916566">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF BILLS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="326" width="149" height="15" isRemoveLineWhenBlank="true" uuid="436b31ae-0c66-445d-99f2-cc4428ea71dc">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfBills}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="342" width="150" height="15" isRemoveLineWhenBlank="true" uuid="884314aa-fca8-4635-8060-6b64746cefdf">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF VOIDED BILLS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="341" width="150" height="15" isRemoveLineWhenBlank="true" uuid="cddf5f6b-1c88-4ba2-a051-c5714bcf60d5">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfVoidedBills}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-4" y="358" width="150" height="15" isRemoveLineWhenBlank="true" uuid="d9dc9021-14e6-41ef-8d33-50af2fa4b3b0">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF MODIFIED BILLS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="357" width="149" height="15" isRemoveLineWhenBlank="true" uuid="2eac1713-2294-4f24-a790-0a93c72f4141">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfModifiedBills}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="374" width="150" height="15" isRemoveLineWhenBlank="true" uuid="a4ac9535-3bc6-4e80-a74a-5bef539b8a4f">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF PAX :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="373" width="149" height="15" isRemoveLineWhenBlank="true" uuid="bfb62542-d4d4-4bdc-9650-b9749d05e07a">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfPax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="391" width="150" height="15" isRemoveLineWhenBlank="true" uuid="9451d51f-28fe-447b-a53e-f442652f4bb6">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF HOME DELIVERY :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="390" width="149" height="15" isRemoveLineWhenBlank="true" uuid="3487db47-f61a-4b32-bd2e-14c091519f46">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfHomeDel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="406" width="150" height="15" isRemoveLineWhenBlank="true" uuid="c7e7ceb5-1612-40e9-a626-44bcade2e341">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF TAKE AWAY :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="405" width="149" height="15" isRemoveLineWhenBlank="true" uuid="4491ca23-dba0-4a5c-a40d-9974a730b1f0">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfTakeAway}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="421" width="150" height="15" isRemoveLineWhenBlank="true" uuid="120159de-0d7c-493b-8d02-89ba1c5c9d16">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF NC KOT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="420" width="150" height="15" isRemoveLineWhenBlank="true" uuid="d89407f9-98d3-4697-8a1d-b12d316b0402">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfNcKot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="437" width="150" height="15" isRemoveLineWhenBlank="true" uuid="5a78d8c6-4f98-480f-90d9-687b7279d497">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF COMPLIMENTARY BILLS:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="435" width="149" height="15" isRemoveLineWhenBlank="true" uuid="7a20e804-ce38-411c-abb7-0f004251161a">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfComplimentaryBills}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="451" width="150" height="15" isRemoveLineWhenBlank="true" uuid="35db680e-a4a3-4db5-b9d7-d67d2a3153b3">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<text><![CDATA[NO OF VOID KOT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="450" width="149" height="15" isRemoveLineWhenBlank="true" uuid="db540855-d1bf-475a-a06c-1c9a89a8142d">
+					<printWhenExpression><![CDATA[$P{noOfHomeDel}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noOfVoidKot}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-4" y="67" width="303" height="1" uuid="5143d228-0099-4ab4-a1b3-f4b1207e1001"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="115" width="303" height="1" uuid="6d54057d-5230-4362-b6d6-2c7761523ef5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="130" width="303" height="1" uuid="6845b6e0-d2a0-4979-913c-79d6cfa40f66"/>
+			</line>
+			<line>
+				<reportElement x="0" y="212" width="303" height="1" uuid="40df3a9c-5c90-43a2-b62c-28c1b865f9f1"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="230" width="303" height="1" uuid="8bba8739-6764-4162-99ce-76e172b17ac3"/>
+			</line>
+			<line>
+				<reportElement x="-3" y="294" width="303" height="1" uuid="91dbc223-9e97-4ddc-a018-57c6f54d78e8"/>
+			</line>
+			<line>
+				<reportElement x="-2" y="310" width="303" height="1" uuid="873e3b05-837f-42d7-8ed9-fb2b770788a2"/>
+			</line>
+			<line>
+				<reportElement x="-5" y="322" width="303" height="1" uuid="51aac4cc-bf1a-46b5-9b8d-c5d580906d25"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="131" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="301" height="19" uuid="2186a0f1-bb7e-41d3-8282-deb388174a90"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BILLING SETTLEMENT BREAK UP]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="0" width="303" height="1" uuid="fd524e29-758d-4800-8bab-59d37b8c0a52"/>
+			</line>
+			<componentElement>
+				<reportElement x="2" y="30" width="296" height="90" uuid="afad279c-4344-479a-b296-2c829cafd918">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsBillSettleBrkUp" uuid="c82f572f-30e0-4b63-9e34-2cbbf6947955">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listSettelementBrkUP})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="160" uuid="5a29f791-5dd0-4d82-9bbe-5032702ebf6d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="160" height="30" uuid="54968583-b755-4c5c-a963-d8fa4b828116"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SettlementDesc]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="160" height="30" uuid="876ed671-e97c-4d78-bc08-8264bb458a1e"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="160" height="15" uuid="cdef22a3-db48-4ec6-8ed0-1d58f9a48042"/>
+								<textElement textAlignment="Center">
+									<paragraph lineSpacingSize="0.5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{strSettleDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="136" uuid="c1065f00-7850-4421-86ff-3e69cb7088a3">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="136" height="30" uuid="7479971f-87f3-4bdd-b747-125a763e9a86"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SettlementAmt]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="136" height="30" uuid="3c9b6a4a-a824-4aa9-9515-f9cd56e343b0"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="136" height="30" uuid="111727b3-3556-4dd1-bbe5-0b7640ad7187"/>
+								<textElement textAlignment="Center">
+									<paragraph lineSpacingSize="0.5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dblSettleAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="1" y="23" width="303" height="1" uuid="fd524e29-758d-4800-8bab-59d37b8c0a52"/>
+			</line>
+		</band>
+		<band height="77">
+			<componentElement>
+				<reportElement x="0" y="0" width="301" height="60" uuid="2e6e6b0d-33f7-4cf2-b39a-a95095c98a11">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsSettleTaxDtl" uuid="70fc81b6-4513-4104-92ff-d6df1afcca63">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listSettelementTaxDtl})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="2793477a-3c3c-4337-a45b-c3019bfdb9c2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="1e35e205-56dd-40dc-b780-d81568e234cf"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TaxDesc]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="4fcf1dcd-889a-4ad5-aae6-fcc3644411fa"/>
+								<textFieldExpression><![CDATA[$F{strTaxDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="4bacc227-1590-44c7-874b-516099b021d7">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="fcd1c8df-e590-45bf-af4f-34bf78ea97ca"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TaxableAmount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="2d587635-44ea-4ee6-927d-e6073ee55f17"/>
+								<textFieldExpression><![CDATA[$F{dblTaxableAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="27bc5f77-23b9-4db1-b50e-fadba2c9b97f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="126037c1-cb17-4286-95c1-dded7592d189"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TaxAmount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8ba572c1-cdea-464a-b320-b3c443d37aae"/>
+								<textFieldExpression><![CDATA[$F{dblTaxAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="60">
+			<componentElement>
+				<reportElement x="0" y="0" width="300" height="60" uuid="07da83e5-854d-4cf7-85d4-409d67cecdd0">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 4_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 4_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 4_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsGroupAmtWithTaxDtl" uuid="b3fafbab-fc27-49b3-9917-8e15beb87f4c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listGroupAmtWithTaxDtl})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="160" uuid="b431c88e-d4dd-4b15-9dca-a2660fbe0d07">
+						<jr:columnHeader style="Table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="160" height="30" uuid="432af3fb-1a9c-4b8c-a58a-e72d407401e7"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[GroupName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="160" height="30" uuid="2852ac01-3644-4d3e-9af2-245ff69c9920"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{strgroupName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="a8744756-85c2-4f18-95b2-0efefec82de7">
+						<jr:columnHeader style="Table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="9e11a17f-6a22-4706-ab98-124e8d09a874"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Amount With Tax]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="30" uuid="55733c13-87f5-4ace-b9ba-dadaedafb877"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{dblNetTotalPlusTax}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

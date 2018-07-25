@@ -1,0 +1,162 @@
+/* Menu container */
+.menu a:link {
+	text-decoration: none;
+	color: black;
+}
+
+ .menu a:VISITED {
+	color: black;
+	
+}
+
+.menu a:HOVER {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.menu {
+
+    float: left;
+    height: auto;
+    min-height: 100px;
+    padding: 10px 5px 10px 12px;
+    
+    position: relative;
+    width: 92%;
+    overflow: auto;
+}
+
+
+/* Menu styles */
+.menu ul {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+}
+
+.menu li {
+	margin: 0px 0px 0px 5px;
+	padding: 0px;
+	list-style-type: none;
+	text-align: left;
+	font-family: trebuchet ms, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	
+}
+
+/* Submenu styles */
+.menu ul ul {
+	
+}
+
+.menu li li {
+	margin: 0px 0px 0px 16px;
+}
+
+.menu li li.open,.menu li li.close {
+	margin: 0px 0px 0px 16px;
+}
+
+/* Symbol styles */
+.menu .symbol-gif,.menu .symbol-png,.menu .symbol-jpg,.menu .symbol-txt,.menu .symbol-zip,.menu .symbol-html,.menu .symbol-file,.menu .symbol-item
+	{
+	float: left;
+	width: 18px;
+	height: 16px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.menu .symbol-gif {
+	background-image: url(../images/gif.png);
+}
+
+.menu .symbol-png {
+	background-image: url(../images/gif.png);
+}
+
+.menu .symbol-jpg {
+	background-image: url(../images/jpeg.png);
+}
+
+.menu .symbol-txt {
+	background-image: url(../images/txt.png);
+}
+
+.menu .symbol-zip {
+	background-image: url(../images/zip.png);
+}
+
+.menu .symbol-html {
+	background-image: url(../images/html.png);
+}
+
+.menu .symbol-file {
+	background-image: url(../images/file.png);
+}
+
+.menu .symbol-item {
+	background-image: url(../images/menu_tee.gif);
+}
+
+.menu .symbol-open,.menu .symbol-close {
+	float: left;
+	width: 18px;
+	height: 16px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	
+}
+
+.menu .symbol-close {
+	background-image: url(../images/plus.png);
+}
+
+.menu .symbol-open {
+	background-image: url(../images/minus.png);
+}
+
+.menu .symbol-item.last {
+	
+}
+
+.menu .symbol-close.last {
+	
+}
+
+.menu .symbol-open.last {
+	
+}
+
+/* Menu line styles */
+.menu li.item {
+	font-weight: normal;
+}
+
+.menu li.close {
+	font-weight: bold;
+}
+
+.menu li.open {
+	font-weight: bold;
+}
+
+.menu li.item.last {
+	
+}
+
+.menu li.close.last {
+	
+}
+
+.menu li.open.last {
+	
+}
+
+/* Show All / Hide All buttons */
+.buttons {
+	position: absolute;
+	left: 250px;
+	top: 10px;
+}

@@ -1,0 +1,57 @@
+package com.sanguine.webpms.bean;
+
+public class clsPropertySetupBean
+{
+    // Variable Declaration
+    private String strPropertyCode;
+    
+    private String strClientCode;
+    
+    private String tmeCheckInTime;
+    
+    private String tmeCheckOutTime;
+    
+    // Setter-Getter Methods
+    public String getStrPropertyCode()
+    {
+	return strPropertyCode;
+    }
+    
+    public void setStrPropertyCode(String strPropertyCode)
+    {
+	this.strPropertyCode = strPropertyCode;
+    }
+    
+    public String getStrClientCode()
+    {
+	return strClientCode;
+    }
+    
+    public void setStrClientCode(String strClientCode)
+    {
+	this.strClientCode = strClientCode;
+    }
+
+    public String getTmeCheckInTime()
+    {
+        return tmeCheckInTime;
+    }
+
+    public void setTmeCheckInTime(String tmeCheckInTime)
+    {
+        this.tmeCheckInTime = tmeCheckInTime;
+    }
+
+    public String getTmeCheckOutTime()
+    {
+        return tmeCheckOutTime;
+    }
+
+    public void setTmeCheckOutTime(String tmeCheckOutTime)
+    {
+        this.tmeCheckOutTime = tmeCheckOutTime;
+    }
+    
+    
+    
+}

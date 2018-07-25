@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/jsp/mainTemplate.jsp">
+        <put-attribute name="title" value=""></put-attribute>
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"></put-attribute>
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"></put-attribute>
+        <put-attribute name="body" value=""></put-attribute>
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="base.definition1" template="/WEB-INF/jsp/mainTemplate1.jsp">
+        <put-attribute name="title" value=""></put-attribute>
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"></put-attribute>
+        <put-attribute name="body" value=""></put-attribute>
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmLogin" extends="base.definition1">
+        <put-attribute name="title" value="Login"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmLogin.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmProperty" extends="base.definition">
+        <put-attribute name="title" value="Property Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmProperty.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmLoginErrorPage" extends="base.definition">
+        <put-attribute name="title" value="loginerror"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmLoginErrorPage.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmMainMenu" extends="base.definition">
+        <put-attribute name="title" value="Main Screen"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmMainMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmGroupMaster" extends="base.definition">
+        <put-attribute name="title" value="Group Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmGroupMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmSearch" extends="base.definition1">
+        <put-attribute name="title" value="Search Form"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmSearch.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmMaterialReq" extends="base.definition1">
+        <put-attribute name="title" value="Material Requisition"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmMaterialReq.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmAttachDocuments" extends="base.definition1">
+        <put-attribute name="title" value="Material Requisition"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmAttachDocuments.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmTaxMaster" extends="base.definition1">
+        <put-attribute name="title" value="Material Requisition"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmTaxMaster.jsp"></put-attribute>
+    </definition>
+    
+	<definition name="frmSubGroupMaster" extends="base.definition">
+        <put-attribute name="title" value="Sub Group Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmSubGroupMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmAttributeValueMaster" extends="base.definition">
+        <put-attribute name="title" value="Attribute Value Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmAttributeValueMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmAttributeMaster" extends="base.definition">
+        <put-attribute name="title" value="Attribute Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmAttributeMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmReport" extends="base.definition">
+        <put-attribute name="title" value="Attribute Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/viewer.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmLocationMaster" extends="base.definition">
+        <put-attribute name="title" value="Location Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmLocationMaster.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmBOMMaster" extends="base.definition">
+        <put-attribute name="title" value="Recipe Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmBOMMaster.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmProductMaster" extends="base.definition">
+        <put-attribute name="title" value="Product Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmProductMaster.jsp"></put-attribute>
+ 	</definition>
+ 	 	
+ 	<definition name="frmSupplierMaster" extends="base.definition">
+        <put-attribute name="title" value=""></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmSupplierMaster.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmOpeningStock" extends="base.definition">
+        <put-attribute name="title" value="Recipe Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmOpeningStock.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmMIS" extends="base.definition">
+        <put-attribute name="title" value="Material Issue"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmMIS.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmMaterialReq" extends="base.definition">
+        <put-attribute name="title" value="Recipe Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmMaterialReq.jsp"></put-attribute>
+ 	</definition>
+ 	
+ 	<definition name="frmUserManagement1" extends="base.definition">
+        <put-attribute name="title" value="UserMaster"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmUserManagement1.jsp"></put-attribute>
+ 	</definition>
+ 
+ 	
+	<definition name="frmSecurityShell" extends="base.definition">
+        <put-attribute name="title" value="Security Shell"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmSecurityShell.jsp"></put-attribute>
+ 	</definition>
+	
+	
+	<definition name="frmPurchaseIndent" extends="base.definition">
+        <put-attribute name="title" value="Purchase Indent"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmPurchaseIndent.jsp"></put-attribute>
+ 	</definition>
+ 	
+	<definition name="frmPropertyMaster" extends="base.definition">
+        <put-attribute name="title" value="property"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmPropertyMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmCharacteristicsMaster" extends="base.definition">
+        <put-attribute name="title" value="property"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmCharacteristicsMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmReasonMaster" extends="base.definition">
+        <put-attribute name="title" value="Reason Master"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmReasonMaster.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmSetup" extends="base.definition">
+        <put-attribute name="title" value="Setup"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmSetup.jsp"></put-attribute>
+    </definition>
+ 
+ <definition name="frmPurchaseOrder" extends="base.definition">
+        <put-attribute name="title" value="Purchase Order"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmPurchaseOrder.jsp"></put-attribute>
+    </definition>
+ 
+ 
+  <definition name="frmWorkOrder" extends="base.definition">
+        <put-attribute name="title" value="Work Order"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmWorkOrder.jsp"></put-attribute>
+    </definition>
+ 
+ 
+ 	<definition name="frmRateContract" extends="base.definition">
+        <put-attribute name="title" value="Rate Contract"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmRateContract.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmPhysicalStkPosting" extends="base.definition">
+        <put-attribute name="title" value="Physical Stock Posting"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmPhysicalStkPosting.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmStockAdjustment" extends="base.definition">
+        <put-attribute name="title" value="Stock Adjustment"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmStockAdjustment.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmStockTransfer" extends="base.definition">
+        <put-attribute name="title" value="Stock Transfer"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmStockTransfer.jsp"></put-attribute>
+    </definition>
+ 	 	<definition name="frmProduction" extends="base.definition">
+		  <put-attribute name="title" value="WebStocks" /> 
+		  <put-attribute name="body" value="/WEB-INF/jsp/frmProduction.jsp" /> 
+	</definition>
+	
+	<definition name="frmProductionOrder" extends="base.definition">
+        <put-attribute name="title" value="Meal Planning"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmProductionOrder.jsp"></put-attribute>
+    </definition>
+<definition name="frmBillPassing" extends="base.definition">
+        <put-attribute name="title" value="BillPassing"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmBillPassing.jsp"></put-attribute>
+
+	 </definition>
+	<definition name="frmGRN" extends="base.definition">
+        <put-attribute name="title" value="GRN"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmGRN.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="frmStockTransferSlip" extends="base.definition">
+        <put-attribute name="title" value="Stock Transfer Slip"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/frmStockTransferSlip.jsp"></put-attribute>
+    </definition>
+ 	 	
+</tiles-definitions>

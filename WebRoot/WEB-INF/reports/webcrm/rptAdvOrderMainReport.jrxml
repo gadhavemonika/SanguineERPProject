@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-07-14T14:23:04 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAdvOrderMainReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ac308bc-1990-46a8-a364-ea93f9dccc1d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="teat.xml"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="dteFromDate" class="java.lang.String"/>
+	<parameter name="dteToDate" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strGCodes" class="java.util.List"/>
+	<parameter name="strSGCodes" class="java.util.List"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["V:\\newWorkSpace\\prjWebStocks\\WebRoot\\WEB-INF\\reports\\webcrm\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dteSOFromDate" class="java.lang.String"/>
+	<parameter name="dteSOToDate" class="java.lang.String"/>
+	<parameter name="fromSODate" class="java.lang.String"/>
+	<parameter name="toSODate" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="orderType" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<image>
+				<reportElement x="4" y="5" width="156" height="74" uuid="e3cd2aed-cce3-44f6-a221-8dac0093f530"/>
+			</image>
+			<textField>
+				<reportElement x="163" y="5" width="371" height="28" uuid="83c00291-6df3-4ab4-8038-53917907b694"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="32" width="319" height="15" uuid="47328b2f-44ec-414d-9175-f79d77aa8b00"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="47" width="319" height="15" uuid="f7b6586b-0cd7-4d2d-9c06-140e3ddf2835"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="85" width="89" height="13" uuid="4b5c565d-ac00-4172-95b8-876158660e6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="85" width="100" height="13" uuid="90cece91-14fe-4150-8b05-0c077c6d74b4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="85" width="70" height="13" uuid="8f314579-b485-4e69-a18c-7491b7fd0dc9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To FullFillment Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="103" width="114" height="13" uuid="23e14779-cb2f-4fab-871d-c381aaf591cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From SO Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="103" width="89" height="13" uuid="d97e2dce-fc98-4bd4-8df6-783ebee99b56"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromSODate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="103" width="70" height="13" uuid="dda55715-c8ac-4b2c-8a84-28a8959472e6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To SO Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="103" width="100" height="13" uuid="93310f27-f18e-45c5-ae38-1de807ccd45a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toSODate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="85" width="114" height="13" uuid="c5a4f36f-9c44-4b68-9ecf-f917b14bc8a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From FullFillment Date]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="240" y="66" width="200" height="15" uuid="f3cf4acd-d136-41e9-9fc9-c60bc6407098"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orderType}+" "+ "Report"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="4" width="280" height="56" uuid="061bda7f-2e3b-47a3-b157-f76ee3a5f5be"/>
+				<subreportParameter name="dteToDate">
+					<subreportParameterExpression><![CDATA[$P{dteToDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteFromDate">
+					<subreportParameterExpression><![CDATA[$P{dteFromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strSGCodes">
+					<subreportParameterExpression><![CDATA[$P{strSGCodes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strGCodes">
+					<subreportParameterExpression><![CDATA[$P{strGCodes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteSOFromDate">
+					<subreportParameterExpression><![CDATA[$P{dteSOFromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteSOToDate">
+					<subreportParameterExpression><![CDATA[$P{dteSOToDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderType">
+					<subreportParameterExpression><![CDATA[$P{orderType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["rptAdvOrderOddReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="280" y="4" width="273" height="55" uuid="cc20c829-7afa-4510-a9bd-b2f9502475d8"/>
+				<subreportParameter name="dteToDate">
+					<subreportParameterExpression><![CDATA[$P{dteToDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteFromDate">
+					<subreportParameterExpression><![CDATA[$P{dteFromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strSGCodes">
+					<subreportParameterExpression><![CDATA[$P{strSGCodes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strGCodes">
+					<subreportParameterExpression><![CDATA[$P{strGCodes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteSOFromDate">
+					<subreportParameterExpression><![CDATA[$P{dteSOFromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dteSOToDate">
+					<subreportParameterExpression><![CDATA[$P{dteSOToDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderType">
+					<subreportParameterExpression><![CDATA[$P{orderType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["rptAdvOrderEvenReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,170 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+<style type="text/css">
+.ui-timepicker-wrapper
+{
+	width: 95px;
+}
+</style>
+
+<script type="text/javascript">
+	var fieldName;
+	
+	function funValidateFields()
+	{
+		var flag=false;
+		if($('#tmeCheckInTime').val().trim().length==0)
+		{
+			 alert("Please Select Check In Time");		 	 
+		}
+		else if($('#tmeCheckOutTime').val().trim().length==0)
+		{
+			 alert("Please Select Check Out Time");
+		}
+		else
+		{
+			//checkins
+			var checkin=$('#tmeCheckInTime').val();
+			var inHH="00";var inMM="00";var inSS="00";
+			if(checkin.contains("am"))
+			{
+				var checkinvalue=checkin.split("am")[0];
+				var inHH=checkinvalue.split(":")[0];
+				var inMM=checkinvalue.split(":")[1];				
+			}
+			else
+			{
+				var checkinvalue=checkin.split("pm")[0];
+				var inHH=checkinvalue.split(":")[0];
+				var inMM=checkinvalue.split(":")[1];				
+			}
+			
+			//checkouts
+			var checkout=$('#tmeCheckOutTime').val();
+			var outHH="00";var outMM="00";var outSS="00";
+			if(checkout.contains("am"))
+			{
+				var checkoutvalue=checkout.split("am")[0];
+				var outHH=checkoutvalue.split(":")[0];
+				var outMM=checkoutvalue.split(":")[1];				
+			}
+			else
+			{
+				var checkoutvalue=checkout.split("pm")[0];
+				var outHH=checkoutvalue.split(":")[0];
+				var outMM=checkoutvalue.split(":")[1];				
+			}
+			
+			$('#tmeCheckInTime').val(inHH+":"+inMM+":"+inSS);
+			$('#tmeCheckOutTime').val(outHH+":"+outMM+":"+outSS);
+			
+			flag=true;
+		}
+		
+		return flag;
+	}
+	
+	$(function() 
+	{
+		$('#tmeCheckInTime').timepicker();
+		$('#tmeCheckOutTime').timepicker();	
+		
+		
+		$('#tmeCheckInTime').timepicker({
+		        'timeFormat':'H:i:s'
+		});
+		 
+		$('#tmeCheckOutTime').timepicker({
+		        'timeFormat':'H:i:s'
+		}); 			
+		/* 
+		$('#tmeCheckInTime').timepicker('setTime', new Date());
+		$('#tmeCheckOutTime').timepicker('setTime', new Date());*/
+		
+	}); 
+	
+	
+	
+	function funSetData(code)
+	{
+
+		switch(fieldName)
+		{
+
+		}
+	}
+
+	/**
+	* Success Message After Saving Record
+	**/
+	 $(document).ready(function()
+				{
+		var message='';
+		<%if (session.getAttribute("success") != null) {
+			            if(session.getAttribute("successMessage") != null){%>
+			            message='<%=session.getAttribute("successMessage").toString()%>';
+			            <%
+			            session.removeAttribute("successMessage");
+			            }
+						boolean test = ((Boolean) session.getAttribute("success")).booleanValue();
+						session.removeAttribute("success");
+						if (test) {
+						%>	
+			alert("Data Save successfully\n\n"+message);
+		<%
+		}}%>
+
+	});
+	/**
+		* Success Message After Saving Record
+	**/
+	
+	function funHelp(transactionName)
+	{
+		fieldName=transactionName;
+		window.open("searchform.html?formname="+transactionName+"&searchText=","mywindow","directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=600,height=600,left=400px");
+		//window.showModalDialog("searchform.html?formname="+transactionName+"&searchText=","","dialogHeight:600px;dialogWidth:600px;dialogLeft:400px;");
+	}
+</script>
+
+</head>
+<body>
+
+	<div id="formHeading">
+	<label>PropertySetup</label>
+	</div>
+
+<br/>
+<br/>
+
+	<s:form name="PropertySetup" method="POST" action="savePropertySetup.html">
+
+		<table class="masterTable">
+			<tr>
+			    <td  style="width: 100px;"><label>Property</label></td>
+				<td colspan="5"><s:select id="strPropertyCode" path="strPropertyCode" items="${listOfProperty}" required="true" cssClass="BoxW200px"></s:select></td>				    						    		        			 
+			</tr>
+			<tr>
+			    <td><label>Check In Time</label></td>
+			    <td><s:input path="tmeCheckInTime"  id="tmeCheckInTime" value="${checkInTime}"  class="timePickerTextBox" /></td>	
+			    <td><label>Check Out Time</label></td>
+			    <td><s:input path="tmeCheckOutTime"  id="tmeCheckOutTime" value="${checkOutTime}" class="timePickerTextBox" /></td>								    						    		        			
+			</tr>
+		</table>
+
+		<br />
+		<br />
+		<p align="center">
+			<input type="submit" value="Submit" tabindex="3" class="form_button" /><!-- onclick="return funValidateFields()" -->
+			<input type="reset" value="Reset" class="form_button" onclick="funResetFields()"/>
+		</p>
+
+	</s:form>
+</body>
+</html>

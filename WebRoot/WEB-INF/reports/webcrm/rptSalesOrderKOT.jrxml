@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="200" pageHeight="842" columnWidth="194" leftMargin="5" rightMargin="1" topMargin="1" bottomMargin="5" uuid="ea9ddaa3-cdc9-4e1f-a0f0-e732a56c0f50">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstock"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="orderNo" class="java.lang.String"/>
+	<parameter name="orderDate" class="java.lang.String"/>
+	<parameter name="orderTime" class="java.lang.String"/>
+	<parameter name="kotPrintedDate" class="java.lang.String"/>
+	<parameter name="kotPrintedTime" class="java.lang.String"/>
+	<parameter name="user" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT dbwebmms.tblattachdocument.`strTrans`,
+	dbwebmms.tblattachdocument.`strCode`,
+	dbwebmms.tblattachdocument.`binContent`
+FROM dbwebmms.tblattachdocument]]>
+	</queryString>
+	<field name="strGName" class="java.lang.String"/>
+	<field name="strProdName" class="java.lang.String"/>
+	<field name="dblQty" class="java.lang.Double"/>
+	<field name="strProdCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="211" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="190" height="19" uuid="0b099e43-96c9-4953-a39f-676515cf4be8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KOT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="19" width="190" height="20" uuid="2d1aa21c-95b5-47fc-ab8d-35908ad58676"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="190" height="19" uuid="49fe7bc9-bfc4-4eb0-9abc-32264ef3431d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["GROUP : "+$F{strGName}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="190" height="20" uuid="84e1477c-9b40-41a2-9c89-7da394974858"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CUSTOMER : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="190" height="30" uuid="077a76d0-cc4e-474a-afc9-21f7f52cea5d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customerName}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="113" width="196" height="1" uuid="7bf6deb8-69cc-429f-a918-41005d8e6645"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="115" width="88" height="15" uuid="b3342a51-4f09-439b-a341-c81bad54ace2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ORDER NO : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="115" width="100" height="15" uuid="8b894651-88d9-4d11-a3d5-2d376cf111b7"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orderNo}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="132" width="90" height="15" uuid="dbdb54a5-a94f-47ad-a64d-3ad99dfd0061"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ORDER DATE : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="132" width="100" height="15" uuid="b281266c-5d28-428f-b903-469f1b12d13d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orderDate}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="148" width="196" height="1" uuid="db619af1-804f-4dbf-b3d0-c2f9562f152d"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="153" width="108" height="15" uuid="249b4f3e-aaab-4aaa-9900-df45274ad0a2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KOT PRINTED DATE : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="153" width="82" height="15" uuid="600c379b-6add-42f4-b0ff-2208b8f073e2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotPrintedDate}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="171" width="108" height="15" uuid="a6bbc636-cfd8-4a8e-880a-05c8a4ea2c12"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KOT PRINTED TIME : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="171" width="82" height="15" uuid="34dcce8d-b087-4c48-aba7-d7d4ae954337"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotPrintedTime}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="188" width="108" height="15" uuid="4c858e86-0f9a-4d42-bb5a-b9e9cb2dd647"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["USER NAME : "]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="188" width="82" height="15" uuid="81450445-ef43-4d0f-b429-9baefbcc0f2b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+				<patternExpression><![CDATA["Group Name :"+$F{strGName}]]></patternExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="33">
+			<textField>
+				<reportElement x="-1" y="16" width="150" height="15" uuid="9b8f58a4-6165-4a94-8a40-aa0569074008"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PRODUCT NAME"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="15" width="38" height="15" uuid="c3292d5d-2fb0-46b7-a8f5-9f7ba1257b5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["QTY"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="0" width="196" height="1" uuid="8743415e-de15-4a6e-bd6d-1696d83adec3"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="32" width="196" height="1" uuid="1a1057d0-00e1-47a3-b5d0-19c66db849d4"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="15" uuid="dabd50a2-c292-41e1-90b9-4cc8c330bf5d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PRODUCT CODE"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="57" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="19" width="149" height="31" uuid="15e5800a-f025-42dd-9d2d-23901ca2cb29"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="152" y="18" width="38" height="20" uuid="e604e783-252f-4971-8a1c-4483d2f0ecb5"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblQty}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="1" width="149" height="15" uuid="559e1b43-fed5-4215-a459-439fd1f66932"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

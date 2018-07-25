@@ -1,0 +1,740 @@
+@font-face {
+	font-family: Calibri;
+	src: url("images/Calibri.ttf") local(Calibri) format('opentype');
+}
+
+body {
+	font-family: Calibri;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+a:link {
+	text-decoration: none;
+	color: white;
+}
+
+a:VISITED {
+	color: white;
+}
+
+a:HOVER {
+	color: white;
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+.container {
+	width: auto;
+	/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+	/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+	background-color: #FFF;
+	margin: 0 auto;
+	/* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background-color: #FFF;
+	background-image: url(../images/top_header.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	width: auto;
+}
+
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-color: #93A5C4;
+	padding-bottom: 10px;
+}
+/*
+.content {
+	padding: 10px 0;
+	width: 60%;
+	float: left;
+}
+*/
+.content {
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+.sidebar2 {
+	float: left;
+	width: 20%;
+	background-color: #93A5C4;
+	padding: 10px 0;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul,.content ol {
+	padding: 0 15px 15px 40px;
+	/* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666;
+	/* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px;
+	/* this creates the space between the navigation on the content below */
+}
+
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+
+ul.nav a,ul.nav a:visited {
+	/* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block;
+	/* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+
+ul.nav a:hover,ul.nav a:active,ul.nav a:focus {
+	/* this changes the background and text color for both mouse and keyboard navigators */
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+.loginlabel {
+	width: 67px;
+	display: block;
+	position: absolute;
+	right: 761px;
+	float: left;
+	font: 25px/35px;
+	font-weight: normal;
+	top: 156px;
+	padding-left: 30px;
+	height: 28px;
+}
+
+.button {
+	background-image: url(images/buttonbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font-size: 1.5vw;
+	height: 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 20%;
+	border: none;
+}
+
+.button:hover {
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #000;
+	font-size: 1.5vw;
+	height: 25px;
+	text-transform: uppercase;
+	width: 20%;
+	border: none;
+	font-weight: bold;
+}
+
+.textfield {
+	
+}
+
+.textfield:onclick {
+	border: #F00;
+}
+
+.inp {
+	border: solid 1px gray;
+}
+
+.inp:focus {
+	outline: solid 2px silver;
+}
+
+/* ~~miscellaneous float/clear classes~~ */
+.fltrt {
+	/* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+
+.fltlft {
+	/* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+
+.clearfloat {
+	/* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.loginBox {
+	width: 60%;
+	height: 230px;
+	border: 3px solid #000;
+	margin: auto;
+	border-color: #CCC;
+}
+
+.loginText {
+	padding-left: 5%;
+	text-align: left;
+	font-size: 100%;
+}
+
+.loginBoxHeader {
+	padding: 1px;
+	background-image: url(images/top_header.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+}
+
+.footerImage {
+	padding-left: 20px;
+	vertical-align: middle;
+}
+
+.navigationMenu {
+	background-color: #FFF;
+	background-image: url(images/navigationbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.navigation {
+	background: url(images/navigationbg.jpg) repeat-x scroll 0 0
+		rgba(0, 0, 0, 0);
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.navitem {
+	background: url(images/menu-devider.gif) no-repeat scroll right top
+		rgba(0, 0, 0, 0);
+	padding: 0 13px;
+	white-space: nowrap;
+	color: #FFFFFF;
+	font: 14px/23px;
+}
+
+.navleft {
+	padding-left: 10px;
+}
+
+.navright {
+	padding-right: 10px;
+}
+
+.navitemright {
+	background: url(images/menu-devider.gif) no-repeat scroll right top
+		rgba(0, 0, 0, 0);
+	padding: 0 13px;
+	white-space: nowrap;
+	text-align: center;
+	color: #FFFFFF;
+	font: 14px/23px;
+}
+
+.navitemright1 {
+	padding: 0 13px;
+	white-space: nowrap;
+	text-align: center;
+	color: #FFFFFF;
+	font: 14px/23px;
+}
+
+.MainMenuBox {
+	width: auto;
+	height: auto;
+	border: 1px solid #000;
+	margin: auto;
+	border-color: #CCC;
+}
+
+.MainMenuHeader {
+	clear: both;
+	padding: 1px;
+	background-image: url(images/table_header_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font: 14px/23px;
+}
+
+.MainMenuContent {
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 8%;
+	padding-left: 8%;
+}
+
+.tableImage {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	color: #000000;
+	font: 10px/13px;
+}
+
+.tableText {
+	font: 10px/15px;
+	font-weight: bold;
+	color: #000;
+}
+
+.dataViewTable {
+	background-color: #FFF;
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: relative;
+	clear: both;
+	text-align: left;
+	font-size: 15px;
+	color: #FFF;
+}
+
+.dataViewTable1 {
+	background-color: #FFF;
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: relative;
+	clear: both;
+	text-align: right;
+	font-size: 15px;
+}
+
+.dataViewTableData {
+	background-color: #FFF;
+	position: relative;
+	clear: both;
+	text-align: left;
+	color: #000;
+	font-size: 15px;
+}
+
+.dataViewTableData1 {
+	background-color: #FFF;
+	position: relative;
+	clear: both;
+	text-align: right;
+	color: #000;
+	font-size: 15px;
+}
+
+.buttonSales {
+	background-image: url(images/buttonbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font-size: 1.5vw;
+	height: 25px;
+	text-transform: uppercase;
+	width: 20%;
+	border: none;
+}
+
+.buttonSales:hover {
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #000;
+	font-size: 1.5vw;
+	height: 25px;
+	text-transform: uppercase;
+	width: 20%;
+	border: none;
+	font-weight: bold;
+}
+
+.SalesReportBox {
+	width: auto;
+	height: 400px;
+	border: 1px solid #000;
+	margin: auto;
+	border-color: #CCC;
+	overflow: hidden;
+	overflow: scroll;
+}
+
+.SalesReportHeader {
+	clear: both;
+	padding: 1px;
+	background-image: url(images/table_header_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font: 14px/23px;
+}
+
+.SalesReportContent {
+	width: auto;
+	height: 540px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+.kthSalseReportTable {
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: relative;
+	clear: both;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 6px;
+	text-align: center;
+}
+
+.xSalesReportData {
+	font-weight: normal;
+	color: #5f6062;
+	font-size: 12px;
+	padding: 20px 20px 20px 20px;
+	border: 1px solid black;
+	border-bottom: 1px solid #000000;
+	background: #e8edff;
+	border-bottom: 1px solid #fff;
+	border-left: none;
+	border-right: none;
+	color: #669;
+	border-top: 1px solid transparent;
+	text-align: center;
+}
+
+.xSalesReportData:HOVER {
+	background: #39A0FF;
+}
+
+.SalesReportDateChooser {
+	font-weight: normal;
+	color: black;
+	font-size: 14px;
+}
+
+.menubottom {
+	background: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	bottom: 0;
+	height: 30px;
+	left: 0;
+	font-size: 11px;
+	position: fixed;
+	width: 100%;
+	z-index: 10000;
+}
+/* ~~The footer ~~ */
+/* */
+.footer {
+	background-color: #FFF;
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: static;
+	clear: both;
+	text-align: left;
+	font-size: 11px;
+}
+
+.footer label {
+	width: 380px;
+	display: block;
+	position: absolute;
+	right: 620px;
+	float: left;
+	font: 12px/15px;
+	font-weight: normal;
+	top: 10px;
+	padding-left: 30px;
+}
+
+.wrap {
+	width: 100%;
+	height: 38px;
+	background-image: url(images/navigationbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.left {
+	background-image: url(images/navigationbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	width: 25%;
+	height: 25px;
+	float: left;
+	clear: both;
+	font-size: 2vw;
+}
+
+.right {
+	background-image: url(images/navigationbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	width: 25%;
+	height: 38px;
+	color: white;
+	font-family: Calibri;
+	float: right;
+	font-size: 2vw;
+	
+}
+
+.PropertyMasterBox {
+	border: 1px solid #CCCCCC;
+	height: auto;
+	margin: auto;
+	width: 70%;
+}
+
+.xcurvedEdges {
+	border: 4px solid #045B9E;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 8px 8px 4px #888888;
+}
+
+.xcurvedEdges td,.xcurvedEdges th {
+	border-bottom: 1px dotted black;
+	padding: 5px;
+}
+
+.tableKOT {
+	border: 2px solid #085188;
+}
+
+.tableKOT td {
+	border-bottom: 2px solid #085188;
+	font-size: 300%;
+	text-align: center;
+	color: #000;
+	
+	
+}
+.tableKOT tr{
+height:80px;
+
+}
+
+.tableKOT td:HOVER {
+	background: #39A0FF;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.tableKOT td a:link {
+	color: #000;
+	text-decoration: none;
+}
+
+.tableKOT td a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+.tableKOT td a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.tableKOT td a:hover {
+	color: #FFF;
+}
+
+.tableKOT th {
+	background-color: #FFF;
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: relative;
+	clear: both;
+	text-align: left;
+	font-size: 300%;
+	color: #FFF;
+	text-align: center;
+}
+
+.tablePax {
+	width: 100%;
+	height:100%;
+	border: 4px solid #045B9E;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.tablePax th {
+	background-color: #FFF;
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	position: relative;
+	clear: both;
+	text-align: left;
+	font-size: 15px;
+	color: #FFF;
+	text-align: center;
+}
+
+.tablePax th {
+	text-align: center;
+}
+input.search {
+    width: 10em;  height: 4em;
+}
+
+.buttonPAX {
+	background-image: url(images/buttonbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font-size: 1.5vw;
+	height: auto;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	border: none;
+}
+
+.buttonPAX:hover {
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #000;
+	font-size: 1.5vw;
+	height: 25px;
+	text-transform: uppercase;
+	width: 100%;
+	border: none;
+	font-weight: bold;
+}
+
+.buttonAddItem {
+	color: #FFFFFF;
+	font-size: 15px;
+	height: 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	border: none;
+}
+
+.buttonAddItem input[type=button] {
+	background-image: url(images/table_header_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #FFFFFF;
+	font-size: 15px;
+	height: 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	border: none;
+}
+
+.buttonAddItem input[type=button]:hover {
+	background-image: url(images/footerbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	color: #000;
+	font-size: 15px;
+	height: 25px;
+	text-transform: uppercase;
+	width: 100%;
+	border: none;
+	font-weight: bold;
+}
+
+
+
+.altrowstable {
+
+	
+	font-size:15px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+}
+.altrowstable th {
+	border-width: 1px;
+	
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.altrowstable td {
+	border-width: 1px;
+	
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.oddrowcolor{
+	background-color:#d4e3e5;
+}
+.evenrowcolor{
+	background-color:#c3dde0;
+}
+
+
+
+.xDB {
+	font-weight: normal;
+	color: #000000;
+	font-size: 15px;
+	padding: 20px 20px 20px 20px;
+	border: 1px solid black;
+	border-bottom: 1px solid #000000;
+	background: #e8edff;
+	border-bottom: 1px solid #fff;
+	border-left: none;
+	border-right: none;
+	
+	border-top: 1px solid transparent;
+	text-align: center;
+}
+
+.xDB:HOVER {
+	background: #39A0FF;
+}
+.divDBSettlement{
+	background: #d4e3e5;
+	box-shadow: 8px 8px 4px #888888;
+	border:4px solid;
+	border-color:#045B9E;
+border-radius:4px;
+
+	
+	}
+	
+}

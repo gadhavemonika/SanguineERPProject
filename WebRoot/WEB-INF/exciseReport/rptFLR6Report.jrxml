@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2016-01-02T17:47:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FLR-6" pageWidth="935" pageHeight="595" columnWidth="907" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="7" whenResourceMissingType="Error" uuid="0e55ba00-0d93-49e5-ab46-fecd237e94e5">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="strLicenceNo" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strDate" class="java.lang.String"/>
+	<parameter name="strCol1" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol2" class="java.lang.String"/>
+	<parameter name="strCol3" class="java.lang.String"/>
+	<parameter name="strCol4" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol5" class="java.lang.String"/>
+	<parameter name="strCol6" class="java.lang.String"/>
+	<parameter name="strCol7" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol8" class="java.lang.String"/>
+	<parameter name="strCol9" class="java.lang.String"/>
+	<parameter name="strCol10" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol11" class="java.lang.String"/>
+	<parameter name="strCol12" class="java.lang.String"/>
+	<parameter name="strCol13" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol14" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="strCol15" class="java.lang.String"/>
+	<parameter name="strCol16" class="java.lang.String"/>
+	<field name="strRow1" class="java.lang.String"/>
+	<field name="strRow2" class="java.lang.String"/>
+	<field name="strRow3" class="java.lang.String"/>
+	<field name="strRow4" class="java.lang.String"/>
+	<field name="strRow5" class="java.lang.String"/>
+	<field name="strRow6" class="java.lang.String"/>
+	<field name="strRow7" class="java.lang.String"/>
+	<field name="strRow8" class="java.lang.String"/>
+	<field name="strRow9" class="java.lang.String"/>
+	<field name="strRow10" class="java.lang.String"/>
+	<field name="strRow11" class="java.lang.String"/>
+	<field name="strRow12" class="java.lang.String"/>
+	<field name="strRow13" class="java.lang.String"/>
+	<field name="strRow14" class="java.lang.String"/>
+	<field name="strRow15" class="java.lang.String"/>
+	<field name="strRow16" class="java.lang.String"/>
+	<field name="strRow17" class="java.lang.String"/>
+	<field name="strRow18" class="java.lang.String"/>
+	<field name="strRow19" class="java.lang.String"/>
+	<field name="strRow20" class="java.lang.String"/>
+	<field name="strRow21" class="java.lang.String"/>
+	<field name="strRow22" class="java.lang.String"/>
+	<field name="strRow23" class="java.lang.String"/>
+	<field name="strRow24" class="java.lang.String"/>
+	<field name="strRow25" class="java.lang.String"/>
+	<field name="strRow26" class="java.lang.String"/>
+	<field name="strRow27" class="java.lang.String"/>
+	<field name="strRow28" class="java.lang.String"/>
+	<field name="strRow29" class="java.lang.String"/>
+	<field name="strRow30" class="java.lang.String"/>
+	<field name="strRow31" class="java.lang.String"/>
+	<field name="strRow32" class="java.lang.String"/>
+	<field name="strRow33" class="java.lang.String"/>
+	<field name="strRow34" class="java.lang.String"/>
+	<field name="strRow35" class="java.lang.String"/>
+	<field name="strRow36" class="java.lang.String"/>
+	<field name="strRow37" class="java.lang.String"/>
+	<field name="strRow38" class="java.lang.String"/>
+	<field name="strRow39" class="java.lang.String"/>
+	<field name="strRow40" class="java.lang.String"/>
+	<field name="strRow41" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="513" y="22" width="162" height="17" uuid="215d9b70-2ea4-405b-a2d4-a79276c79faa"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strLicenceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="5" width="350" height="16" uuid="65908079-734a-499f-8711-d8932441be1c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="58" width="165" height="18" uuid="ffcfa342-e1d0-43b4-acfe-bfa3efd7a9b4"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="406" y="3" width="76" height="15" uuid="cfa12e09-ec2d-4f06-a30d-e545a7678e64"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORM FLR-6 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="22" width="165" height="17" uuid="6541cd64-108f-443c-b899-d115b17a51bc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEE RULE 15 (b) LICENCE NO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="40" width="479" height="17" uuid="1265e151-2faf-4a1d-8f3b-e1bb13542b78"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTER OF SALE OF FOREIGN LIQUOR IN UNITS OF PERMIT HOLDERS BY , CLUB LICENCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="58" width="48" height="18" uuid="769869fb-0c8c-4cf2-9485-88bbb9836dde"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATE :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37">
+			<line>
+				<reportElement x="0" y="1" width="914" height="1" uuid="a890a53e-f6de-4ee1-b7da-eeff61828d69"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="3" width="20" height="29" uuid="a826c588-32fc-44e2-a1f3-4b12094e0a7b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="20" y="3" width="121" height="29" uuid="59636c37-70bf-4063-a64d-fee312ec8464"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="141" y="3" width="38" height="29" uuid="84b440aa-c09c-4c02-a9a5-56deebc0fe10"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="181" y="3" width="43" height="29" uuid="fdb16137-f076-48c1-b936-7454abcb9135"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="224" y="3" width="39" height="29" uuid="c7e2821b-721f-4aba-b86b-6d973123e3b7"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="263" y="3" width="108" height="29" uuid="fc60bc83-238f-41d8-beca-9a9fca34b93e"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="3" width="108" height="29" uuid="96fc3ac7-4d09-4e1d-a114-0d3906e9aa6b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="2" width="106" height="29" uuid="ae4be0dd-4836-46f6-868a-8116f0472070"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="585" y="3" width="108" height="29" uuid="13d1fffe-7f32-4c65-9c1b-0caee2fa6b0c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol9}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="693" y="3" width="108" height="29" uuid="9202204a-2a38-45a8-8741-14770550abed"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol10}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="34" width="914" height="1" uuid="8bec5ded-c12f-464c-9742-23dedf051ef9"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="801" y="4" width="100" height="30" uuid="fce0016f-0db0-40a4-801c-16a31ee5ff58"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCol11}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="284" y="0" width="21" height="22" uuid="66ba208c-6fb4-4bf7-9a2b-0a8e0c8037b6"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow7}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="20" y="0" width="121" height="22" isPrintInFirstWholeBand="true" uuid="46b047a6-ad94-4369-8523-381d8b75f4f3"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="20" height="22" uuid="168190eb-79c8-4bed-9bb4-7efcbc851c2e"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement>
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow1}.equals( "`" ) ? "" : $F{strRow1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="181" y="0" width="43" height="22" uuid="17fb271d-d46d-4c48-afd9-dbc0e01c0e36"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="305" y="0" width="17" height="22" uuid="a3b5e936-a071-4cf9-a28b-c0f5d86f8872"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow8}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="339" y="0" width="17" height="22" uuid="899078db-dc59-4c56-a7ac-88597cbb4243"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow10}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="322" y="0" width="17" height="22" uuid="0136703e-1743-421c-872a-7a91e052688c"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow9}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="371" y="0" width="21" height="22" uuid="59f4da2c-b103-4a69-994d-ee6f5739c0be"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow12}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="356" y="0" width="15" height="22" uuid="b4a76fdc-a887-40f5-bc86-3f615f476496"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow11}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="17" height="22" uuid="463648de-62f0-4a7a-b717-7168107ef83f"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="447" y="0" width="17" height="22" uuid="2af545f9-9c6a-465c-9bc3-15fe7279472d"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow16}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="464" y="0" width="15" height="22" uuid="d7fe3bc9-affc-433e-bde0-0ecc7ef7b88b"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow17}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="479" y="0" width="21" height="22" uuid="fc1b7b5a-3422-4e6b-b816-d287811a9b69"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow18}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="500" y="0" width="21" height="22" uuid="f1cd5ec3-b1f9-4ea8-83bd-cb719d6819ab"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow19}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="521" y="0" width="17" height="22" uuid="7c89c2c2-9d50-4d00-aea0-73f40b1999d4"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow20}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="538" y="0" width="17" height="22" uuid="3e011637-76c5-40b1-bdfa-0588818c2da4"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow21}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="555" y="0" width="17" height="22" uuid="5ace51ea-2ef9-41f2-90b1-a099991a75ab"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow22}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="572" y="0" width="12" height="22" uuid="b81ca735-bf1a-40e8-a640-205dc2fe83a5"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow23}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="584" y="0" width="21" height="22" uuid="ffa44a1c-9472-47b8-9ace-13ce0d74cf18"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow24}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="605" y="0" width="21" height="22" uuid="6af4a52f-e472-4010-a90e-df0a609f5e12"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow25}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="626" y="0" width="17" height="22" uuid="82d160a5-6587-47f0-9369-223ed362fe1c"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow26}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="660" y="0" width="17" height="22" uuid="5a596adf-e75f-4645-8a8d-128d75b45937"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow28}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="677" y="0" width="12" height="22" uuid="780f202d-78b5-4713-8676-f377747a1e4a"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow29}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="710" y="0" width="21" height="22" uuid="4ed572e6-0e34-431f-9651-e054538b54c1"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow31}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="748" y="0" width="17" height="22" uuid="54b21d19-c6c8-4db5-9180-0d764536cc8f"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow33}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="765" y="0" width="17" height="22" uuid="08f6787f-b1c3-4b34-be27-b1f73387986c"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow34}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="782" y="0" width="15" height="22" uuid="7f87cc57-6696-4a49-8598-543bf8a6b1ae"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow35}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="797" y="0" width="21" height="22" uuid="69d5ba8c-f35d-475a-ae28-d719dbaf8154"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow36}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="839" y="0" width="17" height="22" uuid="8a6006ea-69cc-40f1-9072-aff6c9512034"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow38}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="856" y="0" width="17" height="22" uuid="ad2fec96-fdf2-4c85-91d7-fa7ba3242681"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow39}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="141" y="0" width="38" height="22" uuid="bcc69ac6-fbe8-4793-8a7d-c33216a1da5d"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="224" y="0" width="39" height="22" uuid="bae161ae-c639-4432-8978-6bd2ffe2871d"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Monospaced" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="263" y="0" width="21" height="22" uuid="02bc45aa-36db-44e9-b1d1-2714d55e3129"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow6}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="392" y="0" width="21" height="22" uuid="d04ec246-7718-44f8-b39e-4391c9bddeb7"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow13}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="413" y="0" width="17" height="22" uuid="0fb9b003-8d64-44a5-8491-e9abe3af11a7"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow14}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="731" y="0" width="17" height="22" uuid="8eca0156-5140-4708-b518-367ea23f3cba"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow32}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="818" y="0" width="21" height="22" uuid="bd607905-f69a-4b98-a198-5a6fce974352"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow37}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="689" y="0" width="21" height="22" uuid="af7d199b-0257-43ee-b4e1-55680b43fb01"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow30}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="873" y="0" width="17" height="22" uuid="b869e409-1b00-4985-8c69-14928ee6aba0"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow40}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="890" y="0" width="15" height="22" uuid="301e44b7-6c16-4f05-8485-328af1aec2d2"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow41}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="643" y="0" width="17" height="22" uuid="f6a8c1fc-0841-4878-8cac-6cdc80d0f736"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.1" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.1" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.1" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.1" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed" size="6.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strRow27}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="12">
+			<textField>
+				<reportElement x="377" y="1" width="82" height="10" uuid="fb113b14-6c5b-48c1-a603-15093338db4a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tw Cen MT Condensed Extra Bold" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="460" y="1" width="89" height="10" uuid="a3ec1a0f-64fc-4be7-8c88-dc04c2879af5"/>
+				<textElement>
+					<font fontName="Tw Cen MT Condensed Extra Bold" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

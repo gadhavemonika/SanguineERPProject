@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCheckInList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f2323f3-3122-4114-a59f-df89ff1ddda0">
+	<property name="ireport.zoom" value="1.156629868288595"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<subDataset name="dsCheckOutDtl" uuid="acdbbf8f-4d38-4065-97c8-7a11bdd598c9">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="webstocks"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="strRoomTypeDesc" class="java.lang.String">
+			<fieldDescription><![CDATA[strRoomTypeDesc]]></fieldDescription>
+		</field>
+		<field name="strAddress" class="java.lang.String">
+			<fieldDescription><![CDATA[strAddress]]></fieldDescription>
+		</field>
+		<field name="strLastName" class="java.lang.String">
+			<fieldDescription><![CDATA[strLastName]]></fieldDescription>
+		</field>
+		<field name="guestFirstName" class="java.lang.String">
+			<fieldDescription><![CDATA[guestFirstName]]></fieldDescription>
+		</field>
+		<field name="strArrivalFrom" class="java.lang.String">
+			<fieldDescription><![CDATA[strArrivalFrom]]></fieldDescription>
+		</field>
+		<field name="strMiddleName" class="java.lang.String">
+			<fieldDescription><![CDATA[strMiddleName]]></fieldDescription>
+		</field>
+		<field name="strProceedingTo" class="java.lang.String">
+			<fieldDescription><![CDATA[strProceedingTo]]></fieldDescription>
+		</field>
+		<field name="strRoomDesc" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="pCompanyName" class="java.lang.String"/>
+	<parameter name="pAddress1" class="java.lang.String"/>
+	<parameter name="pAddress2" class="java.lang.String"/>
+	<parameter name="pContactDetails" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="pFromDate" class="java.lang.String"/>
+	<parameter name="pTtoDate" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="propName" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="listCheckOutDtl" class="java.util.List">
+		<fieldDescription><![CDATA[listCheckOutDtl]]></fieldDescription>
+	</field>
+	<field name="businessSrc" class="java.lang.String">
+		<fieldDescription><![CDATA[businessSrc]]></fieldDescription>
+	</field>
+	<field name="strGuestCode" class="java.lang.String">
+		<fieldDescription><![CDATA[strGuestCode]]></fieldDescription>
+	</field>
+	<field name="dteDateCreated" class="java.lang.String">
+		<fieldDescription><![CDATA[dteDateCreated]]></fieldDescription>
+	</field>
+	<field name="agentDescription" class="java.lang.String">
+		<fieldDescription><![CDATA[agentDescription]]></fieldDescription>
+	</field>
+	<field name="dblCreditAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[dblCreditAmt]]></fieldDescription>
+	</field>
+	<field name="dteFromDate" class="java.lang.String">
+		<fieldDescription><![CDATA[dteFromDate]]></fieldDescription>
+	</field>
+	<field name="dteToDate" class="java.lang.String">
+		<fieldDescription><![CDATA[dteToDate]]></fieldDescription>
+	</field>
+	<field name="strCorporateDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[strCorporateDesc]]></fieldDescription>
+	</field>
+	<field name="strFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[strFirstName]]></fieldDescription>
+	</field>
+	<field name="strReservationNo" class="java.lang.String">
+		<fieldDescription><![CDATA[strReservationNo]]></fieldDescription>
+	</field>
+	<field name="dteCancelDate" class="java.lang.String">
+		<fieldDescription><![CDATA[dteCancelDate]]></fieldDescription>
+	</field>
+	<field name="strBookingTypeDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[strBookingTypeDesc]]></fieldDescription>
+	</field>
+	<field name="strBookerName" class="java.lang.String">
+		<fieldDescription><![CDATA[strBookerName]]></fieldDescription>
+	</field>
+	<field name="strBillingInstDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[strBillingInstDesc]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="163" splitType="Stretch">
+			<textField>
+				<reportElement x="183" y="10" width="314" height="20" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="30" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pAddress1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="46" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pAddress2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="555" height="1" uuid="e18e9f7a-d80b-4aa5-b730-5a5416101055"/>
+			</line>
+			<image>
+				<reportElement x="13" y="10" width="136" height="79" uuid="5ea12fd6-6cbd-47f0-87cd-263c311d7cfd"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="183" y="62" width="314" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pContactDetails}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="125" width="555" height="1" uuid="e18e9f7a-d80b-4aa5-b730-5a5416101055"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="105" width="59" height="18" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Group: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="126" width="59" height="17" uuid="d2930865-ba58-4f2a-aaef-f648e1efd9ab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Property:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="62" y="103" width="146" height="20" uuid="c91f2980-9bed-40a5-beb0-0afac8734e83"/>
+				<textFieldExpression><![CDATA[$P{pCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="125" width="147" height="19" uuid="235805f6-e64a-4e6c-9cc8-16fe47e52fc9"/>
+				<textFieldExpression><![CDATA[$P{propName}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="143" width="555" height="1" uuid="e18e9f7a-d80b-4aa5-b730-5a5416101055"/>
+			</line>
+			<staticText>
+				<reportElement x="343" y="146" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To Date   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="146" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Date  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="94" y="146" width="130" height="14" uuid="adad322f-e85a-4448-bd5a-104902baafec"/>
+				<textFieldExpression><![CDATA[$P{pFromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="145" width="113" height="14" uuid="adad322f-e85a-4448-bd5a-104902baafec"/>
+				<textFieldExpression><![CDATA[$P{pTtoDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="160" width="555" height="1" uuid="a30040ee-4d0e-4a01-9020-d0978d17843d"/>
+			</line>
+			<staticText>
+				<reportElement x="183" y="81" width="311" height="14" uuid="12ba95bd-2eb2-4697-9f48-7c0c0d2c09d0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Check-Out List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="233" splitType="Stretch">
+			<textField>
+				<reportElement x="436" y="1" width="115" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strBookingTypeDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="20" width="205" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dteDateCreated}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="339" y="1" width="97" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reservation Type               :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="38" width="205" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dteCancelDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="1" width="205" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strReservationNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="339" y="20" width="97" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Corporate          :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="1" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reservation No   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="57" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill Instruction         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="38" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Cancellation Date             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="56" width="97" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Business Source    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="436" y="20" width="115" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strCorporateDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="57" width="205" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strBillingInstDesc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="339" y="39" width="97" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booked By          :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="436" y="56" width="115" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{businessSrc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="20" width="94" height="14" uuid="1e307570-e77a-4e7f-ba3e-903f5a174436"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booked Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="436" y="39" width="115" height="14" uuid="2721457a-8086-462b-b990-f64b7c9148dd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strBookerName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#">
+				<reportElement x="95" y="74" width="201" height="14" uuid="e2d7ef5f-083f-4d76-b9b6-d1556910e11d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblCreditAmt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="74" width="93" height="14" uuid="440783c5-954b-4fad-829b-4701c20d249c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit Amount      :]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="-2" y="90" width="550" height="86" uuid="0f13cb70-09e8-47f2-8886-a54689e14bca"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dsCheckOutDtl" uuid="c7e1b067-e13e-44dd-b8f2-97e4527ca591">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listCheckOutDtl})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="86" width="550">
+						<staticText>
+							<reportElement x="0" y="10" width="222" height="20" uuid="99ed8515-d8cd-4a3e-920e-cc8896becdf7"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Room & Guest Details :]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="36" width="90" height="14" uuid="e5f88396-76a3-4004-92e4-6c791b7be036"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Guest Name   :]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="54" width="90" height="14" uuid="429bf0be-f370-4e12-9461-55e088a085a7"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Guest Address :]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="338" y="36" width="97" height="14" uuid="a23c2f4c-304f-4556-ab02-b0809a4ebb51"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Room Type :]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="338" y="54" width="97" height="14" uuid="43d8c8cc-ad94-4eca-8806-cffe705690cd"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Arrived From   :]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="72" width="90" height="14" uuid="1d6a331a-b230-471e-be42-2b574f033c44"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Proceed To   :]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="90" y="36" width="205" height="14" uuid="094b4a24-601c-48ed-b5a6-f804f31bb943"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{guestFirstName}+" "+$F{strMiddleName}+" "+$F{strLastName}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="90" y="72" width="205" height="14" uuid="6e21056c-db05-49fb-b7ad-6e72429c3129"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{strProceedingTo}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="90" y="54" width="205" height="14" uuid="0fc94f85-d5ae-4d66-9e64-f2819eccf3a4"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{strAddress}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="435" y="36" width="115" height="14" uuid="96b38c05-2cc2-485e-8a31-201eca25195e"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{strRoomTypeDesc}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="435" y="54" width="115" height="14" uuid="b1c268da-212a-401f-b4fe-a71839ef030c"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{strArrivalFrom}]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement x="1" y="4" width="149" height="1" uuid="f381c3c8-735f-43b6-8517-0471ef6d938c"/>
+						</line>
+						<staticText>
+							<reportElement x="338" y="70" width="97" height="14" uuid="b430f5fd-95cc-48a8-8c48-856addf4af82"/>
+							<textElement verticalAlignment="Middle">
+								<font size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Room No  :]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="435" y="70" width="115" height="14" uuid="90214ef6-e468-493e-a2f3-674ac6858b1d"/>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{strRoomDesc}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="63" y="3" width="120" height="20" uuid="a94905a6-1848-4383-be6c-05812cf6077b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="3" width="63" height="20" uuid="da9d67ec-9892-4685-bb21-a0172ab0f07c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Created On :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="2" width="25" height="21" uuid="da9d67ec-9892-4685-bb21-a0172ab0f07c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[By :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="3" width="64" height="20" uuid="979af289-9e6c-4f02-a8e7-654bba636cfb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="497" y="3" width="55" height="20" uuid="dee2f5f4-cc78-4d99-8aa1-641612625e74"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="22" width="555" height="1" uuid="20e6c723-36c1-406d-a79b-51895cb0512f"/>
+			</line>
+			<textField>
+				<reportElement x="208" y="1" width="224" height="22" uuid="7cd5269e-7948-4690-ad7c-a10ee08ad2d0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="555" height="1" uuid="aa046d26-0f78-4579-97ee-1f10e37b521a"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

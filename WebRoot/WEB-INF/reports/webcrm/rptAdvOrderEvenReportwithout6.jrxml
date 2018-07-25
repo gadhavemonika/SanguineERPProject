@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-05-26T13:17:33 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAdvOrderEvenReport" pageWidth="595" pageHeight="800" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cbcd9d3-1026-493b-9dd3-751c7fddc60a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="teat.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="strGCodes" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="strSGCodes" class="java.util.List"/>
+	<parameter name="dteFromDate" class="java.lang.String"/>
+	<parameter name="dteToDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT d.strSGName,c.strProdCode,c.strProdName, SUM(b.dblQty)as dblQty, SUM(b.dblWeight*b.dblQty)as dblWeight ,a.strSOCode,a.intid,f.strCharCode,f.strCharValue
+FROM tblsalesorderhd a,tblsalesorderdtl b,tblproductmaster c,tblsubgroupmaster d,tblgroupmaster e,
+tblsaleschar f 
+WHERE a.strSOCode=b.strSOCode and a.strSOCode=f.strSOCode and b.strProdCode=f.strProdCode and a.strStatus='Advance Order' AND b.strProdCode=c.strProdCode AND c.strSGCode=d.strSGCode AND d.strGCode=e.strGCode AND $X{IN,e.strGCode,strGCodes} AND $X{IN,c.strSGCode,strSGCodes}  AND DATE(a.dteSODate) BETWEEN $P{dteFromDate}  AND $P{dteToDate}
+GROUP BY  f.strCharCode,b.strProdCode,e.strGName,d.strSGName 
+ORDER BY b.strProdCode,e.strGName,d.strSGName]]>
+	</queryString>
+	<field name="strSGName" class="java.lang.String"/>
+	<field name="strProdCode" class="java.lang.String"/>
+	<field name="strProdName" class="java.lang.String"/>
+	<field name="dblQty" class="java.math.BigDecimal"/>
+	<field name="dblWeight" class="java.math.BigDecimal"/>
+	<field name="strSOCode" class="java.lang.String"/>
+	<field name="intid" class="java.lang.Long"/>
+	<field name="strCharCode" class="java.lang.String"/>
+	<field name="strCharValue" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{strProdCode}]]></groupExpression>
+		<groupHeader>
+			<band height="57">
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="27" width="260" height="18" uuid="0dd7c30c-db7b-48b9-8189-3df262a7821f"/>
+					<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#">
+					<reportElement x="410" y="26" width="60" height="20" uuid="920729f5-5739-40b1-8fcf-69130f9b5bd8"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{dblWeight}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="49" width="550" height="1" uuid="cde1d2b7-b9a4-49a9-9a5a-079e32927fef"/>
+				</line>
+				<line>
+					<reportElement x="-1" y="19" width="551" height="1" uuid="35767094-9932-4554-9650-9ce27b8c81b1"/>
+				</line>
+				<textField pattern="#,##0.00#">
+					<reportElement x="490" y="26" width="54" height="20" uuid="5bb80dea-54c8-4010-9339-888eec471e82"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{dblQty}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="3" width="259" height="17" uuid="0fb225d9-a449-4eff-9187-4f3b8cf96405"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Product Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="410" y="0" width="60" height="17" uuid="62fb2488-0580-47b9-aa24-7d0da574ea10">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Weight]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="491" y="2" width="54" height="17" uuid="41ecb6de-59b3-4ec4-82f0-c9a7762de8e5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[QTY]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</band>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="2" width="258" height="20" uuid="45653a65-623f-4ea2-8036-16031835f122"/>
+				<textFieldExpression><![CDATA[$F{strCharCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="2" width="73" height="20" uuid="ad0f4163-d02e-4480-b665-394c06d73b20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{strCharValue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

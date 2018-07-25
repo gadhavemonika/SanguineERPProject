@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-06-03T01:20:51 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ca3318f-da2c-4d8d-935e-8b30d18882c5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strNarration" class="java.lang.String"/>
+	<parameter name="strFromDate" class="java.lang.String"/>
+	<parameter name="strToDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="strProdCode" class="java.lang.String"/>
+	<field name="strPOSItemCode" class="java.lang.String"/>
+	<field name="strProdName" class="java.lang.String"/>
+	<field name="dblQty" class="java.lang.Double"/>
+	<field name="strUOM" class="java.lang.String"/>
+	<field name="strRemark" class="java.lang.String"/>
+	<field name="strAttributeCode" class="java.lang.String"/>
+	<field name="strAttributeName" class="java.lang.String"/>
+	<field name="strAttributType" class="java.lang.String"/>
+	<field name="strAttributeDes" class="java.lang.String"/>
+	<field name="strSupplierName" class="java.lang.String"/>
+	<field name="strPODate" class="java.lang.String"/>
+	<field name="strPOCode" class="java.lang.String"/>
+	<field name="strPendingAmt" class="java.lang.String"/>
+	<field name="strDelDate" class="java.lang.String"/>
+	<field name="strAmtDueOn" class="java.lang.String"/>
+	<field name="strAmtDueBy1" class="java.lang.String"/>
+	<field name="strAmtDueBy2" class="java.lang.String"/>
+	<field name="strAmtDueBy3" class="java.lang.String"/>
+	<field name="strAmtDueAfter" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="330" y="0" width="200" height="30" forecolor="#000000" backcolor="#FFFFFF" uuid="ec421e91-9cff-4b65-8d6b-83fd4bd26434"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Serif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Serif" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="40" width="200" height="30" uuid="189a8e1a-254b-4975-a75e-be959c1f630d"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pending PO Payment]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="180" height="76" uuid="31c5ee71-147e-4e4e-ae93-15db6006fe02"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="50" width="555" height="1" uuid="4f0d084c-242f-4d69-b61f-8d4ebcf474f5"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="20" uuid="3232364d-dae1-48d8-9702-72f1a098defe"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[From Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="10" width="100" height="20" uuid="15f69cb5-9f7a-44cd-85d6-cef6e0a7206e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strFromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="10" width="100" height="20" uuid="56fdab44-a555-4475-a40b-69771db8cce2"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strToDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="10" width="100" height="20" uuid="c3e78f04-ca72-469f-b592-76b49ac0624b"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[To Date]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="58" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-1" y="4" width="556" height="52" backcolor="#EBEBEB" uuid="80b500fe-1c3c-4a01-8a50-4af98786fc57"/>
+				<staticText>
+					<reportElement x="10" y="0" width="80" height="14" uuid="4cfdf2b7-a5be-4521-922a-d9d7e1eaa28d"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Supplier Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="101" y="0" width="39" height="15" uuid="c4da1b8e-2a1e-473d-875a-d7ff2a7c6079"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PO Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="0" width="40" height="30" uuid="9f81ed9b-b5c9-46b2-ad0a-70b2f15b5c80"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pending Amt]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="310" y="0" width="40" height="30" uuid="a9b6f20c-578f-4a04-8289-b6695ab88bfb"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount Due on]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="0" width="50" height="15" uuid="0f75c3fe-3edc-4f8a-905a-a4e4ac0bacda"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PO Code]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="260" y="0" width="41" height="30" uuid="eb1a6677-2507-4d4c-9475-7d548cf33380"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Del Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="360" y="0" width="40" height="30" uuid="26413579-21e2-4642-b344-fa96cb366cad"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount Due by]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="410" y="0" width="40" height="30" uuid="18a7ca73-f2a6-4bad-9a0d-9fa57d5db6e9"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount Due by]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="460" y="0" width="40" height="30" uuid="e9d42f05-383a-4041-84f5-48b7432f43d4"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount Due by]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="511" y="0" width="40" height="40" uuid="6357f4ec-6c36-4090-9baf-b25cba5d23c1"/>
+					<textElement>
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount Due after]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="79" height="20" uuid="81279ca8-25cc-4bf5-80e3-a28f89bb095c"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strSupplierName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="39" height="20" uuid="3509875d-efb7-4a47-b6ee-d2646660041b"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="0" width="41" height="20" uuid="b7198044-20f3-4bd6-aba4-ee0d6bf4daa4"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPOCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="100" height="20" uuid="5dccb914-97c3-4740-936f-1200b01c54f3"/>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="39" height="20" uuid="d6236369-c2dc-49d5-9d34-f344f0c81496"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strAmtDueOn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="0" width="41" height="20" uuid="4bfcb56b-e92e-4d0e-8497-bcdf6133a494"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strAmtDueBy1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="1" width="39" height="20" uuid="a575111b-36f2-4ee1-a15a-f970ee0a3a98"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strAmtDueBy3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="41" height="20" uuid="f7ea02d5-f7b6-4f0a-b7ef-895a206df9f1"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strAmtDueBy2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="1" width="41" height="20" uuid="44f0d891-f172-4d57-829b-4c5b2ea6eaf2"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strAmtDueAfter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="39" height="20" uuid="d63c5d20-11b0-4921-ad1f-39cde2420850"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strPendingAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="41" height="20" uuid="3a715fc8-8199-44ab-9ae2-de5e3aa924a6"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strDelDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="30" width="30" height="20" uuid="a7b551bf-2e4f-4217-a2ea-e271c704dbec"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="320" y="20" width="100" height="20" uuid="863653fd-b420-4b3e-b6fb-dfe806faebe2"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="20" width="20" height="20" uuid="2745eb87-72cf-49b9-84fe-2b9311562fc2"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="6" width="554" height="1" uuid="39ddd3fd-2b4e-41a9-8a27-b716763346dc"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="450" y="20" width="50" height="20" uuid="bb637455-950a-444d-ab4e-3154dc74dcc5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="500" y="20" width="50" height="20" uuid="659b13a6-67ad-4ffe-8ab3-ea0f4aa554af"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="60" y="20" width="90" height="20" uuid="8bdc911c-ec4f-427f-b579-77ff14eff618"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="184" y="21" width="56" height="19" uuid="cdfc85e7-ecb6-4810-a048-9b418143392a"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="21" width="24" height="20" uuid="1a3497fc-239d-4577-aa54-ab759b6cb2c7"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="20" width="61" height="20" uuid="d6b9bafb-9da2-4e37-86a1-3915b59bd68a"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

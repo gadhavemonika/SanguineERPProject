@@ -1,0 +1,392 @@
+package com.sanguine.webpms.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import com.sanguine.controller.clsGlobalFunctions;
+import com.sanguine.service.clsGlobalFunctionsService;
+import com.sanguine.webpms.bean.clsGuestMasterBean;
+import com.sanguine.webpms.bean.clsReservationBean;
+import com.sanguine.webpms.bean.clsReservationDetailsBean;
+import com.sanguine.webpms.dao.clsExtraBedMasterDao;
+import com.sanguine.webpms.dao.clsGuestMasterDao;
+import com.sanguine.webpms.model.clsExtraBedMasterModel;
+import com.sanguine.webpms.model.clsGuestMasterHdModel;
+import com.sanguine.webpms.model.clsReservationDtlModel;
+import com.sanguine.webpms.model.clsReservationHdModel;
+import com.sanguine.webpms.model.clsRoomMasterModel;
+import com.sanguine.webpms.service.clsGuestMasterService;
+import com.sanguine.webpms.service.clsReservationService;
+import com.sanguine.webpms.service.clsRoomMasterService;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.validation.BindingResult;
+import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+
+@Controller
+public class clsReservationController{
+
+	@Autowired
+	private clsReservationService objReservationService;
+	
+	@Autowired
+	private clsGlobalFunctionsService objGlobalFunctionsService;
+	
+	@Autowired
+	private clsGlobalFunctions objGlobal;
+	
+	@Autowired
+	private clsGuestMasterService objGuestMasterService;
+	
+	@Autowired
+	private clsGuestMasterDao objGuestMasterDao;
+	
+	@Autowired
+    private clsRoomMasterService objRoomMasterService;
+	
+	@Autowired
+	private clsExtraBedMasterDao objExtraBedMasterDao;
+
+//Open Reservation
+	@RequestMapping(value = "/frmReservation", method = RequestMethod.GET)
+	public ModelAndView funOpenForm(Map<String, Object> model,HttpServletRequest request){
+		String urlHits="1";
+		try{
+			urlHits=request.getParameter("saddr").toString();
+		}catch(NullPointerException e){
+			urlHits="1";
+		}
+		String propCode=request.getSession().getAttribute("propertyCode").toString();
+		String webStockDB=request.getSession().getAttribute("WebStockDB").toString();
+		List listOfProperty =objGlobalFunctionsService.funGetList("select strPropertyName from "+webStockDB+".tblpropertymaster where strPropertyCode='"+propCode+"' ");
+		model.put("listOfProperty", listOfProperty);
+		
+		model.put("urlHits",urlHits);
+		
+		if("2".equalsIgnoreCase(urlHits)){
+			return new ModelAndView("frmReservation_1","command", new clsReservationBean());
+		}else if("1".equalsIgnoreCase(urlHits)){
+			return new ModelAndView("frmReservation","command", new clsReservationBean());
+		}else {
+			return null;
+		}
+	}
+	
+	
+	
+	@RequestMapping(value = "/frmReservation1", method = RequestMethod.GET)
+	public ModelAndView funOpenForm1(Map<String, Object> model,HttpServletRequest request){
+		String urlHits="1";
+		String reservationNo=request.getParameter("docCode").toString();
+		String webStockDB=request.getSession().getAttribute("WebStockDB").toString();
+		try{
+			urlHits=request.getParameter("saddr").toString();
+			
+		}catch(NullPointerException e){
+			urlHits="1";
+		}
+		
+		List listOfProperty =objGlobalFunctionsService.funGetList("select strPropertyName from "+webStockDB+".tblpropertymaster");
+		model.put("listOfProperty", listOfProperty);
+		
+		model.put("urlHits",urlHits);
+		
+		request.getSession().setAttribute("ResNo", reservationNo);
+				
+		if("2".equalsIgnoreCase(urlHits)){
+			return new ModelAndView("frmReservation_1","command", new clsReservationBean());
+		}else if("1".equalsIgnoreCase(urlHits)){
+			return new ModelAndView("frmReservation","command", new clsReservationBean());
+		}else {
+			return null;
+		}
+	}
+	
+	
+	
+//Load Header Table Data On Form
+	@RequestMapping(value = "/loadReservation", method = RequestMethod.GET)
+	public @ResponseBody clsReservationBean funLoadHdData(HttpServletRequest request){
+		
+		String clientCode=request.getSession().getAttribute("clientCode").toString();
+		String propCode=request.getSession().getAttribute("propertyCode").toString();
+		String reservationNo=request.getParameter("docCode").toString();
+		clsReservationHdModel objReservationModel = objReservationService.funGetReservationList(reservationNo, clientCode, propCode);
+		
+		clsReservationBean objBean=new clsReservationBean();
+		objBean.setStrReservationNo(objReservationModel.getStrReservationNo());
+		
+		objBean.setStrRemarks(objReservationModel.getStrRemarks());
+		objBean.setStrAgentCode(objReservationModel.getStrAgentCode());
+		objBean.setStrBillingInstCode(objReservationModel.getStrBillingInstCode());
+		objBean.setStrBookerCode(objReservationModel.getStrBookerCode());
+		
+		objBean.setStrBookingTypeCode(objReservationModel.getStrBookingTypeCode());
+		objBean.setStrBusinessSourceCode(objReservationModel.getStrBusinessSourceCode());
+		objBean.setStrCancelReservation(objReservationModel.getStrCancelReservation());
+		objBean.setStrContactPerson(objReservationModel.getStrContactPerson());
+		
+		objBean.setStrCorporateCode(objReservationModel.getStrCorporateCode());
+		objBean.setStrEmailId(objReservationModel.getStrEmailId());
+		objBean.setStrPropertyCode(objReservationModel.getStrPropertyCode());
+		
+		objBean.setStrPayeeGuestCode(objReservationModel.getStrGuestcode());
+		/*objBean.setStrGuestCode(objReservationModel.getStrGuestCode());
+		String sql="select strGuestPrefix,strFirstName,strMiddleName,strLastName from tblguestmaster where strGuestCode='"+objReservationModel.getStrGuestCode()+"'";
+		List list=objGlobalFunctionsService.funGetListModuleWise(sql, "sql");
+		
+		if(list.size()>0)
+		{
+			Object[] arrObjGuestInfo=(Object[])list.get(0);
+			objBean.setStrGuestPrefix(arrObjGuestInfo[0].toString());
+			objBean.setStrFirstName(arrObjGuestInfo[1].toString());
+			objBean.setStrMiddleName(arrObjGuestInfo[2].toString());
+			objBean.setStrLastName(arrObjGuestInfo[3].toString());
+		}
+		else
+		{
+			objBean.setStrGuestPrefix("");
+			objBean.setStrFirstName("");
+			objBean.setStrMiddleName("");
+			objBean.setStrLastName("");
+		}*/
+		
+		objBean.setStrRemarks(objReservationModel.getStrRemarks());
+		objBean.setIntNoOfNights(objReservationModel.getIntNoOfNights());
+		objBean.setIntNoRoomsBooked(Integer.parseInt(objReservationModel.getStrNoRoomsBooked()));
+		objBean.setDteArrivalDate(objGlobal.funGetDate("yyyy/MM/dd",objReservationModel.getDteArrivalDate()));
+		
+		objBean.setDteDepartureDate(objGlobal.funGetDate("yyyy/MM/dd",objReservationModel.getDteDepartureDate()));
+		objBean.setDteCancelDate(objGlobal.funGetDate("yyyy/MM/dd",objReservationModel.getDteCancelDate()));
+		objBean.setDteConfirmDate(objGlobal.funGetDate("yyyy/MM/dd",objReservationModel.getDteConfirmDate()));
+		objBean.setTmeArrivalTime(objReservationModel.getTmeArrivalTime());
+		objBean.setTmeDepartureTime(objReservationModel.getTmeDepartureTime());
+		
+		clsRoomMasterModel objRoomMasterModel=objRoomMasterService.funGetRoomMaster(objReservationModel.getStrRoomNo(), clientCode);
+		objBean.setStrRoomNo(objReservationModel.getStrRoomNo());
+		if(objRoomMasterModel!=null)
+		{
+			objBean.setStrRoomDesc(objRoomMasterModel.getStrRoomDesc());
+		}else{
+			objBean.setStrRoomDesc("");
+		}
+					
+		if(!objReservationModel.getStrExtraBedCode().isEmpty())
+		{
+			List listExtraBedData=objExtraBedMasterDao.funGetExtraBedMaster(objReservationModel.getStrExtraBedCode(), clientCode);
+			clsExtraBedMasterModel objExtraBedMasterModel= (clsExtraBedMasterModel) listExtraBedData.get(0);
+			objBean.setStrExtraBedCode(objReservationModel.getStrExtraBedCode());
+			objBean.setStrExtraBedDesc(objExtraBedMasterModel.getStrExtraBedTypeDesc());
+		}
+		else
+		{
+			objBean.setStrExtraBedCode("");
+			objBean.setStrExtraBedDesc("");
+		}
+		objBean.setIntNoOfAdults(objReservationModel.getIntNoOfAdults());
+		objBean.setIntNoOfChild(objReservationModel.getIntNoOfChild());
+		
+		String sql="";
+		List<clsReservationDetailsBean> listResDetailsBean = new ArrayList<clsReservationDetailsBean>();
+		for(clsReservationDtlModel objResDtlModel : objReservationModel.getListReservationDtlModel())
+		{
+			clsReservationDetailsBean objReservationDtlBean=new clsReservationDetailsBean();
+			objReservationDtlBean.setStrGuestCode(objResDtlModel.getStrGuestCode());
+			objReservationDtlBean.setStrPayee(objResDtlModel.getStrPayee());
+				
+			sql="select strFirstName,strMiddleName,strLastName,lngMobileNo from tblguestmaster "
+				+ " where strGuestCode='"+objResDtlModel.getStrGuestCode()+"' and strClientCode='"+clientCode+"' ";
+			List listGuestMaster=objGlobalFunctionsService.funGetListModuleWise(sql, "sql");
+			for(int cnt=0;cnt<listGuestMaster.size();cnt++)
+			{
+				Object[] arrObjGuest=(Object[])listGuestMaster.get(cnt);
+				String guestName=arrObjGuest[0]+" "+arrObjGuest[1]+" "+arrObjGuest[2];
+				objReservationDtlBean.setStrGuestName(guestName);
+				objReservationDtlBean.setLngMobileNo(Long.parseLong(arrObjGuest[3].toString()));
+			}
+			
+			objReservationDtlBean.setStrGuestCode(objResDtlModel.getStrGuestCode());
+			
+			clsRoomMasterModel objRoomMasterModel1=objRoomMasterService.funGetRoomMaster(objResDtlModel.getStrRoomNo(), clientCode);
+			if(objRoomMasterModel1!=null)
+			{
+				objReservationDtlBean.setStrRoomNo(objResDtlModel.getStrRoomNo());
+				objReservationDtlBean.setStrRoomDesc(objRoomMasterModel1.getStrRoomDesc());
+			}else
+			{
+				objReservationDtlBean.setStrRoomNo("");
+				objReservationDtlBean.setStrRoomDesc("");
+			}
+			
+						
+			if(!objResDtlModel.getStrExtraBedCode().isEmpty())
+			{
+				List listExtraBedData=objExtraBedMasterDao.funGetExtraBedMaster(objResDtlModel.getStrExtraBedCode(), clientCode);
+				clsExtraBedMasterModel objExtraBedMasterModel= (clsExtraBedMasterModel) listExtraBedData.get(0);
+				objReservationDtlBean.setStrExtraBedCode(objResDtlModel.getStrExtraBedCode());
+				objReservationDtlBean.setStrExtraBedDesc(objExtraBedMasterModel.getStrExtraBedTypeDesc());
+			}
+			else
+			{
+				objReservationDtlBean.setStrExtraBedCode("");
+				objReservationDtlBean.setStrExtraBedDesc("");
+			}
+			
+			objReservationDtlBean.setStrRoomType(objResDtlModel.getStrRoomType());
+			listResDetailsBean.add(objReservationDtlBean);
+		}
+		objBean.setListReservationDetailsBean(listResDetailsBean);
+		
+		return objBean;
+	}
+
+
+//Save or Update Reservation
+	@RequestMapping(value = "/saveReservation", method = RequestMethod.POST)
+	public ModelAndView funAddUpdate(@ModelAttribute("command") @Valid clsReservationBean objBean ,BindingResult result,HttpServletRequest req){
+		if(!result.hasErrors()){
+			String clientCode=req.getSession().getAttribute("clientCode").toString();
+			String userCode=req.getSession().getAttribute("usercode").toString();
+			String propCode=req.getSession().getAttribute("propertyCode").toString();
+			String startDate=req.getSession().getAttribute("startDate").toString();
+			Map<Long,String> hmGuestMbWithCode=new HashMap<Long,String>();
+			List<clsReservationDetailsBean> listResDtlBean=objBean.getListReservationDetailsBean();
+							
+			for(clsReservationDetailsBean objResDtlBean:listResDtlBean)
+			{
+				clsGuestMasterBean objGuestMasterBean=new clsGuestMasterBean();
+				objGuestMasterBean.setStrGuestCode(objResDtlBean.getStrGuestCode());
+				objGuestMasterBean.setStrGuestPrefix("");
+				String[] arrSpGuest=objResDtlBean.getStrGuestName().split(" ");
+				objGuestMasterBean.setStrFirstName(arrSpGuest[0]);
+				objGuestMasterBean.setStrMiddleName(objGlobal.funIfNull(arrSpGuest[1],"",arrSpGuest[1]));
+				objGuestMasterBean.setStrLastName(objGlobal.funIfNull(arrSpGuest[2],"",arrSpGuest[2]));
+				objGuestMasterBean.setIntFaxNo(0);
+				objGuestMasterBean.setIntPinCode(0);
+				objGuestMasterBean.setDteDOB("01-01-1900");
+				objGuestMasterBean.setIntMobileNo(objResDtlBean.getLngMobileNo());
+				clsGuestMasterHdModel objGuestMasterModel=objGuestMasterService.funPrepareGuestModel(objGuestMasterBean, clientCode, userCode);
+				objGuestMasterDao.funAddUpdateGuestMaster(objGuestMasterModel);
+				hmGuestMbWithCode.put(objResDtlBean.getLngMobileNo(),objGuestMasterModel.getStrGuestCode());
+			}
+			
+			List<clsReservationDetailsBean> listReservationDtlBean=new ArrayList<clsReservationDetailsBean>();
+			for(clsReservationDetailsBean objResDtlBean:objBean.getListReservationDetailsBean())
+			{
+				if(null!=hmGuestMbWithCode.get(objResDtlBean.getLngMobileNo()))
+				{
+					objResDtlBean.setStrGuestCode(hmGuestMbWithCode.get(objResDtlBean.getLngMobileNo()));
+				}
+				listReservationDtlBean.add(objResDtlBean);
+			}
+			
+			objBean.setListReservationDetailsBean(listReservationDtlBean);
+			clsReservationHdModel objHdModel = funPrepareHdModel(objBean,userCode,clientCode,req,propCode);
+			
+			String sql="select strBookingTypeDesc from tblbookingtype "
+				+ " where strBookingTypeCode='"+objBean.getStrBookingTypeCode()+"' and strClientCode='"+clientCode+"' ";
+			List list=objGlobalFunctionsService.funGetListModuleWise(sql, "sql");
+			String bookingTypeDesc=(String)list.get(0);
+			
+			objReservationService.funAddUpdateReservationHd(objHdModel,bookingTypeDesc);
+			
+			req.getSession().setAttribute("success", true);
+        	req.getSession().setAttribute("successMessage","Reservation No : ".concat(objHdModel.getStrReservationNo()));
+        	req.getSession().setAttribute("AdvanceAmount",objHdModel.getStrReservationNo());
+			return new ModelAndView("redirect:/frmReservation.html");
+		}
+		else{
+			return new ModelAndView("frmReservation");
+		}
+	}
+
+	
+//Convert bean to model function
+	private clsReservationHdModel funPrepareHdModel(clsReservationBean objBean,String userCode,String clientCode,HttpServletRequest request, String propertyCode){
+		
+		String PMSDate=objGlobal.funGetDate("yyyy-MM-dd",request.getSession().getAttribute("PMSDate").toString());
+		clsReservationHdModel objModel=new clsReservationHdModel();
+		if(objBean.getStrReservationNo().isEmpty()) // New Entry
+		{
+			/*Date dt=new Date();
+			String date=dt.getDate()+"-"+dt.getMonth()+"-"+dt.getYear();*/
+			String date=objGlobal.funGetCurrentDate("DD-MM-yyyy");
+			String documentNo=objGlobal.funGeneratePMSDocumentCode("frmReservation",date,request);
+			objModel.setStrReservationNo(documentNo);
+			objModel.setStrUserCreated(userCode);
+			objModel.setDteDateCreated(objGlobal.funGetCurrentDateTime("yyyy-MM-dd"));
+			objModel.setStrUserEdited(userCode);
+			objModel.setDteDateEdited(objGlobal.funGetCurrentDateTime("yyyy-MM-dd"));
+		}
+		else // Update
+		{
+			objModel.setStrUserEdited(userCode);
+			objModel.setDteDateEdited(objGlobal.funGetCurrentDateTime("yyyy-MM-dd"));
+			objModel.setStrReservationNo(objBean.getStrReservationNo());
+		}
+				
+		//objModel.setStrGuestCode(objBean.getStrGuestCode());
+		
+		objModel.setDteReservationDate(PMSDate);
+		objModel.setStrPropertyCode(propertyCode);
+		objModel.setStrBookingTypeCode(objGlobal.funIfNull(objBean.getStrBookingTypeCode(),"",objBean.getStrBookingTypeCode()));
+		objModel.setStrCorporateCode(objGlobal.funIfNull(objBean.getStrCorporateCode(),"",objBean.getStrCorporateCode()));
+		objModel.setDteArrivalDate(objGlobal.funGetDate("yyyy-MM-dd",objBean.getDteArrivalDate()));
+		objModel.setDteDepartureDate(objGlobal.funGetDate("yyyy-MM-dd",objBean.getDteDepartureDate()));
+		objModel.setTmeArrivalTime(objBean.getTmeArrivalTime());
+		objModel.setTmeDepartureTime(objBean.getTmeDepartureTime());
+		objModel.setIntNoOfNights(objBean.getIntNoOfNights());
+		objModel.setStrContactPerson(objGlobal.funIfNull(objBean.getStrContactPerson(),"",objBean.getStrContactPerson()));
+		objModel.setStrEmailId(objGlobal.funIfNull(objBean.getStrEmailId(),"",objBean.getStrEmailId()));
+		objModel.setStrBookerCode(objGlobal.funIfNull(objBean.getStrBookerCode(),"",objBean.getStrBookerCode()));
+		objModel.setStrBusinessSourceCode(objGlobal.funIfNull(objBean.getStrBusinessSourceCode(),"",objBean.getStrBusinessSourceCode()));
+		objModel.setStrBillingInstCode(objGlobal.funIfNull(objBean.getStrBillingInstCode(),"",objBean.getStrBillingInstCode()));
+		objModel.setStrAgentCode(objGlobal.funIfNull(objBean.getStrAgentCode(),"",objBean.getStrAgentCode()));
+		objModel.setStrRemarks(objGlobal.funIfNull(objBean.getStrRemarks(),"",objBean.getStrRemarks()));
+		objModel.setDteCancelDate(objGlobal.funGetDate("yyyy-MM-dd",objBean.getDteCancelDate()));
+		objModel.setDteConfirmDate(objGlobal.funGetDate("yyyy-MM-dd",objBean.getDteConfirmDate()));
+		objModel.setStrCancelReservation(objGlobal.funIfNull(objBean.getStrCancelReservation(),"N",objBean.getStrCancelReservation()));
+		objModel.setStrClientCode(clientCode);
+		objModel.setStrRoomNo(objBean.getStrRoomNo());
+		objModel.setStrExtraBedCode(objBean.getStrExtraBedCode());
+		objModel.setIntNoOfAdults(objBean.getIntNoOfAdults());
+		objModel.setIntNoOfChild(objBean.getIntNoOfChild());
+		objModel.setStrNoRoomsBooked(String.valueOf(objBean.getIntNoRoomsBooked()));
+		
+		List<clsReservationDtlModel> listResDtlModel=new ArrayList<clsReservationDtlModel>();
+	
+		for(clsReservationDetailsBean objResDtl:objBean.getListReservationDetailsBean())
+		{
+			clsReservationDtlModel objResDtlModel=new clsReservationDtlModel();
+			if(objBean.getStrPayeeGuestCode().equals(objResDtl.getStrGuestCode()))
+			{
+				objResDtlModel.setStrPayee("Y");
+				objModel.setStrGuestcode(objBean.getStrPayeeGuestCode());
+			}else
+			{
+				objResDtlModel.setStrPayee("N");
+				
+			}
+		/*	if(objModel.getStrGuestcode().equals("")||objModel.getStrGuestcode().equals(null))
+			{
+				objModel.setStrGuestcode("");
+			}*/
+			objResDtlModel.setStrGuestCode(objResDtl.getStrGuestCode());
+			objResDtlModel.setStrRoomNo(objResDtl.getStrRoomNo());
+			objResDtlModel.setStrExtraBedCode(objResDtl.getStrExtraBedCode());
+			objResDtlModel.setStrRoomType(objResDtl.getStrRoomType());
+			
+			listResDtlModel.add(objResDtlModel);
+		}
+		objModel.setListReservationDtlModel(listResDtlModel);
+		
+		return objModel;
+	}
+}
