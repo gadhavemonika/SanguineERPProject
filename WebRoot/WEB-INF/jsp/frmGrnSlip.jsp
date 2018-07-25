@@ -298,5 +298,6 @@
 		</p>
 <s:input type="hidden" id="hidSuppCode" path="strSuppCode"></s:input>
 </s:form>
+
 </body>
 </html>
