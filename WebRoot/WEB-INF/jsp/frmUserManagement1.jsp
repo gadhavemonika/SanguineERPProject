@@ -599,6 +599,7 @@ $(document).ready(function(){
 						<td colspan="4"><s:input path="strUserName1" id="txtUserName" required="true" cssStyle="text-transform: uppercase; width: 117px;"   cssClass="longTextBox" /></td>
 					</tr>
 			
+			<!-- dfmudshf -->
 					<tr>
 						<td><label>Password</label></td>
 						<td colspan="4"><s:input type="password" path="strPassword1" id="txtPassword" required="true" cssStyle="width: 117px;"   cssClass="longTextBox"/></td>
